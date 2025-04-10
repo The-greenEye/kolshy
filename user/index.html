@@ -17,7 +17,7 @@
       <!-- ==============Offers Section================= -->
       <div class="w-100 p-2 text-center top-blackFriday-div">Black Friday Sale For All Swim And Free Express Delivery - OFF 50%! <a href="#" class="ml-4" style="color: rgba(229, 23, 66, 1); text-decoration: underline">ShopNow</a></div>
       <!-- ==============Nav Tools Section================= -->
-      <nav class="navbar navbar-expand-lg secound-nav border-bottom border-secondary">
+      <nav class="navbar navbar-expand-lg secound-nav shadow">
         <a class="navbar-brand fs-1" href="#">KOLSHY</a>
       <div class="d-lg-none d-flex justify-content-between align-items-center">
         <div  data-toggle="dropdown" aria-expanded="false" class="position-relative">
@@ -107,7 +107,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
             <span class="d-flex flex-column">
               <b>Hello,</b>
-              <small class="icon"><a href="./login.html">Sign in</a> or <a href="./register.html">Sign up</a></small>
+              <small class="icon"><a href="../auth/login.html">Sign in</a> or <a href="../auth/register.html">Sign up</a></small>
             </span>
           </li>
           |
@@ -132,52 +132,74 @@
         </ul>
         </div>
       </nav>
-    </main>
-    <!-- ==============Container Section================= -->
-    <section class="div-login">
-      <style>
-        .form-sign{
-          width: 50%;
-          margin: 10% auto;
-          box-shadow: 0px 0px 10px 1px #fccfd9;
-        }
-        @media (max-width: 668px) and (min-width: 320px) {
-          .form-sign{
-            width: 100%;
-          }
-        }
-      </style>
-      <div class="rounded p-2 bg-light form-sign">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <div class="mb-4"><img src="https://tse1.mm.bing.net/th?id=OIP.JNlnZ9IEpcYmLMCcCwkiqAHaDx&pid=Api&P=0&h=220" width="204" height="50" style="object-fit: cover;" alt="logo-form"></div>
-          <h1 class="fs-1 fw-bold mt-4" style="color: var(--secondary-color);">Sign In</h1>
-          <form action="https://" method="post" class="w-100 p-0">
-            <div style="border: none;border-bottom: 1px solid var(--primary-color);" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="text" name="userName" id="userName" class="bg-transparent w-75 p-2" style="border: none;outline: none;font-weight: 500" placeholder="Username / Email" aria-label="Username" aria-describedby="basic-addon1" />
-              <span class="input-text" style="cursor: pointer;" onclick="document.getElementById('userName').value = '';">
-                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path fill="#E51742" d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2m2.59 6L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41z"/></svg>
-              </span>
-            </div>
-            <div style="border: none;border-bottom: 1px solid var(--primary-color);" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="password" class="bg-transparent w-75 p-2" style="border: none;outline: none;font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
-              <span class="input-text" style="cursor: pointer;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><g fill="none" stroke="#E51742" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M15 12a3 3 0 1 1-6 0a3 3 0 0 1 6 0"/><path d="M2 12c1.6-4.097 5.336-7 10-7s8.4 2.903 10 7c-1.6 4.097-5.336 7-10 7s-8.4-2.903-10-7"/></g></svg>
-              </span>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center mb-4">
-              <button class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: var(--primary-color);color: var(--text-color-secondary);font-weight: 700;font-size: 20px">Sign In <span class="ml-2 mt-2"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M13.47 5.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H4a.75.75 0 0 1 0-1.5h14.19l-4.72-4.72a.75.75 0 0 1 0-1.06" clip-rule="evenodd"/></svg></span></button>
-              <button class="btn w-100 d-flex justify-content-center align-items-center w-100 mb-4 p-2" style="background-color: rgb(180, 180, 180);color: var(--text-color);font-weight: 700"><span class="mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 128 128"><path fill="#fff" d="M44.59 4.21a63.28 63.28 0 0 0 4.33 120.9a67.6 67.6 0 0 0 32.36.35a57.13 57.13 0 0 0 25.9-13.46a57.44 57.44 0 0 0 16-26.26a74.3 74.3 0 0 0 1.61-33.58H65.27v24.69h34.47a29.72 29.72 0 0 1-12.66 19.52a36.2 36.2 0 0 1-13.93 5.5a41.3 41.3 0 0 1-15.1 0A37.2 37.2 0 0 1 44 95.74a39.3 39.3 0 0 1-14.5-19.42a38.3 38.3 0 0 1 0-24.63a39.25 39.25 0 0 1 9.18-14.91A37.17 37.17 0 0 1 76.13 27a34.3 34.3 0 0 1 13.64 8q5.83-5.8 11.64-11.63c2-2.09 4.18-4.08 6.15-6.22A61.2 61.2 0 0 0 87.2 4.59a64 64 0 0 0-42.61-.38"/><path fill="#e33629" d="M44.59 4.21a64 64 0 0 1 42.61.37a61.2 61.2 0 0 1 20.35 12.62c-2 2.14-4.11 4.14-6.15 6.22Q95.58 29.23 89.77 35a34.3 34.3 0 0 0-13.64-8a37.17 37.17 0 0 0-37.46 9.74a39.25 39.25 0 0 0-9.18 14.91L8.76 35.6A63.53 63.53 0 0 1 44.59 4.21"/><path fill="#f8bd00" d="M3.26 51.5a63 63 0 0 1 5.5-15.9l20.73 16.09a38.3 38.3 0 0 0 0 24.63q-10.36 8-20.73 16.08a63.33 63.33 0 0 1-5.5-40.9"/><path fill="#587dbd" d="M65.27 52.15h59.52a74.3 74.3 0 0 1-1.61 33.58a57.44 57.44 0 0 1-16 26.26c-6.69-5.22-13.41-10.4-20.1-15.62a29.72 29.72 0 0 0 12.66-19.54H65.27c-.01-8.22 0-16.45 0-24.68"/><path fill="#319f43" d="M8.75 92.4q10.37-8 20.73-16.08A39.3 39.3 0 0 0 44 95.74a37.2 37.2 0 0 0 14.08 6.08a41.3 41.3 0 0 0 15.1 0a36.2 36.2 0 0 0 13.93-5.5c6.69 5.22 13.41 10.4 20.1 15.62a57.13 57.13 0 0 1-25.9 13.47a67.6 67.6 0 0 1-32.36-.35a63 63 0 0 1-23-11.59A63.7 63.7 0 0 1 8.75 92.4"/></svg></span>
-               <b style="margin-bottom: 5px;">Sign in with google</b>
-              </button>
-            </div>
-          </form>
-          <div class="mt-4 d-flex justify-content-around align-items-center w-100">
-            <p class="text-center text-secondary mb-0" style="font-weight: 400">Don't have an account?</p>  
-             <a href="./register.html" style="color: var(--primary-color);text-decoration: underline;font-weight: 600">Create Account</a>
-          </div>
+      <!-- ==============Nav Ul Section================= -->
+      <nav class="navbar navbar-expand-lg bottom-nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#last-nav" aria-controls="last-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24"><path fill="#fff" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"/></svg>
+        </button>
+        <div class="collapse justify-content-center navbar-collapse" id="last-nav">
+          <ul class="navbar-nav mt-2">
+            <small class="navbar-nav">
+              <li class="nav-item d-flex mr-2 align-items-center mb-3">
+                <span class="mt-1 d-lg-block d-none"
+                  ><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24"><path fill="#fff" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z" /></svg
+                ></span>
+                <b>ALL</b>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Today's Deals</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Perfumes</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Electronice</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Mobile Phones</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Toys & Games</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Home</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Video Games</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Appliances</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Fashion</a></small>
+              </li>
+              <li class="nav-item">
+                <small><a href="#" class="nav-link text-light">Supermarket</a></small>
+              </li>
+              <li class="nav-item p-0">
+                <a href="#" class="nav-link d-flex mt-1 justify-content-center bg-light p-1" style="color: #e51742; border-radius: calc(infinity * 1px); font-weight: 600"
+                  >See All
+                  <span
+                    ><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 2048 2048"><path fill="#E51742" d="M1024 0h1024v1024h-128V219L93 2045l-90-90L1829 128h-805z" /></svg></span
+                ></a>
+              </li>
+            </small>
+          </ul>
         </div>
-      </div>
-    </section>
+
+        <!-- <div hidden class="d-flex justify-content-center align-items-center p-2" style="background-color: #E51742;">
+            <div class="d-flex justiy-content-center align-items-center">
+            <button class="btn rounded-0" style="background-color: var(--secondary-color);color: var(--text-color-secondary);font-weight: 500;">Black Friday</button>
+            <button class="btn rounded-0" style="background-color: #FF960C;color: var(--text-color-secondary);font-weight: 500;">SALE</button>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h4 class="text-light m-0">20-30</h4>
+                <b>November</b>
+            </div>
+        </div> -->
+      </nav>
+    </main>
+
     <!-- =============End Auth Section=============== -->
      <section>
        <div class="w-100 text-center p-2 d-flex justify-content-center align-items-center" style="font-weight: 800;background-color: #E517421A;color: var(--primary-color);cursor: pointer" onclick="window.scrollTo(0,0)"><b>Back to top</b><span class="mt-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024"><path fill="#E51742" d="M572.235 205.282v600.365a30.118 30.118 0 1 1-60.235 0V205.282L292.382 438.633a28.913 28.913 0 0 1-42.646 0a33.43 33.43 0 0 1 0-45.236l271.058-288.045a28.913 28.913 0 0 1 42.647 0L834.5 393.397a33.43 33.43 0 0 1 0 45.176a28.913 28.913 0 0 1-42.647 0l-219.618-233.23z"/></svg></span></div>
@@ -263,9 +285,5 @@
         </div>
       </footer>
      </section>
-    <!-- =============Scripts Section=============== -->
-    <script src="../src/js/main.js"></script>
-    <script src="../src/js/jquery-3.7.1.min.js"></script>
-    <script src="../src/js/bootstrap.js"></script>
-  </body>
+</body>
 </html>
