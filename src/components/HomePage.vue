@@ -152,7 +152,7 @@
           </div>
         </div>
           <!-- Mode Slider Mobile -->
-          <div class="d-lg-none d-flex  justify-content-center align-items-center p-3 border-0" style="background-color: white; box-shadow: 0 0 10px 0 #fccfd9; width: 100%; margin: 0px 0px 15px 0px" id="slider-item">
+        <div class="d-lg-none d-flex  justify-content-center align-items-center p-3 border-0" style="background-color: white; box-shadow: 0 0 10px 0 #fccfd9; width: 100%; margin: 0px 0px 15px 0px" id="slider-item">
           <div class="d-flex overflow-x-auto w-100" style="height: 575px">
             <div v-for="(slider, index) in sliderItem" :key="index" :id="slider.id" class="d-flex position-relative p-2 flex-column border-0 justify-content-between align-items-start w-100" style="width: 260px; height: 330px; margin: 0 50px">
               <div class="position-relative p-0" style="background: gray; width: 100%; height: 360px">
@@ -193,8 +193,8 @@
               <button class="btn rounded-pill p-2 w-100 align-content-center" style="background-color: #e51742; color: #fff; font-weight: 500; margin: 10px auto">Add To Cart</button>
             </div>
           </div>
-          </div>
-         <div class="row justify-content-start align-items-center bg-transparent w-100" style="margin: auto" id="product-show">
+        </div>
+        <div class="row justify-content-start align-items-center bg-transparent w-100" style="margin: auto" id="product-show">
           <!-- Additional content goes here -->
           <div v-for="(item, index) in items" :key="index" class="card d-lg-block d-none p-2 col-lg-3 col-12 cards-pro" :id="item.id" :data-category="item.cetagory">
             <b style="color: var(--secondary-color); font-weight: 500; font-size: 23px; margin: 10px 0">{{ item.title }}</b>

@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="position-relative">
     <main class="nav-main">
       <!-- ==============Offers Section================= -->
       <div class="w-100 p-2 text-center top-blackFriday-div">Black Friday Sale For All Swim And Free Express Delivery - OFF 50%! <router-link to="" class="ml-4" style="color: rgba(229, 23, 66, 1); text-decoration: underline">ShopNow</router-link></div>
       <!-- ==============Nav Tools Section================= -->
       <nav class="navbar navbar-expand-lg secound-nav shadow">
-        <router-link to="" class="navbar-brand fs-1">KOLSHY</router-link>
+        <a href="#" class="navbar-brand fs-1">KOLSHY</a>
         <div class="d-lg-none d-flex justify-content-between align-items-center">
           <div class="flex">
             <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
@@ -15,10 +15,12 @@
             </span>
           </div>
           <div>
-            <span class="position-relative p-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 56 56"><path fill="#000336" d="M.953 6.719c0 .96.797 1.781 1.735 1.781h7.921l3.75 25.734c.493 3.328 2.25 5.414 5.649 5.414H47.36c.913 0 1.71-.75 1.71-1.757c0-1.008-.797-1.758-1.71-1.758H20.406c-1.336 0-2.156-.938-2.367-2.367l-.375-2.461h29.742c3.422 0 5.18-2.11 5.672-5.461l1.875-12.399a7 7 0 0 0 .094-.89c0-1.125-.844-1.899-2.133-1.899h-38.25l-.469-2.976c-.234-1.805-.89-2.72-3.28-2.72H2.687c-.937 0-1.734.822-1.734 1.76M18.04 47.242c0 2.133 1.688 3.797 3.82 3.797a3.766 3.766 0 0 0 3.797-3.797a3.78 3.78 0 0 0-3.797-3.797c-2.132 0-3.82 1.688-3.82 3.797m21.914 0c0 2.133 1.711 3.797 3.82 3.797c2.133 0 3.82-1.664 3.82-3.797c0-2.11-1.687-3.797-3.82-3.797c-2.109 0-3.82 1.688-3.82 3.797" /></svg>
-              <circle-cart class="text-center circle-cart">0</circle-cart>
-            </span>
+            <a href="#">
+              <span class="position-relative p-0 cart-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 56 56"><path fill="#000336" d="M.953 6.719c0 .96.797 1.781 1.735 1.781h7.921l3.75 25.734c.493 3.328 2.25 5.414 5.649 5.414H47.36c.913 0 1.71-.75 1.71-1.757c0-1.008-.797-1.758-1.71-1.758H20.406c-1.336 0-2.156-.938-2.367-2.367l-.375-2.461h29.742c3.422 0 5.18-2.11 5.672-5.461l1.875-12.399a7 7 0 0 0 .094-.89c0-1.125-.844-1.899-2.133-1.899h-38.25l-.469-2.976c-.234-1.805-.89-2.72-3.28-2.72H2.687c-.937 0-1.734.822-1.734 1.76M18.04 47.242c0 2.133 1.688 3.797 3.82 3.797a3.766 3.766 0 0 0 3.797-3.797a3.78 3.78 0 0 0-3.797-3.797c-2.132 0-3.82 1.688-3.82 3.797m21.914 0c0 2.133 1.711 3.797 3.82 3.797c2.133 0 3.82-1.664 3.82-3.797c0-2.11-1.687-3.797-3.82-3.797c-2.109 0-3.82 1.688-3.82 3.797" /></svg>
+                <circle-cart class="text-center circle-cart">0</circle-cart>
+              </span>
+            </a>
           </div>
         </div>
 
@@ -84,7 +86,7 @@
             >
           </li>
           |
-          <li class="nav-item flex">
+          <li class="nav-item flex" @mouseenter="openCard" @mouseleave="closeCard">
             <span class="position-relative p-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 56 56"><path fill="#000336" d="M.953 6.719c0 .96.797 1.781 1.735 1.781h7.921l3.75 25.734c.493 3.328 2.25 5.414 5.649 5.414H47.36c.913 0 1.71-.75 1.71-1.757c0-1.008-.797-1.758-1.71-1.758H20.406c-1.336 0-2.156-.938-2.367-2.367l-.375-2.461h29.742c3.422 0 5.18-2.11 5.672-5.461l1.875-12.399a7 7 0 0 0 .094-.89c0-1.125-.844-1.899-2.133-1.899h-38.25l-.469-2.976c-.234-1.805-.89-2.72-3.28-2.72H2.687c-.937 0-1.734.822-1.734 1.76M18.04 47.242c0 2.133 1.688 3.797 3.82 3.797a3.766 3.766 0 0 0 3.797-3.797a3.78 3.78 0 0 0-3.797-3.797c-2.132 0-3.82 1.688-3.82 3.797m21.914 0c0 2.133 1.711 3.797 3.82 3.797c2.133 0 3.82-1.664 3.82-3.797c0-2.11-1.687-3.797-3.82-3.797c-2.109 0-3.82 1.688-3.82 3.797" /></svg>
               <circle-cart class="text-center circle-cart">0</circle-cart>
@@ -264,8 +266,67 @@
         </div>
       </footer>
     </section>
+    <!-- Side Cart  -->
+    <div @mouseenter="openCard" @mouseleave="closeCard" class="position-fixed d-lg-flex d-none flex-column bottom-0 end-0 bg-light z-2 rounded side-cart" :class="{ 'w-25': isOpen }" id="side-cart">
+      <h4 style="font-weight: 500; color: #000336; margin: 8px 10px">Shopping Cart:</h4>
+      <center class="mt-2 mb-2" style="color: #141414; font-weight: 500">Your Subtotal: <span id="total-cart fw-bold"> $999.00</span></center>
+      <center>
+        <p style="color: green; font-weight: 500">
+          Part Of Your Order is under <br />
+          Free Shipping
+        </p>
+      </center>
+      <center>
+        <p style="color: #000336; font-weight: 500; margin-bottom: 0">Choose <span style="color: #e51742">Free Shipping </span>when</p>
+      </center>
+      <center>
+        <small style="color: #000336; font-weight: 500"> completing the purchase.</small>
+      </center>
+      <router-link to="/shop"
+        ><center><button class="btn rounded-pill p-2 w-75 text-light mt-3" style="background-color: #e51742; font-weight: 500; margin-bottom: 0">Go Shipping Cart →</button></center></router-link
+      >
+      <div class="mt-4 d-flex flex-column p-2" id="item-cart">
+        <div class="d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex">
+            <img src="https://cms.dresma.com/uploads/Image_2_11cac6fa82.jpg" width="80" height="80" style="aspect-ratio: 1/1;margin: 0 8px" class="img-fluid rounded" alt="">
+            <div class="d-flex flex-column">
+              <b class="text-dark">This Title</b>
+              <strong>$1999</strong>
+            </div>
+          </div>
+          <div class="rounded-circle" style="background-color: #e517421a;cursor: pointer" id="delete-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="m-2" viewBox="0 0 24 24"><path fill="#e51742" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+  methods: {
+    openCard() {
+      this.isOpen = !this.isOpen;
+    },
+    closeCard() {
+      this.isOpen = false;
+    },
+
+  },
+  mounted() {
+    let itemCart = document.getElementById('item-cart');
+    // Get Here Your Products From Local Storage And Set In Cart ...
+  }
+};
+</script>
 
 <style>
 :root {
@@ -400,6 +461,15 @@ input::placeholder {
   object-fit: cover;
   box-shadow: 0 0 10px 0 #fccfd9;
 }
+.side-cart {
+  border-left: 2px solid #e51742;
+  border-top: 2px solid #e51742;
+  width: 0;
+  padding: 0;
+  height: 85%;
+  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+}
 @media (max-width: 664px) and (min-width: 320px) {
   .slide {
     height: 750px;
@@ -415,13 +485,13 @@ input::placeholder {
     padding: 0 8px;
   }
   .cards-pro {
-  width: 95%;
-  height: 380px;
-  margin: 10px 0;
-  overflow: hidden;
-  object-fit: cover;
-  box-shadow: 0 0 10px 0 #fccfd9;
-}
+    width: 95%;
+    height: 380px;
+    margin: 10px 0;
+    overflow: hidden;
+    object-fit: cover;
+    box-shadow: 0 0 10px 0 #fccfd9;
+  }
 }
 .rating {
   display: flex;
@@ -507,6 +577,5 @@ input::placeholder {
     transform: scale(1.2);
     fill: var(--fill);
   }
-  
 }
 </style>
