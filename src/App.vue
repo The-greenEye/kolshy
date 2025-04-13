@@ -78,7 +78,7 @@
           |
           <li class="nav-item flex">
             <b
-              ><button class="btn d-flex p-1" style="color: #fff; background: #e51742">
+              ><button class="btn d-flex p-1 rounded-pill" style="color: #fff; background: #e51742">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275m-5.381-5.752l5.759-5.759M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m13 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m0 13a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m-13-3a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0" /></svg> Affiliate
               </button></b
             >
@@ -287,6 +287,16 @@
 *::-webkit-scrollbar {
   display: none;
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 h1,
 h2,
 h3,
@@ -294,6 +304,7 @@ h4,
 h5,
 a {
   color: #141414;
+  text-decoration: none;
 }
 body {
   background-color: #f0f0f0;
@@ -381,7 +392,15 @@ input::placeholder {
   width: 90%;
   margin: 0 auto;
 }
-@media (max-width: 764px) and (min-width: 320px) {
+.cards-pro {
+  width: 320px;
+  height: 380px;
+  margin: 12px 0;
+  overflow: hidden;
+  object-fit: cover;
+  box-shadow: 0 0 10px 0 #fccfd9;
+}
+@media (max-width: 664px) and (min-width: 320px) {
   .slide {
     height: 750px;
     width: 100%;
@@ -395,5 +414,99 @@ input::placeholder {
     justify-content: between;
     padding: 0 8px;
   }
+  .cards-pro {
+  width: 95%;
+  height: 380px;
+  margin: 10px 0;
+  overflow: hidden;
+  object-fit: cover;
+  box-shadow: 0 0 10px 0 #fccfd9;
+}
+}
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.2rem;
+  scale: 0.8;
+  --stroke: #666;
+  --fill: #ffc73a;
+}
+
+.rating input {
+  appearance: unset;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.rating svg {
+  width: 25px;
+  height: 25px;
+  overflow: visible;
+  fill: transparent;
+  stroke: var(--stroke);
+  stroke-linejoin: bevel;
+  stroke-dasharray: 12;
+  animation: idle 4s linear infinite;
+  transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+  from {
+    stroke-dashoffset: 24;
+  }
+}
+
+.rating label:hover svg {
+  stroke: var(--fill);
+}
+
+.rating input:checked ~ label svg {
+  transition: 0s;
+  animation: idle 4s linear infinite, yippee 0.75s backwards;
+  fill: var(--fill);
+  stroke: var(--fill);
+  stroke-opacity: 0;
+  stroke-dasharray: 0;
+  stroke-linejoin: miter;
+  stroke-width: 8px;
+}
+
+@keyframes yippee {
+  0% {
+    transform: scale(1);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30% {
+    transform: scale(0);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30.1% {
+    stroke: var(--fill);
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+
+  60% {
+    transform: scale(1.2);
+    fill: var(--fill);
+  }
+  
 }
 </style>
