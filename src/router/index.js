@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue";
 import SigninView from "../views/SigninView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import ShopView from "../views/ShopView.vue";
 const routes = [
   {
     path: "/",
@@ -19,6 +20,11 @@ const routes = [
     component: RegisterView,
   },
   {
+    path: "/shop",
+    name: "shop",
+    component: ShopView,
+  },
+  {
     path: "/about",
     name: "about",
     component: () => import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
@@ -30,7 +36,7 @@ const router = createRouter({
   routes,
 });
 router.beforeEach((to, from, next) => {
-  document.title = to.name.toLocaleUpperCase() || "Kolshy";
+  document.title = to.name || "Kolshy";
   next();
 });
 export default router;

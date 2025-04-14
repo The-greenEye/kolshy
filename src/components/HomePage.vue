@@ -1,3 +1,20 @@
+/**
+ * HomePage Component
+ * 
+ * A responsive home page component that displays:
+ * - A main carousel slider (desktop view)
+ * - Featured product categories
+ * - Product listings in both desktop and mobile views
+ * - Popular products section with ratings and pricing
+ * 
+ * The component fetches product data from an API endpoint and displays different
+ * subsets of products in various sections of the page. It includes responsive
+ * layouts that adapt to desktop and mobile viewports using Bootstrap classes.
+ * 
+ * @component
+ */
+
+
 <template>
   <div class="homePage">
     <!-- ==============Container Section================= -->
@@ -62,7 +79,7 @@
                 </div>
                 <p style="color: #000336; font-weight: 500; font-size: 18px; margin: 10px 0; padding: 0 10px">{{ slider.descript.slice(0, 40) }} ....</p>
               </div>
-              <button class="btn rounded-pill p-2 w-100 align-content-center" style="background-color: #e51742; color: #fff; font-weight: 500; margin: 10px auto">Add To Cart</button>
+              <button class="btn rounded-pill p-2 w-100 align-content-center" style="background-color: #e51742; color: #fff; font-weight: 500; margin: 10px auto" @click="fetchProducts(slider.id)">Add To Cart</button>
             </div>
           </div>
           </div>
@@ -72,11 +89,11 @@
               <b style="color: #000336; font-weight: 500; font-size: 23px; margin: 10px 0">{{ item.title }}</b>
               <img src="https://cms.dresma.com/uploads/Image_2_11cac6fa82.jpg" width="250" height="250" style="aspect-ratio: 1/1" class="card-img-top" alt="img-show" />
               <div class="card-body">
-                <a href="#">
+                <router-link :to="'/' + item.category">
                   <p class="card-text">
                     <b style="color: #e51742; font-size: 18px">see more →</b>
                   </p>
-                </a>
+                </router-link>
               </div>
             </div>
           </div>
@@ -87,9 +104,9 @@
             <b style="color: var(--secondary-color); font-weight: 500; font-size: 23px; margin: 10px 0">{{ item.title }}</b>
             <img src="https://cms.dresma.com/uploads/Image_2_11cac6fa82.jpg" width="250" height="250" style="aspect-ratio: 1/1" class="card-img-top" alt="img-show" />
             <div class="card-body">
-              <a href="#"
-                ><p class="card-text"><b style="color: var(--primary-color); font-size: 18px">see more →</b></p></a
-              >
+            <router-link to="/shop">
+              <p class="card-text"><b style="color: var(--primary-color); font-size: 18px">see more →</b></p>
+            </router-link>
             </div>
           </div>
           <!-- Mode Mobile -->
@@ -147,7 +164,7 @@
                 </div>
                 <p style="color: #000336; font-weight: 500; font-size: 18px; margin: 10px 0; padding: 0 10px">{{ slider.descript.slice(0, 40) }} ....</p>
               </div>
-              <button class="btn rounded-pill p-2 w-100 align-content-center" style="background-color: #e51742; color: #fff; font-weight: 500; margin: 10px auto">Add To Cart</button>
+              <button class="btn rounded-pill p-2 w-100 align-content-center" style="background-color: #e51742; color: #fff; font-weight: 500; margin: 10px auto" @click="fetchProducts(slider.id)">Add To Cart</button>
             </div>
           </div>
         </div>
@@ -190,7 +207,7 @@
                 </div>
                 <p style="color: #000336; font-weight: 500; font-size: 18px; margin: 10px 0; padding: 0 10px">{{ slider.descript.slice(0, 40) }} ....</p>
               </div>
-              <button class="btn rounded-pill p-2 w-100 align-content-center" style="background-color: #e51742; color: #fff; font-weight: 500; margin: 10px auto">Add To Cart</button>
+              <button class="btn rounded-pill p-2 w-100 align-content-center" style="background-color: #e51742; color: #fff; font-weight: 500; margin: 10px auto" @click="fetchProducts(slider.id)">Add To Cart</button>
             </div>
           </div>
         </div>
@@ -200,9 +217,9 @@
             <b style="color: var(--secondary-color); font-weight: 500; font-size: 23px; margin: 10px 0">{{ item.title }}</b>
             <img src="https://cms.dresma.com/uploads/Image_2_11cac6fa82.jpg" width="250" height="250" style="aspect-ratio: 1/1" class="card-img-top" alt="img-show" />
             <div class="card-body">
-              <a href="#"
-                ><p class="card-text"><b style="color: var(--primary-color); font-size: 18px">see more →</b></p></a
-              >
+            <router-link to="/shop">
+              <p class="card-text"><b style="color: var(--primary-color); font-size: 18px">see more →</b></p>
+            </router-link>
             </div>
           </div>
           <!-- Mode Mobile -->
@@ -230,6 +247,19 @@ export default {
       items: [], // Initialize items as an empty array.
       sliderItem: [],
     };
+  },
+  methods: {
+async fetchProducts(pd) {
+      let loc = await axios.get(`http://localhost:3000/item?id=${pd}`).then(res => {
+        let cartItem = res.data;
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(cartItem)
+        localStorage.setItem('cart', JSON.stringify(cart))
+        console.log('تمت اضافة المنتج بنجاح')
+      }).catch(err => {
+        console.error('حدث خطاء اثناء العملية')
+      })
+    }
   },
   async mounted() {
     const api = "http://localhost:3000/item"; // Replace with your API endpoint

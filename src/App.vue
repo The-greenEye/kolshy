@@ -96,46 +96,24 @@
       </nav>
       <!-- ==============Nav Ul Section================= -->
       <nav class="navbar navbar-expand d-flex justify-content-between align-items-center bottom-nav p-0">
-        <ul class="navbar-nav nav-mobile mt-2 p-0">
+        <ul class="navbar-nav nav-mobile mt-2 p-0 overflow-x-auto">
           <small class="navbar-nav d-flex align-items-center">
-            <li class="nav-item d-flex mr-2 align-items-center">
-              <span
-                ><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24"><path fill="#fff" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z" /></svg
-              ></span>
-              <b>ALL</b>
+            <router-link to="/shop">
+              <li class="nav-item d-flex mr-2 align-items-center">
+                <span
+                  ><svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24"><path fill="#fff" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z" /></svg
+                ></span>
+                <b>ALL</b>
+              </li>
+            </router-link>
+            <li v-for="(li, index) in liNav" :key="index" :id="li.id" class="nav-item">
+              <small
+                ><router-link :to="{ name: 'shop', query: { category: li.category } }" class="nav-link text-light" style="white-space: nowrap">{{ li.category }}</router-link></small
+              >
             </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Today's Deals</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Perfumes</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Electronice</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Mobile Phones</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Toys & Games</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="/" class="nav-link text-light">Home</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Video Games</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Appliances</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Fashion</router-link></small>
-            </li>
-            <li class="nav-item">
-              <small><router-link to="" class="nav-link text-light">Supermarket</router-link></small>
-            </li>
+
             <li class="nav-item d-lg-flex d-none p-2">
-              <router-link to="" class="nav-link d-flex mt-1 justify-content-center bg-light p-1" style="color: #e51742; border-radius: calc(infinity * 1px); font-weight: 600"
+              <router-link to="/shop" class="nav-link d-flex mt-1 justify-content-center bg-light p-1" style="color: #e51742; border-radius: calc(infinity * 1px); font-weight: 600"
                 >See All
                 <span
                   ><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 2048 2048"><path fill="#E51742" d="M1024 0h1024v1024h-128V219L93 2045l-90-90L1829 128h-805z" /></svg></span
@@ -146,7 +124,7 @@
 
         <div class="d-lg-flex d-none justify-content-center align-items-center m-0" style="background-color: #e51742; padding: 0 8px">
           <div class="d-flex justiy-content-center align-items-center m-2">
-            <button class="btn rounded-0" style="background-color: #000336; color: #fff; font-weight: 500">Black Friday</button>
+            <button class="btn rounded-0" style="background-color: #000336; color: #fff; font-weight: 500; white-space: nowrap">Black Friday</button>
             <button class="btn rounded-0" style="background-color: #ff960c; color: #fff; font-weight: 500">SALE</button>
           </div>
           <div class="d-flex flex-column justify-content-center align-items-center m-2">
@@ -268,7 +246,14 @@
     </section>
     <!-- Side Cart  -->
     <div @mouseenter="openCard" @mouseleave="closeCard" class="position-fixed d-lg-flex d-none flex-column bottom-0 end-0 bg-light z-2 rounded side-cart" :class="{ 'w-25': isOpen }" id="side-cart">
-      <h4 style="font-weight: 500; color: #000336; margin: 8px 10px">Shopping Cart:</h4>
+      <h4 class="d-flex justify-content-between align-items-center">
+        <span style="font-weight: 500; color: #000336; margin: 8px 10px">
+        Shopping Cart:
+        </span>
+        <span class="mb-1" @click="getItemForCart" style="cursor: pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" stroke="#e51742" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m15.167 1l.598 1.118c.404.755.606 1.133.472 1.295c-.133.162-.573.031-1.454-.23A9.8 9.8 0 0 0 12 2.78c-5.247 0-9.5 4.128-9.5 9.22a8.97 8.97 0 0 0 1.27 4.61M8.834 23l-.598-1.118c-.404-.756-.606-1.134-.472-1.295c.133-.162.573-.032 1.454.23c.88.261 1.815.402 2.783.402c5.247 0 9.5-4.128 9.5-9.22a8.97 8.97 0 0 0-1.27-4.609" color="#e51742" /></svg>
+        </span>
+      </h4>
       <center class="mt-2 mb-2" style="color: #141414; font-weight: 500">Your Subtotal: <span id="total-cart fw-bold"> $999.00</span></center>
       <center>
         <p style="color: green; font-weight: 500">
@@ -282,22 +267,22 @@
       <center>
         <small style="color: #000336; font-weight: 500"> completing the purchase.</small>
       </center>
-      <router-link to="/shop"
+      <router-link to="/cart"
         ><center><button class="btn rounded-pill p-2 w-75 text-light mt-3" style="background-color: #e51742; font-weight: 500; margin-bottom: 0">Go Shipping Cart →</button></center></router-link
       >
       <div class="mt-4 d-flex flex-column p-2" id="item-cart">
-        <div class="d-flex flex-column">
+        <div v-for="(item, index) in items" :key="index" :id="item.id" :data-category="item.category" class="d-flex flex-column mb-4">
           <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex">
-            <img src="https://cms.dresma.com/uploads/Image_2_11cac6fa82.jpg" width="80" height="80" style="aspect-ratio: 1/1;margin: 0 8px" class="img-fluid rounded" alt="">
-            <div class="d-flex flex-column">
-              <b class="text-dark">This Title</b>
-              <strong>$1999</strong>
+            <div class="d-flex">
+              <img src="https://cms.dresma.com/uploads/Image_2_11cac6fa82.jpg" width="80" height="80" style="aspect-ratio: 1/1; margin: 0 8px" class="img-fluid rounded" alt="" />
+              <div class="d-flex flex-column">
+                <b class="text-dark">{{ item.title }}</b>
+                <strong>${{ item.price || 100.0 }}</strong>
+              </div>
             </div>
-          </div>
-          <div class="rounded-circle" style="background-color: #e517421a;cursor: pointer" id="delete-item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="m-2" viewBox="0 0 24 24"><path fill="#e51742" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg>
-          </div>
+            <div class="rounded-circle" style="background-color: #e517421a; cursor: pointer" @click="DeleteItemLocal(item.id)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="m-2" viewBox="0 0 24 24"><path fill="#e51742" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" /></svg>
+            </div>
           </div>
         </div>
       </div>
@@ -306,10 +291,37 @@
 </template>
 
 <script>
+import axios from "axios";
+/**
+ * Vue Component for App.vue
+ *
+ * @description Manages the side cart functionality and data retrieval
+ *
+ * @data {Object} Component data properties
+ * @property {boolean} isOpen - Tracks the open/closed state of the side cart
+ * @property {Array} items - Stores cart items retrieved from localStorage
+ * @property {Array} liNav - Stores product categories fetched from API
+ *
+ * @methods
+ * @method openCard() - Toggles the side cart's open state
+ * @method closeCard() - Closes the side cart
+ *
+ * @lifecycle mounted() - Initializes data on component mount
+ * - Fetches product categories from local API
+ * - Retrieves cart items from localStorage
+ * - Handles potential nested cart arrays
+ *
+ * @api {GET} http://localhost:3000/item Fetch product categories
+ * @apiSuccess {Array} liNav First 12 items from API response
+ *
+ * @error Logs any API fetch errors to console
+ */
 export default {
   data() {
     return {
-      isOpen: false,
+      isOpen: false, // To track the card's open state
+      items: [], // To hold cart items from localStorage
+      liNav: [], // Get Categorys products for nav
     };
   },
   methods: {
@@ -319,12 +331,31 @@ export default {
     closeCard() {
       this.isOpen = false;
     },
-
+    getItemForCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (Array.isArray(cart[0])) {
+        cart = cart.flat();
+      }
+      this.items = cart;
+    },
+    DeleteItemLocal(dl) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let newCart = cart.filter((item) => item.id === dl);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      this.item = newCart;
+    },
   },
-  mounted() {
-    let itemCart = document.getElementById('item-cart');
-    // Get Here Your Products From Local Storage And Set In Cart ...
-  }
+  async mounted() {
+    const api = "http://localhost:3000/item"; // Replace with your API endpoint
+    try {
+      let res = await axios.get(api);
+      this.liNav = res.data.slice(0, 12); // Get All items
+    } catch (error) {
+      console.error("Error fetching nav:", error); // Log any errors
+    }
+    this.getItemForCart;
+    this.DeleteItemLocal();
+  },
 };
 </script>
 
