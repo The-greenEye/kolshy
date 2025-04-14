@@ -1,4 +1,8 @@
-<template></template>
+<template>
+    <div class="shop">
+        
+    </div>
+</template>
 
 <script>
 import axios from "axios";
