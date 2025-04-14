@@ -5,7 +5,7 @@
       <div class="w-100 p-2 text-center top-blackFriday-div">Black Friday Sale For All Swim And Free Express Delivery - OFF 50%! <router-link to="" class="ml-4" style="color: rgba(229, 23, 66, 1); text-decoration: underline">ShopNow</router-link></div>
       <!-- ==============Nav Tools Section================= -->
       <nav class="navbar navbar-expand-lg secound-nav shadow">
-        <a href="views/HomePage.vue" class="navbar-brand fs-1"><img src="img/ko-01.png" alt="logo"></a>
+        <a href="/" class="navbar-brand fs-1"><img src="../public/img/KO-01.png" class="img-fluid" width="150" alt="logo" /></a>
         <div class="d-lg-none d-flex justify-content-between align-items-center">
           <div class="flex">
             <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
@@ -45,6 +45,7 @@
               </div>
             </div>
           </li>
+          <!-- this have a problem fixe it later -->
           <li class="nav-item flex position-relative" data-bs-toggle="dropdown" data-bs-target="#eng" aria-expanded="false">
             <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 64 64">
               <path fill="#ed4c5c" d="M32 2C18.9 2 7.8 10.4 3.7 22h56.6C56.2 10.4 45.1 2 32 2" />
@@ -89,7 +90,7 @@
           <li class="nav-item flex" @mouseenter="openCard" @mouseleave="closeCard">
             <span class="position-relative p-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 56 56"><path fill="#000336" d="M.953 6.719c0 .96.797 1.781 1.735 1.781h7.921l3.75 25.734c.493 3.328 2.25 5.414 5.649 5.414H47.36c.913 0 1.71-.75 1.71-1.757c0-1.008-.797-1.758-1.71-1.758H20.406c-1.336 0-2.156-.938-2.367-2.367l-.375-2.461h29.742c3.422 0 5.18-2.11 5.672-5.461l1.875-12.399a7 7 0 0 0 .094-.89c0-1.125-.844-1.899-2.133-1.899h-38.25l-.469-2.976c-.234-1.805-.89-2.72-3.28-2.72H2.687c-.937 0-1.734.822-1.734 1.76M18.04 47.242c0 2.133 1.688 3.797 3.82 3.797a3.766 3.766 0 0 0 3.797-3.797a3.78 3.78 0 0 0-3.797-3.797c-2.132 0-3.82 1.688-3.82 3.797m21.914 0c0 2.133 1.711 3.797 3.82 3.797c2.133 0 3.82-1.664 3.82-3.797c0-2.11-1.687-3.797-3.82-3.797c-2.109 0-3.82 1.688-3.82 3.797" /></svg>
-              <circle-cart class="text-center circle-cart">0</circle-cart>
+              <circle-cart class="text-center circle-cart">{{ items.length }}</circle-cart>
             </span>
           </li>
         </ul>
@@ -247,9 +248,7 @@
     <!-- Side Cart  -->
     <div @mouseenter="openCard" @mouseleave="closeCard" class="position-fixed d-lg-flex d-none flex-column bottom-0 end-0 bg-light z-2 rounded side-cart" :class="{ 'w-25': isOpen }" id="side-cart">
       <h4 class="d-flex justify-content-between align-items-center">
-        <span style="font-weight: 500; color: #000336; margin: 8px 10px">
-        Shopping Cart:
-        </span>
+        <span style="font-weight: 500; color: #000336; margin: 8px 10px"> Shopping Cart: </span>
         <span class="mb-1" @click="getItemForCart" style="cursor: pointer">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" stroke="#e51742" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m15.167 1l.598 1.118c.404.755.606 1.133.472 1.295c-.133.162-.573.031-1.454-.23A9.8 9.8 0 0 0 12 2.78c-5.247 0-9.5 4.128-9.5 9.22a8.97 8.97 0 0 0 1.27 4.61M8.834 23l-.598-1.118c-.404-.756-.606-1.134-.472-1.295c.133-.162.573-.032 1.454.23c.88.261 1.815.402 2.783.402c5.247 0 9.5-4.128 9.5-9.22a8.97 8.97 0 0 0-1.27-4.609" color="#e51742" /></svg>
         </span>
@@ -268,7 +267,7 @@
         <small style="color: #000336; font-weight: 500"> completing the purchase.</small>
       </center>
       <router-link to="/cart">
-      <center><button class="btn rounded-pill p-2 w-75 text-light mt-3" style="background-color: #e51742; font-weight: 500; margin-bottom: 0">Go Shipping Cart →</button></center>
+        <center><button class="btn rounded-pill p-2 w-75 text-light mt-3" style="background-color: #e51742; font-weight: 500; margin-bottom: 0">Go Shipping Cart →</button></center>
       </router-link>
       <div class="mt-4 d-flex flex-column p-2" id="item-cart">
         <div v-for="(item, index) in items" :key="index" :id="item.id" :data-category="item.category" class="d-flex flex-column mb-4">
@@ -353,7 +352,11 @@ export default {
     } catch (error) {
       console.error("Error fetching nav:", error); // Log any errors
     }
-    this.getItemForCart;
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (Array.isArray(cart[0])) {
+      cart = cart.flat();
+    }
+    this.items = cart;
     this.DeleteItemLocal();
   },
 };
@@ -401,6 +404,7 @@ a {
 body {
   background-color: #f0f0f0;
   width: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 button {
   cursor: pointer;
@@ -499,7 +503,7 @@ input::placeholder {
   padding: 0;
   height: 85%;
   overflow-x: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0, 0, 0.96,-0.48);/* css transition cb tool */
 }
 @media (max-width: 664px) and (min-width: 320px) {
   .slide {
