@@ -103,6 +103,22 @@
         <p style="color: #000336; font-weight: 500; margin: 0 8px">8000 up to above EGP</p>
       </div>
     </div>
+    <p style="color: #e51742; font-weight: 500" class="mt-2">Deals & Discounts</p>
+    <div class="d-flex align-items-center text-start">
+      <input type="radio" name="Deals" id="Discounts" checked />
+      <p style="color: #000336; font-weight: 500; margin: 0 8px">All Discounts</p>
+    </div>
+    <div class="d-flex align-items-center text-start">
+      <input type="radio" name="Deals" id="Today's-Deals" />
+      <p style="color: #000336; font-weight: 500; margin: 0 8px">Today's Deals</p>
+    </div>
+    <p style="color: #e51742; font-weight: 500" class="mt-2">Operating System </p>
+    <div class="d-flex flex-column justify-content-start align-items-start">
+      <div class="d-flex align-items-center text-start">
+        <input type="checkbox" name="SAMSUNG" id="SAMSUNG" />
+        <p style="color: #000336; font-weight: 500; margin: 0 8px">Android 10.0</p>
+      </div>
+    </div>
   </div>
 </template>
 

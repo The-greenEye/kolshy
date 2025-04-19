@@ -310,7 +310,7 @@ import axios from "axios";
  * - Retrieves cart items from localStorage
  * - Handles potential nested cart arrays
  *
- * @api {GET} http://localhost:3000/item Fetch product categories
+ * @api {GET} http://localhost:3000/items Fetch product categories
  * @apiSuccess {Array} liNav First 12 items from API response
  *
  * @error Logs any API fetch errors to console
@@ -345,7 +345,7 @@ export default {
     },
   },
   async mounted() {
-    const api = "http://localhost:3000/item"; // Replace with your API endpoint
+    const api = "http://localhost:3000/items"; // Replace with your API endpoint
     try {
       let res = await axios.get(api);
       this.liNav = res.data.slice(0, 12); // Get All items
@@ -404,7 +404,7 @@ a {
 body {
   background-color: #f0f0f0;
   width: 100%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 button {
   cursor: pointer;
@@ -503,7 +503,7 @@ input::placeholder {
   padding: 0;
   height: 85%;
   overflow-x: hidden;
-  transition: all 0.3s cubic-bezier(0, 0, 0.96,-0.48);/* css transition cb tool */
+  transition: all 0.3s cubic-bezier(0, 0, 0.96, -0.48); /* css transition cb tool */
 }
 @media (max-width: 664px) and (min-width: 320px) {
   .slide {

@@ -5,7 +5,7 @@
     >
     <div class="row w-100 p-4">
       <div class="col-3 border-end border-secondary mr-2 h-100">
-      <filterTools />
+        <filterTools />
       </div>
       <div class="col-9 d-flex flex-column justify-content-start align-items-c"></div>
     </div>
@@ -14,17 +14,16 @@
 
 <script>
 import axios from "axios";
-import filterTools from "./shop/filterTools.vue"
+import filterTools from "./shop/filterTools.vue";
 export default {
   name: "ShopPage",
   components: {
-   filterTools, 
+    filterTools,
   },
   data() {
     return {
       selection: [],
       category: "",
-
     };
   },
   mounted() {
@@ -39,7 +38,7 @@ export default {
       if (this.category) {
         console.log(this.category);
         let res = await axios
-          .get(`http://localhost:3000/item?category=${this.category}`)
+          .get(`http://localhost:3000/items?category=${this.category}`)
           .then((response) => {
             this.selection = response.data;
           })
@@ -55,9 +54,9 @@ export default {
 </script>
 
 <style>
-input[type="radio"]:active{
+input[type="radio"]:active {
   color: #e51742;
-  background: #e51742
+  background: #e51742;
 }
 
 .card-content .current-range {
