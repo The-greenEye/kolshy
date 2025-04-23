@@ -13,28 +13,28 @@
         </div>
         <hr />
       <div class="d-flex flex-wrap p-0" style="width: 95%;margin: auto">
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://wallpaperaccess.com/full/6173939.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://i.pinimg.com/originals/83/c9/75/83c975c73060160fe07b9d70612ff281.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
@@ -42,28 +42,28 @@
         </div>
       </div>
 
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://i.pinimg.com/originals/92/71/ef/9271ef026ae8cd8abffdca34e9fdb797.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://img.freepik.com/premium-photo/running-shoes-realistic-4k-white-background_839182-6779.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
@@ -71,28 +71,28 @@
         </div>
       </div>
 
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://i.pinimg.com/originals/92/71/ef/9271ef026ae8cd8abffdca34e9fdb797.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://img.freepik.com/premium-photo/running-shoes-realistic-4k-white-background_839182-6779.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
           <a href="./cart/shop.vue">See More</a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 200px">
+      <div class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
         <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" class="card-img-top" alt="product-image" />
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
@@ -247,5 +247,14 @@ input[type="radio"]:active {
   position: relative;
   float: right;
   margin-right: -5px;
+}
+
+.shop-pro {
+  width: 200px
+}
+@media (max-width: 422px) and (min-width: 265px) {
+  .shop-pro {
+    width: 100%
+  }
 }
 </style>
