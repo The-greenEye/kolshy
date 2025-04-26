@@ -40,14 +40,14 @@
             type="range" 
             v-model="filters.priceRange[0]" 
             min="0" 
-            max="50000" 
+            max="350" 
             @input="applyFilters" 
           />
           <input 
             type="range" 
             v-model="filters.priceRange[1]" 
             min="0" 
-            max="50000" 
+            max="350" 
             @input="applyFilters" 
           />
         </div>
@@ -96,7 +96,7 @@
             <img :src="product.image" class="card-img-top" alt="product-image" />
             <div class="card-body">
               <h5 class="card-title">{{ product.name }}</h5>
-              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">{{ product.description.slice(0,30) }}...</p>
               <p class="card-text fw-bold">{{ product.price }} EGP</p>
               <button class="btn btn-primary" @click="addCart">Add to Cart</button>
             </div>
@@ -126,7 +126,7 @@ export default {
       filters: {
         shipping: false,
         deliveryDay: false,
-        priceRange: [0, 50000],
+        priceRange: [0, 200],
         brands: [],
         condition: 'all',
         reviews: false,
@@ -179,9 +179,8 @@ export default {
     },
 
     async getProducts() {
-      try {
         const category = this.$route.query.category;
-        const response = await axios.get("http://localhost:3000/items", {
+        const response = await axios.get("https://fakestoreapi.com/products", {
           params: { category }
         });
         this.selection = response.data.map(item => ({
@@ -189,13 +188,14 @@ export default {
           price: Number(item.price),
           freeShipping: item.shipping === 'free'
         }));
-      } catch (error) {
-        console.error('Failed to fetch products:', error);
-      }
+ 
     },
 
     addCart() {
-      this.toast.success("Added successfully")
+      this.toast.success("Added successfully!")
+      setTimeout(() => {
+      location.pathname = 'page-detalist'
+      }, 5500)
     }
   }
 };

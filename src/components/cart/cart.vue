@@ -33,9 +33,9 @@
                   <!-- تحكم الكمية -->
                   <div class="quantity-control mt-2">
                     <div class="d-flex align-items-center">
-                      <button @click="decreaseQuantity(product)" class="btn btn-quantity" :disabled="product.quantity === 1">-</button>
+                      <button @click="decreaseQuantity(product)" class="btn border-0 p-0" :disabled="product.quantity === 1"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 50 50"><path fill="#000" d="M25 42c-9.4 0-17-7.6-17-17S15.6 8 25 8s17 7.6 17 17s-7.6 17-17 17m0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15s15-6.7 15-15s-6.7-15-15-15"/><path fill="#000" d="M16 24h18v2H16z"/><path fill="#000" d="M24 16h2v18h-2z"/></svg></button>
                       <input type="number" v-model.number="product.quantity" min="1" class="quantity-input mx-2 text-center" />
-                      <button @click="increaseQuantity(product)" class="btn btn-quantity">+</button>
+                      <button @click="increaseQuantity(product)" class="btn border-0 p-0"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16"><path fill="none" stroke="#141414" d="M4 8h8m2.5 0a6.5 6.5 0 1 1-13 0a6.5 6.5 0 0 1 13 0Z" stroke-width="0.4"/></svg></button>
                       <span class="divider mx-2">|</span>
                       <button @click="removeItem(product.id)" class="btn btn-outline-danger">Delete</button>
                     </div>

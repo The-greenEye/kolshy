@@ -4,6 +4,7 @@ import ShopView from "../views/ShopView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import CartView from "../views/CartView.vue";
+import DetalisPage from "../views/DetalisPage.vue"
 const routes = [
   {
     path: "/",
@@ -29,6 +30,11 @@ const routes = [
     path: "/cart",
     name: "cart",
     component: CartView,
+  },
+  {
+    path: "/page-detalist",
+    name: "detalist",
+    component: DetalisPage,
   },
 ];
 
