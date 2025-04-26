@@ -1,0 +1,32 @@
+{
+  "user": [
+    {
+      "id": "382b",
+      "name": "reem homsi",
+      "email": "reemomeemo544@gmail.com",
+      "password": "112233",
+      "market": "moroco",
+      "marketURL": ".store",
+      "adreess": "hay one",
+      "country": "eg",
+      "city": "obur",
+      "zip": "00000",
+      "telphone": "01501655661",
+      "type_account": "vendor"
+    },
+    {
+      "id": "c07e",
+      "name": "mohamed",
+      "email": "mohamedmohameed180@gmail.com",
+      "password": "112233",
+      "market": "",
+      "marketURL": null,
+      "adreess": null,
+      "country": "eg",
+      "city": null,
+      "zip": null,
+      "telphone": null,
+      "type_account": "customer"
+    }
+  ]
+}

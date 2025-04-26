@@ -1,0 +1,1531 @@
+{
+	"info": {
+		"_postman_id": "3f98c620-48f4-4d00-96cd-36b6b65486cd",
+		"name": "kolshy-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37252485"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Pierre Sameh\",\n    \"email_or_phone\": \"pierresameh144@gmail.com\",\n    \"password\": \"Pass@2004\",\n    \"password_confirmation\": \"Pass@2004\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/customer/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email_or_phone\": \"pierresameh144@gmail.com\",\n    \"password\": \"Pass@2004\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/customer/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"customer",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Addresses",
+					"item": [
+						{
+							"name": "Add New Address",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"full_name\": \"Medhat Sedhom\",\n    \"phone\": \"+20155234578\",\n    \"country_id\": 1, // From Countries Endpoint\n    \"address\": \"Sedhom, Dokki\",\n    \"building\": \"build data\", //nullable\n    \"city_id\": 1, // From Get Cities Endpoint\n    \"postcode\": \"12782\", //nullable\n    \"neiborhood\": \"string data\", //nullable\n    \"landmark\": \"string data\", //nullable\n    \"preference\": \"home\", // in: home or office\n    \"default\": 1 // checkbox with value 1 \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/customer/addresses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"addresses"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"full_name\": \"Medhat Sedhom\",\n    \"phone\": \"+20155234578\",\n    \"country_id\": 50, // From Countries Endpoint\n    \"address\": \"Sedhom, Dokki\",\n    \"building\": \"build data\", //nullable\n    \"city_id\": 105, // From Get Cities Endpoint\n    \"postcode\": \"12782\", //nullable\n    \"neiborhood\": \"string data\", //nullable\n    \"landmark\": \"string data\", //nullable\n    \"preference\": \"home\", // in: home or office\n    \"default\": 1 // checkbox with value 1 \n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/customer/addresses",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customer",
+												"addresses"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 22 Apr 2025 15:04:39 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Address Created Successfully\",\n    \"data\": {\n        \"full_name\": \"Medhat Sedhom\",\n        \"phone\": \"+20155234578\",\n        \"country_id\": 50,\n        \"address\": \"Sedhom, Dokki\",\n        \"building\": \"build data\",\n        \"city_id\": 105,\n        \"postcode\": \"12782\",\n        \"neiborhood\": \"string data\",\n        \"landmark\": \"string data\",\n        \"preference\": 1,\n        \"default\": 1,\n        \"user_id\": 1,\n        \"updated_at\": \"2025-04-22T15:04:39.000000Z\",\n        \"created_at\": \"2025-04-22T15:04:39.000000Z\",\n        \"id\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Address",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"full_name\": \"Medhat Sedhom\",\n    \"phone\": \"+20155234578\",\n    \"country_id\": 50, // From Countries Endpoint\n    \"address\": \"Sedhom, Dokki\",\n    \"building\": \"build data\", //nullable\n    \"city_id\": 105, // From Get Cities Endpoint\n    \"postcode\": \"12782\", //nullable\n    \"neiborhood\": \"string data\", //nullable\n    \"landmark\": \"string data\", //nullable\n    \"preference\": \"office\", // in: home or office\n    \"default\": 0 // checkbox with value 1 \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/customer/addresses/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"addresses",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"full_name\": \"Medhat Sedhom\",\n    \"phone\": \"+20155234578\",\n    \"country_id\": 50, // From Countries Endpoint\n    \"address\": \"Sedhom, Dokki\",\n    \"building\": \"build data\", //nullable\n    \"city_id\": 105, // From Get Cities Endpoint\n    \"postcode\": \"12782\", //nullable\n    \"neiborhood\": \"string data\", //nullable\n    \"landmark\": \"string data\", //nullable\n    \"preference\": \"office\", // in: home or office\n    \"default\": 0 // checkbox with value 1 \n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/customer/addresses/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customer",
+												"addresses",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 22 Apr 2025 15:09:34 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Address Updated Successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"full_name\": \"Medhat Sedhom\",\n        \"phone\": \"+20155234578\",\n        \"country_id\": 50,\n        \"address\": \"Sedhom, Dokki\",\n        \"building\": \"build data\",\n        \"city_id\": 105,\n        \"neiborhood\": \"string data\",\n        \"postcode\": \"12782\",\n        \"landmark\": \"string data\",\n        \"preference\": 2,\n        \"default\": 2,\n        \"created_at\": \"2025-04-22T15:04:39.000000Z\",\n        \"updated_at\": \"2025-04-22T15:09:34.000000Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Address",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/customer/addresses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"addresses"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/customer/addresses",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customer",
+												"addresses"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 22 Apr 2025 15:10:14 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": null,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"full_name\": \"Medhat Sedhom\",\n            \"phone\": \"+20155234578\",\n            \"country_id\": 50,\n            \"address\": \"Sedhom, Dokki\",\n            \"building\": \"build data\",\n            \"city_id\": 105,\n            \"neiborhood\": \"string data\",\n            \"postcode\": \"12782\",\n            \"landmark\": \"string data\",\n            \"preference\": 2,\n            \"default\": 2,\n            \"created_at\": \"2025-04-22T15:04:39.000000Z\",\n            \"updated_at\": \"2025-04-22T15:09:34.000000Z\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Address by Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/customer/addresses/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"addresses",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/customer/addresses/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customer",
+												"addresses",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 22 Apr 2025 15:10:42 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": null,\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"full_name\": \"Medhat Sedhom\",\n        \"phone\": \"+20155234578\",\n        \"country_id\": 50,\n        \"address\": \"Sedhom, Dokki\",\n        \"building\": \"build data\",\n        \"city_id\": 105,\n        \"neiborhood\": \"string data\",\n        \"postcode\": \"12782\",\n        \"landmark\": \"string data\",\n        \"preference\": 2,\n        \"default\": 2,\n        \"created_at\": \"2025-04-22T15:04:39.000000Z\",\n        \"updated_at\": \"2025-04-22T15:09:34.000000Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Address",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/customer/addresses/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customer",
+										"addresses",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/customer/addresses/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customer",
+												"addresses",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 22 Apr 2025 15:11:11 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Address Deleted Successfully\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Global",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Forgot Password",
+							"item": [
+								{
+									"name": "Send OTP",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email_or_phone\": \"pierresameh144@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/forgot-password/send-otp",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"forgot-password",
+												"send-otp"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Verify OTP",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email_or_phone\": \"pierresameh144@gmail.com\",\n    \"otp\": 297069\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/forgot-password/verify-otp",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"forgot-password",
+												"verify-otp"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reset Password",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"verification_token\": \"FftB19nhlw3HzvmWybqQOk8EY089pgZuG11pHMWE90vTYg5L5zewqCqz7eY2\",\n    \"password\": \"Pierre@2004\",\n    \"password_confirmation\": \"Pierre@2004\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/forgot-password/reset-password",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"forgot-password",
+												"reset-password"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Verification",
+							"item": [
+								{
+									"name": "Get Otp",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{customer-token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/auth/verification/get-otp/email",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"verification",
+												"get-otp",
+												"email"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Verify",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{customer-token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"channel\": \"email\", // in email or sms\n    \"otp\": 347633  // digits: 6\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/auth/verification/verify",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"verification",
+												"verify"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/auth/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Countries",
+					"item": [
+						{
+							"name": "Get All Countries",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/countries",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Cities By Country Id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/countries/64",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"countries",
+										"64"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Update Profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "name",
+											"value": "Peter Samyyy",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "pierresameh144@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Seller",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email_or_phone\": \"pierresameh144@gmail.com\",\n    \"password\": \"Pass@2004\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/seller/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"seller",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Affiliate",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email_or_phone\": \"pierresameh144@gmail.com\",\n    \"password\": \"Pass@2004\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/affiliate/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"affiliate",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email_or_phone\": \"pierresameh144@gmail.com\",\n    \"password\": \"Pass@2004\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/admin/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Languages",
+					"item": [
+						{
+							"name": "Form Data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/languages/create/form-data",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"languages",
+										"create",
+										"form-data"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/languages/form-data",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"languages",
+												"form-data"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 23 Apr 2025 17:43:52 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": null,\n    \"data\": {\n        \"current_languages\": [\n            {\n                \"id\": 1,\n                \"name\": \"English\",\n                \"iso_code\": \"en\",\n                \"country_code\": \"gb\",\n                \"created_at\": \"2025-04-23T16:54:26.000000Z\",\n                \"updated_at\": \"2025-04-23T16:54:26.000000Z\",\n                \"flag\": \"http://localhost:8000/assets/flags/gb.svg\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"العربية\",\n                \"iso_code\": \"ar\",\n                \"country_code\": \"eg\",\n                \"created_at\": \"2025-04-23T16:54:26.000000Z\",\n                \"updated_at\": \"2025-04-23T16:54:26.000000Z\",\n                \"flag\": \"http://localhost:8000/assets/flags/eg.svg\"\n            }\n        ],\n        \"countries\": [\n            {\n                \"id\": 1,\n                \"name\": \"Afghanistan\",\n                \"code\": \"AF\",\n                \"flag\": \"http://localhost:8000/assets/flags/af.svg\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Albania\",\n                \"code\": \"AL\",\n                \"flag\": \"http://localhost:8000/assets/flags/al.svg\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Algeria\",\n                \"code\": \"DZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/dz.svg\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Andorra\",\n                \"code\": \"AD\",\n                \"flag\": \"http://localhost:8000/assets/flags/ad.svg\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Angola\",\n                \"code\": \"AO\",\n                \"flag\": \"http://localhost:8000/assets/flags/ao.svg\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Antigua and Barbuda\",\n                \"code\": \"AG\",\n                \"flag\": \"http://localhost:8000/assets/flags/ag.svg\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Argentina\",\n                \"code\": \"AR\",\n                \"flag\": \"http://localhost:8000/assets/flags/ar.svg\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Armenia\",\n                \"code\": \"AM\",\n                \"flag\": \"http://localhost:8000/assets/flags/am.svg\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"Australia\",\n                \"code\": \"AU\",\n                \"flag\": \"http://localhost:8000/assets/flags/au.svg\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"Austria\",\n                \"code\": \"AT\",\n                \"flag\": \"http://localhost:8000/assets/flags/at.svg\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"Azerbaijan\",\n                \"code\": \"AZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/az.svg\"\n            },\n            {\n                \"id\": 12,\n                \"name\": \"Bahamas\",\n                \"code\": \"BS\",\n                \"flag\": \"http://localhost:8000/assets/flags/bs.svg\"\n            },\n            {\n                \"id\": 13,\n                \"name\": \"Bahrain\",\n                \"code\": \"BH\",\n                \"flag\": \"http://localhost:8000/assets/flags/bh.svg\"\n            },\n            {\n                \"id\": 14,\n                \"name\": \"Bangladesh\",\n                \"code\": \"BD\",\n                \"flag\": \"http://localhost:8000/assets/flags/bd.svg\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"Barbados\",\n                \"code\": \"BB\",\n                \"flag\": \"http://localhost:8000/assets/flags/bb.svg\"\n            },\n            {\n                \"id\": 16,\n                \"name\": \"Belarus\",\n                \"code\": \"BY\",\n                \"flag\": \"http://localhost:8000/assets/flags/by.svg\"\n            },\n            {\n                \"id\": 17,\n                \"name\": \"Belgium\",\n                \"code\": \"BE\",\n                \"flag\": \"http://localhost:8000/assets/flags/be.svg\"\n            },\n            {\n                \"id\": 18,\n                \"name\": \"Belize\",\n                \"code\": \"BZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/bz.svg\"\n            },\n            {\n                \"id\": 19,\n                \"name\": \"Benin\",\n                \"code\": \"BJ\",\n                \"flag\": \"http://localhost:8000/assets/flags/bj.svg\"\n            },\n            {\n                \"id\": 20,\n                \"name\": \"Bhutan\",\n                \"code\": \"BT\",\n                \"flag\": \"http://localhost:8000/assets/flags/bt.svg\"\n            },\n            {\n                \"id\": 21,\n                \"name\": \"Bolivia\",\n                \"code\": \"BO\",\n                \"flag\": \"http://localhost:8000/assets/flags/bo.svg\"\n            },\n            {\n                \"id\": 22,\n                \"name\": \"Bosnia and Herzegovina\",\n                \"code\": \"BA\",\n                \"flag\": \"http://localhost:8000/assets/flags/ba.svg\"\n            },\n            {\n                \"id\": 23,\n                \"name\": \"Botswana\",\n                \"code\": \"BW\",\n                \"flag\": \"http://localhost:8000/assets/flags/bw.svg\"\n            },\n            {\n                \"id\": 24,\n                \"name\": \"Brazil\",\n                \"code\": \"BR\",\n                \"flag\": \"http://localhost:8000/assets/flags/br.svg\"\n            },\n            {\n                \"id\": 25,\n                \"name\": \"Brunei\",\n                \"code\": \"BN\",\n                \"flag\": \"http://localhost:8000/assets/flags/bn.svg\"\n            },\n            {\n                \"id\": 26,\n                \"name\": \"Bulgaria\",\n                \"code\": \"BG\",\n                \"flag\": \"http://localhost:8000/assets/flags/bg.svg\"\n            },\n            {\n                \"id\": 27,\n                \"name\": \"Burkina Faso\",\n                \"code\": \"BF\",\n                \"flag\": \"http://localhost:8000/assets/flags/bf.svg\"\n            },\n            {\n                \"id\": 28,\n                \"name\": \"Burundi\",\n                \"code\": \"BI\",\n                \"flag\": \"http://localhost:8000/assets/flags/bi.svg\"\n            },\n            {\n                \"id\": 29,\n                \"name\": \"Cabo Verde\",\n                \"code\": \"CV\",\n                \"flag\": \"http://localhost:8000/assets/flags/cv.svg\"\n            },\n            {\n                \"id\": 30,\n                \"name\": \"Cambodia\",\n                \"code\": \"KH\",\n                \"flag\": \"http://localhost:8000/assets/flags/kh.svg\"\n            },\n            {\n                \"id\": 31,\n                \"name\": \"Cameroon\",\n                \"code\": \"CM\",\n                \"flag\": \"http://localhost:8000/assets/flags/cm.svg\"\n            },\n            {\n                \"id\": 32,\n                \"name\": \"Canada\",\n                \"code\": \"CA\",\n                \"flag\": \"http://localhost:8000/assets/flags/ca.svg\"\n            },\n            {\n                \"id\": 33,\n                \"name\": \"Central African Republic\",\n                \"code\": \"CF\",\n                \"flag\": \"http://localhost:8000/assets/flags/cf.svg\"\n            },\n            {\n                \"id\": 34,\n                \"name\": \"Chad\",\n                \"code\": \"TD\",\n                \"flag\": \"http://localhost:8000/assets/flags/td.svg\"\n            },\n            {\n                \"id\": 35,\n                \"name\": \"Chile\",\n                \"code\": \"CL\",\n                \"flag\": \"http://localhost:8000/assets/flags/cl.svg\"\n            },\n            {\n                \"id\": 36,\n                \"name\": \"China\",\n                \"code\": \"CN\",\n                \"flag\": \"http://localhost:8000/assets/flags/cn.svg\"\n            },\n            {\n                \"id\": 37,\n                \"name\": \"Colombia\",\n                \"code\": \"CO\",\n                \"flag\": \"http://localhost:8000/assets/flags/co.svg\"\n            },\n            {\n                \"id\": 38,\n                \"name\": \"Comoros\",\n                \"code\": \"KM\",\n                \"flag\": \"http://localhost:8000/assets/flags/km.svg\"\n            },\n            {\n                \"id\": 39,\n                \"name\": \"Congo\",\n                \"code\": \"CG\",\n                \"flag\": \"http://localhost:8000/assets/flags/cg.svg\"\n            },\n            {\n                \"id\": 40,\n                \"name\": \"Costa Rica\",\n                \"code\": \"CR\",\n                \"flag\": \"http://localhost:8000/assets/flags/cr.svg\"\n            },\n            {\n                \"id\": 41,\n                \"name\": \"Croatia\",\n                \"code\": \"HR\",\n                \"flag\": \"http://localhost:8000/assets/flags/hr.svg\"\n            },\n            {\n                \"id\": 42,\n                \"name\": \"Cuba\",\n                \"code\": \"CU\",\n                \"flag\": \"http://localhost:8000/assets/flags/cu.svg\"\n            },\n            {\n                \"id\": 43,\n                \"name\": \"Cyprus\",\n                \"code\": \"CY\",\n                \"flag\": \"http://localhost:8000/assets/flags/cy.svg\"\n            },\n            {\n                \"id\": 44,\n                \"name\": \"Czech Republic\",\n                \"code\": \"CZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/cz.svg\"\n            },\n            {\n                \"id\": 45,\n                \"name\": \"Denmark\",\n                \"code\": \"DK\",\n                \"flag\": \"http://localhost:8000/assets/flags/dk.svg\"\n            },\n            {\n                \"id\": 46,\n                \"name\": \"Djibouti\",\n                \"code\": \"DJ\",\n                \"flag\": \"http://localhost:8000/assets/flags/dj.svg\"\n            },\n            {\n                \"id\": 47,\n                \"name\": \"Dominica\",\n                \"code\": \"DM\",\n                \"flag\": \"http://localhost:8000/assets/flags/dm.svg\"\n            },\n            {\n                \"id\": 48,\n                \"name\": \"Dominican Republic\",\n                \"code\": \"DO\",\n                \"flag\": \"http://localhost:8000/assets/flags/do.svg\"\n            },\n            {\n                \"id\": 49,\n                \"name\": \"Ecuador\",\n                \"code\": \"EC\",\n                \"flag\": \"http://localhost:8000/assets/flags/ec.svg\"\n            },\n            {\n                \"id\": 50,\n                \"name\": \"Egypt\",\n                \"code\": \"EG\",\n                \"flag\": \"http://localhost:8000/assets/flags/eg.svg\"\n            },\n            {\n                \"id\": 51,\n                \"name\": \"El Salvador\",\n                \"code\": \"SV\",\n                \"flag\": \"http://localhost:8000/assets/flags/sv.svg\"\n            },\n            {\n                \"id\": 52,\n                \"name\": \"Equatorial Guinea\",\n                \"code\": \"GQ\",\n                \"flag\": \"http://localhost:8000/assets/flags/gq.svg\"\n            },\n            {\n                \"id\": 53,\n                \"name\": \"Eritrea\",\n                \"code\": \"ER\",\n                \"flag\": \"http://localhost:8000/assets/flags/er.svg\"\n            },\n            {\n                \"id\": 54,\n                \"name\": \"Estonia\",\n                \"code\": \"EE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ee.svg\"\n            },\n            {\n                \"id\": 55,\n                \"name\": \"Eswatini\",\n                \"code\": \"SZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/sz.svg\"\n            },\n            {\n                \"id\": 56,\n                \"name\": \"Ethiopia\",\n                \"code\": \"ET\",\n                \"flag\": \"http://localhost:8000/assets/flags/et.svg\"\n            },\n            {\n                \"id\": 57,\n                \"name\": \"Fiji\",\n                \"code\": \"FJ\",\n                \"flag\": \"http://localhost:8000/assets/flags/fj.svg\"\n            },\n            {\n                \"id\": 58,\n                \"name\": \"Finland\",\n                \"code\": \"FI\",\n                \"flag\": \"http://localhost:8000/assets/flags/fi.svg\"\n            },\n            {\n                \"id\": 59,\n                \"name\": \"France\",\n                \"code\": \"FR\",\n                \"flag\": \"http://localhost:8000/assets/flags/fr.svg\"\n            },\n            {\n                \"id\": 60,\n                \"name\": \"Gabon\",\n                \"code\": \"GA\",\n                \"flag\": \"http://localhost:8000/assets/flags/ga.svg\"\n            },\n            {\n                \"id\": 61,\n                \"name\": \"Gambia\",\n                \"code\": \"GM\",\n                \"flag\": \"http://localhost:8000/assets/flags/gm.svg\"\n            },\n            {\n                \"id\": 62,\n                \"name\": \"Georgia\",\n                \"code\": \"GE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ge.svg\"\n            },\n            {\n                \"id\": 63,\n                \"name\": \"Germany\",\n                \"code\": \"DE\",\n                \"flag\": \"http://localhost:8000/assets/flags/de.svg\"\n            },\n            {\n                \"id\": 64,\n                \"name\": \"Ghana\",\n                \"code\": \"GH\",\n                \"flag\": \"http://localhost:8000/assets/flags/gh.svg\"\n            },\n            {\n                \"id\": 65,\n                \"name\": \"Greece\",\n                \"code\": \"GR\",\n                \"flag\": \"http://localhost:8000/assets/flags/gr.svg\"\n            },\n            {\n                \"id\": 66,\n                \"name\": \"Grenada\",\n                \"code\": \"GD\",\n                \"flag\": \"http://localhost:8000/assets/flags/gd.svg\"\n            },\n            {\n                \"id\": 67,\n                \"name\": \"Guatemala\",\n                \"code\": \"GT\",\n                \"flag\": \"http://localhost:8000/assets/flags/gt.svg\"\n            },\n            {\n                \"id\": 68,\n                \"name\": \"Guinea\",\n                \"code\": \"GN\",\n                \"flag\": \"http://localhost:8000/assets/flags/gn.svg\"\n            },\n            {\n                \"id\": 69,\n                \"name\": \"Guinea-Bissau\",\n                \"code\": \"GW\",\n                \"flag\": \"http://localhost:8000/assets/flags/gw.svg\"\n            },\n            {\n                \"id\": 70,\n                \"name\": \"Guyana\",\n                \"code\": \"GY\",\n                \"flag\": \"http://localhost:8000/assets/flags/gy.svg\"\n            },\n            {\n                \"id\": 71,\n                \"name\": \"Haiti\",\n                \"code\": \"HT\",\n                \"flag\": \"http://localhost:8000/assets/flags/ht.svg\"\n            },\n            {\n                \"id\": 72,\n                \"name\": \"Honduras\",\n                \"code\": \"HN\",\n                \"flag\": \"http://localhost:8000/assets/flags/hn.svg\"\n            },\n            {\n                \"id\": 73,\n                \"name\": \"Hungary\",\n                \"code\": \"HU\",\n                \"flag\": \"http://localhost:8000/assets/flags/hu.svg\"\n            },\n            {\n                \"id\": 74,\n                \"name\": \"Iceland\",\n                \"code\": \"IS\",\n                \"flag\": \"http://localhost:8000/assets/flags/is.svg\"\n            },\n            {\n                \"id\": 75,\n                \"name\": \"India\",\n                \"code\": \"IN\",\n                \"flag\": \"http://localhost:8000/assets/flags/in.svg\"\n            },\n            {\n                \"id\": 76,\n                \"name\": \"Indonesia\",\n                \"code\": \"ID\",\n                \"flag\": \"http://localhost:8000/assets/flags/id.svg\"\n            },\n            {\n                \"id\": 77,\n                \"name\": \"Iran\",\n                \"code\": \"IR\",\n                \"flag\": \"http://localhost:8000/assets/flags/ir.svg\"\n            },\n            {\n                \"id\": 78,\n                \"name\": \"Iraq\",\n                \"code\": \"IQ\",\n                \"flag\": \"http://localhost:8000/assets/flags/iq.svg\"\n            },\n            {\n                \"id\": 79,\n                \"name\": \"Ireland\",\n                \"code\": \"IE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ie.svg\"\n            },\n            {\n                \"id\": 80,\n                \"name\": \"Israel\",\n                \"code\": \"IL\",\n                \"flag\": \"http://localhost:8000/assets/flags/il.svg\"\n            },\n            {\n                \"id\": 81,\n                \"name\": \"Italy\",\n                \"code\": \"IT\",\n                \"flag\": \"http://localhost:8000/assets/flags/it.svg\"\n            },\n            {\n                \"id\": 82,\n                \"name\": \"Jamaica\",\n                \"code\": \"JM\",\n                \"flag\": \"http://localhost:8000/assets/flags/jm.svg\"\n            },\n            {\n                \"id\": 83,\n                \"name\": \"Japan\",\n                \"code\": \"JP\",\n                \"flag\": \"http://localhost:8000/assets/flags/jp.svg\"\n            },\n            {\n                \"id\": 84,\n                \"name\": \"Jordan\",\n                \"code\": \"JO\",\n                \"flag\": \"http://localhost:8000/assets/flags/jo.svg\"\n            },\n            {\n                \"id\": 85,\n                \"name\": \"Kazakhstan\",\n                \"code\": \"KZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/kz.svg\"\n            },\n            {\n                \"id\": 86,\n                \"name\": \"Kenya\",\n                \"code\": \"KE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ke.svg\"\n            },\n            {\n                \"id\": 87,\n                \"name\": \"Kiribati\",\n                \"code\": \"KI\",\n                \"flag\": \"http://localhost:8000/assets/flags/ki.svg\"\n            },\n            {\n                \"id\": 88,\n                \"name\": \"Kuwait\",\n                \"code\": \"KW\",\n                \"flag\": \"http://localhost:8000/assets/flags/kw.svg\"\n            },\n            {\n                \"id\": 89,\n                \"name\": \"Kyrgyzstan\",\n                \"code\": \"KG\",\n                \"flag\": \"http://localhost:8000/assets/flags/kg.svg\"\n            },\n            {\n                \"id\": 90,\n                \"name\": \"Laos\",\n                \"code\": \"LA\",\n                \"flag\": \"http://localhost:8000/assets/flags/la.svg\"\n            },\n            {\n                \"id\": 91,\n                \"name\": \"Latvia\",\n                \"code\": \"LV\",\n                \"flag\": \"http://localhost:8000/assets/flags/lv.svg\"\n            },\n            {\n                \"id\": 92,\n                \"name\": \"Lebanon\",\n                \"code\": \"LB\",\n                \"flag\": \"http://localhost:8000/assets/flags/lb.svg\"\n            },\n            {\n                \"id\": 93,\n                \"name\": \"Lesotho\",\n                \"code\": \"LS\",\n                \"flag\": \"http://localhost:8000/assets/flags/ls.svg\"\n            },\n            {\n                \"id\": 94,\n                \"name\": \"Liberia\",\n                \"code\": \"LR\",\n                \"flag\": \"http://localhost:8000/assets/flags/lr.svg\"\n            },\n            {\n                \"id\": 95,\n                \"name\": \"Libya\",\n                \"code\": \"LY\",\n                \"flag\": \"http://localhost:8000/assets/flags/ly.svg\"\n            },\n            {\n                \"id\": 96,\n                \"name\": \"Liechtenstein\",\n                \"code\": \"LI\",\n                \"flag\": \"http://localhost:8000/assets/flags/li.svg\"\n            },\n            {\n                \"id\": 97,\n                \"name\": \"Lithuania\",\n                \"code\": \"LT\",\n                \"flag\": \"http://localhost:8000/assets/flags/lt.svg\"\n            },\n            {\n                \"id\": 98,\n                \"name\": \"Luxembourg\",\n                \"code\": \"LU\",\n                \"flag\": \"http://localhost:8000/assets/flags/lu.svg\"\n            },\n            {\n                \"id\": 99,\n                \"name\": \"Madagascar\",\n                \"code\": \"MG\",\n                \"flag\": \"http://localhost:8000/assets/flags/mg.svg\"\n            },\n            {\n                \"id\": 100,\n                \"name\": \"Malawi\",\n                \"code\": \"MW\",\n                \"flag\": \"http://localhost:8000/assets/flags/mw.svg\"\n            },\n            {\n                \"id\": 101,\n                \"name\": \"Malaysia\",\n                \"code\": \"MY\",\n                \"flag\": \"http://localhost:8000/assets/flags/my.svg\"\n            },\n            {\n                \"id\": 102,\n                \"name\": \"Maldives\",\n                \"code\": \"MV\",\n                \"flag\": \"http://localhost:8000/assets/flags/mv.svg\"\n            },\n            {\n                \"id\": 103,\n                \"name\": \"Mali\",\n                \"code\": \"ML\",\n                \"flag\": \"http://localhost:8000/assets/flags/ml.svg\"\n            },\n            {\n                \"id\": 104,\n                \"name\": \"Malta\",\n                \"code\": \"MT\",\n                \"flag\": \"http://localhost:8000/assets/flags/mt.svg\"\n            },\n            {\n                \"id\": 105,\n                \"name\": \"Marshall Islands\",\n                \"code\": \"MH\",\n                \"flag\": \"http://localhost:8000/assets/flags/mh.svg\"\n            },\n            {\n                \"id\": 106,\n                \"name\": \"Mauritania\",\n                \"code\": \"MR\",\n                \"flag\": \"http://localhost:8000/assets/flags/mr.svg\"\n            },\n            {\n                \"id\": 107,\n                \"name\": \"Mauritius\",\n                \"code\": \"MU\",\n                \"flag\": \"http://localhost:8000/assets/flags/mu.svg\"\n            },\n            {\n                \"id\": 108,\n                \"name\": \"Mexico\",\n                \"code\": \"MX\",\n                \"flag\": \"http://localhost:8000/assets/flags/mx.svg\"\n            },\n            {\n                \"id\": 109,\n                \"name\": \"Micronesia\",\n                \"code\": \"FM\",\n                \"flag\": \"http://localhost:8000/assets/flags/fm.svg\"\n            },\n            {\n                \"id\": 110,\n                \"name\": \"Moldova\",\n                \"code\": \"MD\",\n                \"flag\": \"http://localhost:8000/assets/flags/md.svg\"\n            },\n            {\n                \"id\": 111,\n                \"name\": \"Monaco\",\n                \"code\": \"MC\",\n                \"flag\": \"http://localhost:8000/assets/flags/mc.svg\"\n            },\n            {\n                \"id\": 112,\n                \"name\": \"Mongolia\",\n                \"code\": \"MN\",\n                \"flag\": \"http://localhost:8000/assets/flags/mn.svg\"\n            },\n            {\n                \"id\": 113,\n                \"name\": \"Montenegro\",\n                \"code\": \"ME\",\n                \"flag\": \"http://localhost:8000/assets/flags/me.svg\"\n            },\n            {\n                \"id\": 114,\n                \"name\": \"Morocco\",\n                \"code\": \"MA\",\n                \"flag\": \"http://localhost:8000/assets/flags/ma.svg\"\n            },\n            {\n                \"id\": 115,\n                \"name\": \"Mozambique\",\n                \"code\": \"MZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/mz.svg\"\n            },\n            {\n                \"id\": 116,\n                \"name\": \"Myanmar\",\n                \"code\": \"MM\",\n                \"flag\": \"http://localhost:8000/assets/flags/mm.svg\"\n            },\n            {\n                \"id\": 117,\n                \"name\": \"Namibia\",\n                \"code\": \"NA\",\n                \"flag\": \"http://localhost:8000/assets/flags/na.svg\"\n            },\n            {\n                \"id\": 118,\n                \"name\": \"Nauru\",\n                \"code\": \"NR\",\n                \"flag\": \"http://localhost:8000/assets/flags/nr.svg\"\n            },\n            {\n                \"id\": 119,\n                \"name\": \"Nepal\",\n                \"code\": \"NP\",\n                \"flag\": \"http://localhost:8000/assets/flags/np.svg\"\n            },\n            {\n                \"id\": 120,\n                \"name\": \"Netherlands\",\n                \"code\": \"NL\",\n                \"flag\": \"http://localhost:8000/assets/flags/nl.svg\"\n            },\n            {\n                \"id\": 121,\n                \"name\": \"New Zealand\",\n                \"code\": \"NZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/nz.svg\"\n            },\n            {\n                \"id\": 122,\n                \"name\": \"Nicaragua\",\n                \"code\": \"NI\",\n                \"flag\": \"http://localhost:8000/assets/flags/ni.svg\"\n            },\n            {\n                \"id\": 123,\n                \"name\": \"Niger\",\n                \"code\": \"NE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ne.svg\"\n            },\n            {\n                \"id\": 124,\n                \"name\": \"Nigeria\",\n                \"code\": \"NG\",\n                \"flag\": \"http://localhost:8000/assets/flags/ng.svg\"\n            },\n            {\n                \"id\": 125,\n                \"name\": \"North Korea\",\n                \"code\": \"KP\",\n                \"flag\": \"http://localhost:8000/assets/flags/kp.svg\"\n            },\n            {\n                \"id\": 126,\n                \"name\": \"Norway\",\n                \"code\": \"NO\",\n                \"flag\": \"http://localhost:8000/assets/flags/no.svg\"\n            },\n            {\n                \"id\": 127,\n                \"name\": \"Oman\",\n                \"code\": \"OM\",\n                \"flag\": \"http://localhost:8000/assets/flags/om.svg\"\n            },\n            {\n                \"id\": 128,\n                \"name\": \"Pakistan\",\n                \"code\": \"PK\",\n                \"flag\": \"http://localhost:8000/assets/flags/pk.svg\"\n            },\n            {\n                \"id\": 129,\n                \"name\": \"Palau\",\n                \"code\": \"PW\",\n                \"flag\": \"http://localhost:8000/assets/flags/pw.svg\"\n            },\n            {\n                \"id\": 130,\n                \"name\": \"Palestine\",\n                \"code\": \"PS\",\n                \"flag\": \"http://localhost:8000/assets/flags/ps.svg\"\n            },\n            {\n                \"id\": 131,\n                \"name\": \"Panama\",\n                \"code\": \"PA\",\n                \"flag\": \"http://localhost:8000/assets/flags/pa.svg\"\n            },\n            {\n                \"id\": 132,\n                \"name\": \"Papua New Guinea\",\n                \"code\": \"PG\",\n                \"flag\": \"http://localhost:8000/assets/flags/pg.svg\"\n            },\n            {\n                \"id\": 133,\n                \"name\": \"Paraguay\",\n                \"code\": \"PY\",\n                \"flag\": \"http://localhost:8000/assets/flags/py.svg\"\n            },\n            {\n                \"id\": 134,\n                \"name\": \"Peru\",\n                \"code\": \"PE\",\n                \"flag\": \"http://localhost:8000/assets/flags/pe.svg\"\n            },\n            {\n                \"id\": 135,\n                \"name\": \"Philippines\",\n                \"code\": \"PH\",\n                \"flag\": \"http://localhost:8000/assets/flags/ph.svg\"\n            },\n            {\n                \"id\": 136,\n                \"name\": \"Poland\",\n                \"code\": \"PL\",\n                \"flag\": \"http://localhost:8000/assets/flags/pl.svg\"\n            },\n            {\n                \"id\": 137,\n                \"name\": \"Portugal\",\n                \"code\": \"PT\",\n                \"flag\": \"http://localhost:8000/assets/flags/pt.svg\"\n            },\n            {\n                \"id\": 138,\n                \"name\": \"Qatar\",\n                \"code\": \"QA\",\n                \"flag\": \"http://localhost:8000/assets/flags/qa.svg\"\n            },\n            {\n                \"id\": 139,\n                \"name\": \"Romania\",\n                \"code\": \"RO\",\n                \"flag\": \"http://localhost:8000/assets/flags/ro.svg\"\n            },\n            {\n                \"id\": 140,\n                \"name\": \"Russia\",\n                \"code\": \"RU\",\n                \"flag\": \"http://localhost:8000/assets/flags/ru.svg\"\n            },\n            {\n                \"id\": 141,\n                \"name\": \"Rwanda\",\n                \"code\": \"RW\",\n                \"flag\": \"http://localhost:8000/assets/flags/rw.svg\"\n            },\n            {\n                \"id\": 142,\n                \"name\": \"Saint Kitts and Nevis\",\n                \"code\": \"KN\",\n                \"flag\": \"http://localhost:8000/assets/flags/kn.svg\"\n            },\n            {\n                \"id\": 143,\n                \"name\": \"Saint Lucia\",\n                \"code\": \"LC\",\n                \"flag\": \"http://localhost:8000/assets/flags/lc.svg\"\n            },\n            {\n                \"id\": 144,\n                \"name\": \"Saint Vincent and the Grenadines\",\n                \"code\": \"VC\",\n                \"flag\": \"http://localhost:8000/assets/flags/vc.svg\"\n            },\n            {\n                \"id\": 145,\n                \"name\": \"Samoa\",\n                \"code\": \"WS\",\n                \"flag\": \"http://localhost:8000/assets/flags/ws.svg\"\n            },\n            {\n                \"id\": 146,\n                \"name\": \"San Marino\",\n                \"code\": \"SM\",\n                \"flag\": \"http://localhost:8000/assets/flags/sm.svg\"\n            },\n            {\n                \"id\": 147,\n                \"name\": \"Sao Tome and Principe\",\n                \"code\": \"ST\",\n                \"flag\": \"http://localhost:8000/assets/flags/st.svg\"\n            },\n            {\n                \"id\": 148,\n                \"name\": \"Saudi Arabia\",\n                \"code\": \"SA\",\n                \"flag\": \"http://localhost:8000/assets/flags/sa.svg\"\n            },\n            {\n                \"id\": 149,\n                \"name\": \"Senegal\",\n                \"code\": \"SN\",\n                \"flag\": \"http://localhost:8000/assets/flags/sn.svg\"\n            },\n            {\n                \"id\": 150,\n                \"name\": \"Serbia\",\n                \"code\": \"RS\",\n                \"flag\": \"http://localhost:8000/assets/flags/rs.svg\"\n            },\n            {\n                \"id\": 151,\n                \"name\": \"Seychelles\",\n                \"code\": \"SC\",\n                \"flag\": \"http://localhost:8000/assets/flags/sc.svg\"\n            },\n            {\n                \"id\": 152,\n                \"name\": \"Sierra Leone\",\n                \"code\": \"SL\",\n                \"flag\": \"http://localhost:8000/assets/flags/sl.svg\"\n            },\n            {\n                \"id\": 153,\n                \"name\": \"Singapore\",\n                \"code\": \"SG\",\n                \"flag\": \"http://localhost:8000/assets/flags/sg.svg\"\n            },\n            {\n                \"id\": 154,\n                \"name\": \"Slovakia\",\n                \"code\": \"SK\",\n                \"flag\": \"http://localhost:8000/assets/flags/sk.svg\"\n            },\n            {\n                \"id\": 155,\n                \"name\": \"Slovenia\",\n                \"code\": \"SI\",\n                \"flag\": \"http://localhost:8000/assets/flags/si.svg\"\n            },\n            {\n                \"id\": 156,\n                \"name\": \"Solomon Islands\",\n                \"code\": \"SB\",\n                \"flag\": \"http://localhost:8000/assets/flags/sb.svg\"\n            },\n            {\n                \"id\": 157,\n                \"name\": \"Somalia\",\n                \"code\": \"SO\",\n                \"flag\": \"http://localhost:8000/assets/flags/so.svg\"\n            },\n            {\n                \"id\": 158,\n                \"name\": \"South Africa\",\n                \"code\": \"ZA\",\n                \"flag\": \"http://localhost:8000/assets/flags/za.svg\"\n            },\n            {\n                \"id\": 159,\n                \"name\": \"South Korea\",\n                \"code\": \"KR\",\n                \"flag\": \"http://localhost:8000/assets/flags/kr.svg\"\n            },\n            {\n                \"id\": 160,\n                \"name\": \"South Sudan\",\n                \"code\": \"SS\",\n                \"flag\": \"http://localhost:8000/assets/flags/ss.svg\"\n            },\n            {\n                \"id\": 161,\n                \"name\": \"Spain\",\n                \"code\": \"ES\",\n                \"flag\": \"http://localhost:8000/assets/flags/es.svg\"\n            },\n            {\n                \"id\": 162,\n                \"name\": \"Sri Lanka\",\n                \"code\": \"LK\",\n                \"flag\": \"http://localhost:8000/assets/flags/lk.svg\"\n            },\n            {\n                \"id\": 163,\n                \"name\": \"Sudan\",\n                \"code\": \"SD\",\n                \"flag\": \"http://localhost:8000/assets/flags/sd.svg\"\n            },\n            {\n                \"id\": 164,\n                \"name\": \"Suriname\",\n                \"code\": \"SR\",\n                \"flag\": \"http://localhost:8000/assets/flags/sr.svg\"\n            },\n            {\n                \"id\": 165,\n                \"name\": \"Sweden\",\n                \"code\": \"SE\",\n                \"flag\": \"http://localhost:8000/assets/flags/se.svg\"\n            },\n            {\n                \"id\": 166,\n                \"name\": \"Switzerland\",\n                \"code\": \"CH\",\n                \"flag\": \"http://localhost:8000/assets/flags/ch.svg\"\n            },\n            {\n                \"id\": 167,\n                \"name\": \"Syria\",\n                \"code\": \"SY\",\n                \"flag\": \"http://localhost:8000/assets/flags/sy.svg\"\n            },\n            {\n                \"id\": 168,\n                \"name\": \"Taiwan\",\n                \"code\": \"TW\",\n                \"flag\": \"http://localhost:8000/assets/flags/tw.svg\"\n            },\n            {\n                \"id\": 169,\n                \"name\": \"Tajikistan\",\n                \"code\": \"TJ\",\n                \"flag\": \"http://localhost:8000/assets/flags/tj.svg\"\n            },\n            {\n                \"id\": 170,\n                \"name\": \"Tanzania\",\n                \"code\": \"TZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/tz.svg\"\n            },\n            {\n                \"id\": 171,\n                \"name\": \"Thailand\",\n                \"code\": \"TH\",\n                \"flag\": \"http://localhost:8000/assets/flags/th.svg\"\n            },\n            {\n                \"id\": 172,\n                \"name\": \"Timor-Leste\",\n                \"code\": \"TL\",\n                \"flag\": \"http://localhost:8000/assets/flags/tl.svg\"\n            },\n            {\n                \"id\": 173,\n                \"name\": \"Togo\",\n                \"code\": \"TG\",\n                \"flag\": \"http://localhost:8000/assets/flags/tg.svg\"\n            },\n            {\n                \"id\": 174,\n                \"name\": \"Tonga\",\n                \"code\": \"TO\",\n                \"flag\": \"http://localhost:8000/assets/flags/to.svg\"\n            },\n            {\n                \"id\": 175,\n                \"name\": \"Trinidad and Tobago\",\n                \"code\": \"TT\",\n                \"flag\": \"http://localhost:8000/assets/flags/tt.svg\"\n            },\n            {\n                \"id\": 176,\n                \"name\": \"Tunisia\",\n                \"code\": \"TN\",\n                \"flag\": \"http://localhost:8000/assets/flags/tn.svg\"\n            },\n            {\n                \"id\": 177,\n                \"name\": \"Turkey\",\n                \"code\": \"TR\",\n                \"flag\": \"http://localhost:8000/assets/flags/tr.svg\"\n            },\n            {\n                \"id\": 178,\n                \"name\": \"Turkmenistan\",\n                \"code\": \"TM\",\n                \"flag\": \"http://localhost:8000/assets/flags/tm.svg\"\n            },\n            {\n                \"id\": 179,\n                \"name\": \"Tuvalu\",\n                \"code\": \"TV\",\n                \"flag\": \"http://localhost:8000/assets/flags/tv.svg\"\n            },\n            {\n                \"id\": 180,\n                \"name\": \"Uganda\",\n                \"code\": \"UG\",\n                \"flag\": \"http://localhost:8000/assets/flags/ug.svg\"\n            },\n            {\n                \"id\": 181,\n                \"name\": \"Ukraine\",\n                \"code\": \"UA\",\n                \"flag\": \"http://localhost:8000/assets/flags/ua.svg\"\n            },\n            {\n                \"id\": 182,\n                \"name\": \"United Arab Emirates\",\n                \"code\": \"AE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ae.svg\"\n            },\n            {\n                \"id\": 183,\n                \"name\": \"United Kingdom\",\n                \"code\": \"GB\",\n                \"flag\": \"http://localhost:8000/assets/flags/gb.svg\"\n            },\n            {\n                \"id\": 184,\n                \"name\": \"United States\",\n                \"code\": \"US\",\n                \"flag\": \"http://localhost:8000/assets/flags/us.svg\"\n            },\n            {\n                \"id\": 185,\n                \"name\": \"Uruguay\",\n                \"code\": \"UY\",\n                \"flag\": \"http://localhost:8000/assets/flags/uy.svg\"\n            },\n            {\n                \"id\": 186,\n                \"name\": \"Uzbekistan\",\n                \"code\": \"UZ\",\n                \"flag\": \"http://localhost:8000/assets/flags/uz.svg\"\n            },\n            {\n                \"id\": 187,\n                \"name\": \"Vanuatu\",\n                \"code\": \"VU\",\n                \"flag\": \"http://localhost:8000/assets/flags/vu.svg\"\n            },\n            {\n                \"id\": 188,\n                \"name\": \"Vatican City\",\n                \"code\": \"VA\",\n                \"flag\": \"http://localhost:8000/assets/flags/va.svg\"\n            },\n            {\n                \"id\": 189,\n                \"name\": \"Venezuela\",\n                \"code\": \"VE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ve.svg\"\n            },\n            {\n                \"id\": 190,\n                \"name\": \"Vietnam\",\n                \"code\": \"VN\",\n                \"flag\": \"http://localhost:8000/assets/flags/vn.svg\"\n            },\n            {\n                \"id\": 191,\n                \"name\": \"Yemen\",\n                \"code\": \"YE\",\n                \"flag\": \"http://localhost:8000/assets/flags/ye.svg\"\n            },\n            {\n                \"id\": 192,\n                \"name\": \"Zambia\",\n                \"code\": \"ZM\",\n                \"flag\": \"http://localhost:8000/assets/flags/zm.svg\"\n            },\n            {\n                \"id\": 193,\n                \"name\": \"Zimbabwe\",\n                \"code\": \"ZW\",\n                \"flag\": \"http://localhost:8000/assets/flags/zw.svg\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get All",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/languages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"languages"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/languages",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"languages"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 23 Apr 2025 17:48:38 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": null,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"English\",\n            \"iso_code\": \"en\",\n            \"country_code\": \"gb\",\n            \"created_at\": \"2025-04-23T16:54:26.000000Z\",\n            \"updated_at\": \"2025-04-23T16:54:26.000000Z\",\n            \"flag\": \"http://localhost:8000/assets/flags/gb.svg\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"العربية\",\n            \"iso_code\": \"ar\",\n            \"country_code\": \"eg\",\n            \"created_at\": \"2025-04-23T16:54:26.000000Z\",\n            \"updated_at\": \"2025-04-23T16:54:26.000000Z\",\n            \"flag\": \"http://localhost:8000/assets/flags/eg.svg\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Add a New Language",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Français\",\n    \"iso_code\": \"fr\",\n    \"country_code\": \"fr\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/languages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"languages"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Français\",\n    \"iso_code\": \"fr\",\n    \"country_code\": \"fr\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/languages",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"languages"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 23 Apr 2025 18:02:44 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Language Created Successfully\",\n    \"data\": {\n        \"name\": \"Français\",\n        \"iso_code\": \"fr\",\n        \"country_code\": \"fr\",\n        \"updated_at\": \"2025-04-23T18:02:44.000000Z\",\n        \"created_at\": \"2025-04-23T18:02:44.000000Z\",\n        \"id\": 3,\n        \"flag\": \"http://localhost:8000/assets/flags/fr.svg\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Language by Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/languages/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"languages",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/languages/1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"languages",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 23 Apr 2025 18:43:56 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Language Retrieved Successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"English\",\n        \"iso_code\": \"en\",\n        \"country_code\": \"gb\",\n        \"created_at\": \"2025-04-23T16:54:26.000000Z\",\n        \"updated_at\": \"2025-04-23T16:54:26.000000Z\",\n        \"flag\": \"http://localhost:8000/assets/flags/gb.svg\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Language",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"عربي\",\n    \"iso_code\": \"ar\",\n    \"country_code\": \"eg\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/languages/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"languages",
+										"2"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"عربي\",\n    \"iso_code\": \"ar\",\n    \"country_code\": \"eg\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/admin/languages/2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"languages",
+												"2"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 23 Apr 2025 18:48:35 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Language Updated Successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"عربي\",\n        \"iso_code\": \"ar\",\n        \"country_code\": \"eg\",\n        \"created_at\": \"2025-04-23T16:54:26.000000Z\",\n        \"updated_at\": \"2025-04-23T18:45:42.000000Z\",\n        \"flag\": \"http://localhost:8000/assets/flags/eg.svg\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Language",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin-token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/admin/languages/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"languages",
+										"3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/admin/languages/3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"admin",
+												"languages",
+												"3"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 23 Apr 2025 18:52:23 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"message\": \"Language Deleted Successfully\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

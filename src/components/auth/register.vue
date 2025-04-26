@@ -1,23 +1,89 @@
 <template>
   <div class="register-page">
     <!-- ==============Container Section================= -->
-    <section class="div-login">
+    <div class="p-5 z-2 d-none bg-light w-lg-50 w-100" id="otp" style="width: 50%; margin: auto; scale: 0; transition: all 0.3s ease-out; height: 480px">
+      <center><h2>Please Verify Your Account</h2></center>
+      <div class="row w-100">
+        <!-- OTP Input Fields -->
+        <input type="text" class="w-100 otp-inp border-0 border-bottom border-primary" v-model="otp" style="outline: none;" />
+      </div>
+      <div class="d-flex justify-content-between w-100 mt-4">
+        <button class="btn btn-outline-success" @click="submitOtp">Verify</button>
+        <button class="btn btn-outline-secondary" @click="resetOtpFields">Send Again</button>
+      </div>
+      <p class="feedback" v-if="feedbackMessage" :class="feedbackClass">{{ feedbackMessage }}</p>
+    </div>
+    <section class="div-login" id="div-login">
       <div class="rounded p-2 bg-light form-sign">
         <div class="d-flex flex-column justify-content-center align-items-start">
-         <center><div class="mb-4"><img src="https://kolshy.ae/wp-content/uploads/2025/02/Layer_1.svg" class="img-fluid" alt="logo-form" /></div></center>
+          <center>
+            <div class="mb-4"><img src="https://kolshy.ae/wp-content/uploads/2025/02/Untitled-3000-x-750-px.gif" class="img-fluid" alt="logo-form" /></div>
+          </center>
           <h1 class="fs-1 fw-bold mt-4" style="color: #000336">Create Account</h1>
-          <form action="https://" method="post" class="w-100 p-0">
-            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="text" name="name" id="name" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" />
+          <form method="post" class="w-100 p-0" @submit.prevent="sendForm()">
+            <small style="font-size: 12px; font-weight: bold; color: red; display: none" id="name_confirm">Sorry, This name or email is not available or is existing</small>
+            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-0">
+              <input type="text" name="name" id="name" v-model="Name" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" required />
             </div>
-            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="tel" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Email or Phone Number" aria-label="Email" aria-describedby="basic-addon1" />
+            <small style="font-size: 12px; font-weight: bold; color: gray">Just use [A,Z,a,z,1,9,@]</small>
+            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4 mt-4">
+              <input type="email" class="bg-transparent w-75 p-2" v-model="Email" style="border: none; outline: none; font-weight: 500" placeholder="Email " aria-label="Email" aria-describedby="basic-addon1" required />
             </div>
-            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="password" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
+            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-0">
+              <input type="text" class="bg-transparent w-75 p-2" v-model="Password" style="border: none; outline: none; font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" required />
             </div>
+            <small style="font-size: 12px; font-weight: bold; color: gray">must use at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character</small>
+            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4 mt-4">
+              <input type="password" class="bg-transparent w-75 p-2" v-model="Password_confirmation" style="border: none; outline: none; font-weight: 500" placeholder=" Confirmation Your Password" aria-label="Username" aria-describedby="basic-addon1" required />
+            </div>
+
+            <!-- <div :class="vendor_or_not === 'vendor' ? 'd-block' : 'd-none'" style="display: none">
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="shopName" style="border: none; outline: none; font-weight: 500" placeholder="Shop Name" aria-label="Shop" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-0">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="shopUrl" style="border: none; outline: none; font-weight: 500" placeholder="Shop URL" aria-label="Shop" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <small>{{ "https://kolshy.com/" + shopName + shopUrl }}</small>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4 mt-4">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="street" style="border: none; outline: none; font-weight: 500" placeholder="Street" aria-label="Street" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="text" class="bg-transparent w-50 p-2" v-model="City" style="border-right: 1px solide gary; border-top: none; border-left: none; border-bottom: none; outline: none; font-weight: 500" placeholder="City" aria-label="City" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+                <input type="text" class="bg-transparent w-50 p-2" v-model="ZIP" style="border: none; outline: none; font-weight: 500" placeholder="ZIP Code" aria-label="ZIP" aria-describedby="basic-addon1" />
+              </div>
+              <div style="border: none" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <select name="country" v-model="country" id="country" style="border: 0.5px solid #f0f0f0; outline: none; font-weight: 500" class="w-100 p-2">
+                  <option value="none">Select Your Country</option>
+                  <option value="eg">Egypt</option>
+                </select>
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="status" style="border: none; outline: none; font-weight: 500" placeholder="Status" aria-label="Status" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="tel" class="bg-transparent w-75 p-2" v-model="phone" style="border: none; outline: none; font-weight: 500" placeholder="Phone Number" aria-label="Phone" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div>
+                <div class="d-flex align-items-start m-2">
+                  <input type="checkbox" name="type-account" value="accept ruls" v-model="accept" style="outline: none; margin: 0 8px" :required="vendor_or_not === 'vendor'" />
+                  <p class="fw-bold">I have read and agree to the Terms & Conditions</p>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- <div class="input-group w-100 flex-column justify-content-start align-items-start mb-4">
+              <div class="d-flex align-items-start m-2">
+                <input type="radio" name="type-account" value="customer" checked v-model="vendor_or_not" style="outline: none; margin: 0 8px" />
+                <p class="fw-bold">I am a customer</p>
+              </div>
+              <div class="d-flex align-items-start m-2">
+                <input type="radio" name="type-account" value="vendor" v-model="vendor_or_not" style="outline: none; margin: 0 8px" />
+                <p class="fw-bold">I am a vendor</p>
+              </div>
+            </div> -->
             <div class="d-flex flex-column justify-content-center align-items-center mb-4">
-              <button class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #e51742; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
+              <button type="submit" class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #e51742; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
                 Create Account<span class="ml-2 mt-2"
                   ><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M13.47 5.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H4a.75.75 0 0 1 0-1.5h14.19l-4.72-4.72a.75.75 0 0 1 0-1.06" clip-rule="evenodd" /></svg
                 ></span>
@@ -40,12 +106,12 @@
             <a href="./login" style="color: #e51742; text-decoration: underline; font-weight: 600">Sign in</a>
           </div>
           <div class="mt-4 d-flex justify-content-center align-items-center w-100">
-            <button class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #000336; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
+            <div class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #000336; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
               Want to sell via Kolshy ?
               <span class="ml-2 mt-2"
                 ><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M13.47 5.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H4a.75.75 0 0 1 0-1.5h14.19l-4.72-4.72a.75.75 0 0 1 0-1.06" clip-rule="evenodd" /></svg
               ></span>
-            </button>
+            </div>
           </div>
         </div>
       </div>
@@ -54,8 +120,93 @@
 </template>
 
 <script>
+import { useVuelidate } from "@vuelidate/core";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
+import axios from "axios";
+import { useToast } from "vue-toastification";
+
 export default {
   name: "register",
+  data() {
+    return {
+      Name: "",
+      Email: "",
+      Password: "",
+      Password_confirmation: "",
+      feedbackMessage: "", // Feedback to display to the user
+      feedbackClass: "", // Feedback CSS class (success or error)
+      otp: "", // تم تغييرها من array إلى string
+    };
+  },
+  validations() {
+    return {
+      Name: { required },
+      Email: { required, email },
+      Password: { required, minLength: minLength(6) },
+      Password_confirmation: {
+        required,
+      },
+    };
+  },
+  setup() {
+    const v$ = useVuelidate();
+    const toast = useToast();
+    return { v$, toast }; // إضافة toast هنا
+  },
+  methods: {
+    async sendForm() {
+      this.v$.$touch();
+      if (!this.v$.$error) {
+        const datauser = {
+          name: this.Name,
+          email_or_phone: this.Email,
+          password: this.Password,
+          password_confirmation: this.Password_confirmation,
+        };
+
+        try {
+          const res = await axios.post("https://back.kolshy.ae/api/customer/register", datauser);
+          if (res.status === 201) {
+            this.toast.success("Successfully! we'il send a code to your email"); // استخدام this.toast بدلًا من this.$toast
+            window.scrollTo(0, 0); // Smooth scroll to the top
+            document.getElementById("otp").style.scale = "1"; // Ensure proper scaling
+            document.getElementById("otp").classList.remove("d-none"); // Ensure proper scaling
+            document.getElementById("div-login").style.display = "none";
+            // تصحيح خطأ localStorage:
+            localStorage.setItem("token", JSON.stringify(res.data.data.token)); // تصحيح stringify
+          }
+        } catch (err) {
+          this.toast.error(err.response?.data?.message || "Error message"); // معالجة الأخطاء بشكل أفضل
+        }
+      }
+    },
+    async submitOtp() {
+      if (this.otp.length === 6) {
+        // تم التبسيط لأن otp الآن string
+        try {
+          const response = await fetch("https://back.kolshy.ae/api/auth/verification/verify", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`, // Use stored token
+            },
+            body: JSON.stringify({ otp: otpCode }),
+          });
+
+          if (response.status === 200) {
+            this.toast.success("تم التحقق بنجاح!");
+          }
+        } catch (error) {
+          this.toast.error("فشل التحقق: " + error.response?.data?.message);
+        }
+      } else {
+        this.toast.warning("الرجاء إدخال 6 أرقام");
+      }
+    },
+    resetOtpFields() {
+      this.otp = ""; // تم التبسيط
+    },
+  },
 };
 </script>
 
@@ -71,3 +222,8 @@ export default {
   }
 }
 </style>
+
+/*  
+// Ther is Error in OTP Code 
+// Added A Toast Functions
+*/

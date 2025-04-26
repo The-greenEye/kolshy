@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="position-relative">
-      <div class="slider-section category">
+      <div class="slider-section category d-lg-block d-none">
         <Splide :options="{ rewind: true }" aria-label="My Favorite Images">
           <SplideSlide>
             <img src="https://wallpapercave.com/wp/wp9032309.jpg" class="img-fluid" alt="Sample 1" />
@@ -17,22 +17,101 @@
           </SplideSlide>
         </Splide>
       </div>
-      <div class="position-absolute d-lg-flex align-items-center justify-content-between p-4 d-none" style="bottom: -260px; width: 95%; margin: 0 auto 0 30px">
-        <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg" style="height: 440px">
+      <!-- mode mobile -->
+      <div class="bg-light p-2 border-0 d-lg-none d-block w-100">
+        <div class="slider">
+          <div class="card slider-item row m-2 ">
+            <h3 class="col-12 fw-bold">Best Gamse in egypt</h3>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Playground_sets._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_STEM_toys_or_learning_toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Action_figure._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Pretend_Play_Toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+          </div>
+          <div class="card slider-item row m-2 ">
+            <h3 class="fw-bold">Elevate Your Electronics</h3>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Headphones._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Tablets._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Gaming._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Speakers._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+          </div>
+          <div class="card slider-item row m-2 ">
+            <h3 class="fw-bold">Gaming merchandise</h3>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Apparel_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Hat_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Figure_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Mug_1x._SY116_CB667159063_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+          </div>
+          <div class="card slider-item row m-2 ">
+            <h3 class="fw-bold">Best Gamse in egypt</h3>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Playground_sets._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_STEM_toys_or_learning_toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Action_figure._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Pretend_Play_Toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+          </div>
+          <div class="card slider-item row m-2 ">
+            <h3 class="fw-bold">Elevate Your Electronics</h3>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Headphones._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Tablets._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Gaming._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Speakers._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+          </div>
+          <div class="card slider-item row m-2 ">
+            <h3 class="fw-bold">Gaming merchandise</h3>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Apparel_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Hat_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+            <div class="col-6 d-flex">
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Figure_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+              <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Mug_1x._SY116_CB667159063_.jpg" alt="" class="img-fluid m-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="position-absolute d-lg-flex  align-items-center justify-content-between p-4 d-none" style="bottom: -260px; width: 95%; margin: 0 auto 0 30px">
+        <div class="card z-2 rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg"  style="height: 440px; width: 320px">
           <img src="https://freckledflower.com/wp-content/uploads/2016/02/child-model-red-butterfly-closet-dress-photography-2048x1152.jpg" width="350" height="400" alt="" class="img-fluid" />
           <div class="crad-body">
             <h3 class="card-title">Kids wear</h3>
             <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
           </div>
         </div>
-        <div class="card z-2 rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px">
+        <div class="card z-2 rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
           <img src="https://i.pinimg.com/474x/0f/62/eb/0f62ebde5de45c085fcee79d9e4dba8a.jpg" width="350" height="360" alt="" class="img-fluid" />
           <div class="crad-body">
             <h3 class="card-title">Man Hat</h3>
             <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
           </div>
         </div>
-        <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px">
+        <div class="card z-2 rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
+          <img src="https://wallpaperaccess.com/full/4571410.jpg" width="350" height="400" alt="" class="img-fluid" />
+          <div class="crad-body">
+            <h3 class="card-title">Accessories</h3>
+            <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+          </div>
+        </div>
+        <div class="card z-2 rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
           <img src="https://wallpaperaccess.com/full/4571410.jpg" width="350" height="400" alt="" class="img-fluid" />
           <div class="crad-body">
             <h3 class="card-title">Accessories</h3>
@@ -41,179 +120,285 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-wrap p-4" style="width: 95%;margin: auto">
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://wallpaperaccess.com/full/6173939.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+    <div class="d-flex flex-wrap align-items-center justify-content-between p-2" style="width: 100%; margin: auto">
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://wallpaperaccess.com/full/6173939.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Kids wear</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" width="350" height="360" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Man Hat</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Accessories</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i.pinimg.com/originals/83/c9/75/83c975c73060160fe07b9d70612ff281.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Kids wear</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Kids wear</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i.pinimg.com/originals/92/71/ef/9271ef026ae8cd8abffdca34e9fdb797.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="360" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Man Hat</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://img.freepik.com/premium-photo/running-shoes-realistic-4k-white-background_839182-6779.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Accessories</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
-        </div>
-      </div>
-    </div>      
-
-    <div class="d-flex border-0 overflow-x-auto p-4" style="height: 660px; width: 92%; margin: auto">
-      <div class="card p-0 rounded-0 m-2 shadow-lg" style="width: 420px; min-width: 400px">
-        <img src="https://cdn.wallpapersafari.com/52/9/Slw2pZ.jpg" class="rounded-0" style="height: 280px; object-fit: cover" alt="" />
-        <div class="card-body">
-          <h2 class="card-title">Shoes Man</h2>
-          <h3 style="color: #e51742">$22.49</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam veritatis eligendi, repellendus suscipit quod dolore, assumenda magnam dolorem esse officia porro, possimus incidunt dolorum exercitationem ipsum!...</p>
-          <center><button class="btn rounded-pill w-75" style="background: #e51742; color: #fff; font-weight: 500">Add To Cart</button></center>
-        </div>
-      </div>
-      <div class="card p-0 rounded-0 m-2 shadow-lg" style="width: 420px; min-width: 400px">
-        <img src="https://wallpaperaccess.com/full/5733588.jpg" class="rounded-0" style="height: 280px; object-fit: cover" alt="" />
-        <div class="card-body">
-          <h2 class="card-title">Shoes Man</h2>
-          <h3 style="color: #e51742">$22.49</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam veritatis eligendi, repellendus suscipit quod dolore, assumenda magnam dolorem esse officia porro, possimus incidunt dolorum exercitationem ipsum!...</p>
-          <center><button class="btn rounded-pill w-75" style="background: #e51742; color: #fff; font-weight: 500">Add To Cart</button></center>
-        </div>
-      </div>
-      <div class="card p-0 rounded-0 m-2 shadow-lg" style="width: 420px; min-width: 400px">
-        <img src="https://img.kwcdn.com/product/1d6586ab48/bd0d2d36-e447-4271-8534-df449cb14a08_1350x1800.jpeg.a.jpg" class="rounded-0" style="height: 280px; object-fit: cover" alt="" />
-        <div class="card-body">
-          <h2 class="card-title">Shoes Man</h2>
-          <h3 style="color: #e51742">$22.49</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam veritatis eligendi, repellendus suscipit quod dolore, assumenda magnam dolorem esse officia porro, possimus incidunt dolorum exercitationem ipsum!...</p>
-          <center><button class="btn rounded-pill w-75" style="background: #e51742; color: #fff; font-weight: 500">Add To Cart</button></center>
-        </div>
-      </div>
-      <div class="card p-0 rounded-0 m-2 shadow-lg" style="width: 420px; min-width: 400px">
-        <img src="https://rare-gallery.com/uploads/posts/341801-Gigi-Hadid-American-Model-Celebrity-Girls-Women-Fashion-Model-Photoshoot-Photo-Shoot.jpg" class="rounded-0" style="height: 280px; object-fit: cover" alt="" />
-        <div class="card-body">
-          <h2 class="card-title">Shoes Man</h2>
-          <h3 style="color: #e51742">$22.49</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam veritatis eligendi, repellendus suscipit quod dolore, assumenda magnam dolorem esse officia porro, possimus incidunt dolorum exercitationem ipsum!...</p>
-          <center><button class="btn rounded-pill w-75" style="background: #e51742; color: #fff; font-weight: 500">Add To Cart</button></center>
-        </div>
-      </div>
-      <div class="card p-0 rounded-0 m-2 shadow-lg" style="width: 420px; min-width: 400px">
-        <img src="https://i.pinimg.com/736x/61/a7/89/61a789cff6041c67e44232779eef3353.jpg" class="rounded-0" style="height: 280px; object-fit: cover" alt="" />
-        <div class="card-body">
-          <h2 class="card-title">Shoes Man</h2>
-          <h3 style="color: #e51742">$22.49</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nam veritatis eligendi, repellendus suscipit quod dolore, assumenda magnam dolorem esse officia porro, possimus incidunt dolorum exercitationem ipsum!...</p>
-          <center><button class="btn rounded-pill w-75" style="background: #e51742; color: #fff; font-weight: 500">Add To Cart</button></center>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Accessories</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
     </div>
-     <div class="d-flex flex-wrap p-4" style="width: 95%;margin: auto">
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://wallpaperaccess.com/full/6173939.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
-        </div>
-      </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
-        </div>
-      </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
-        </div>
-      </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i.pinimg.com/originals/83/c9/75/83c975c73060160fe07b9d70612ff281.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
-        </div>
-      </div>
 
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+    <!-- End notice section -->
+    <div class="bg-light p-2 border-0 d-lg-block d-none" style="height: 290px; width: 96.5%; margin: 10px 20px">
+      <h3 class="text-dr">Best in egypt</h3>
+      <div class="slider">
+        <div class="card slider-item">
+          <img src="https://cdn.wallpapersafari.com/52/9/Slw2pZ.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://wallpaperaccess.com/full/5733588.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://img.kwcdn.com/product/1d6586ab48/bd0d2d36-e447-4271-8534-df449cb14a08_1350x1800.jpeg.a.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://rare-gallery.com/uploads/posts/341801-Gigi-Hadid-American-Model-Celebrity-Girls-Women-Fashion-Model-Photoshoot-Photo-Shoot.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://i.pinimg.com/736x/61/a7/89/61a789cff6041c67e44232779eef3353.jpg" class="rounded-0" style="height: 180px" alt="" />
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://i.pinimg.com/originals/92/71/ef/9271ef026ae8cd8abffdca34e9fdb797.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+    </div>
+    <div class="bg-light p-2 border-0 d-lg-block d-none" style="height: 290px; width: 96.5%; margin: 10px 20px">
+      <h3 class="text-dr">Best in USA</h3>
+      <div class="slider">
+        <div class="card slider-item">
+          <img src="https://cdn.wallpapersafari.com/52/9/Slw2pZ.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://wallpaperaccess.com/full/5733588.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://img.kwcdn.com/product/1d6586ab48/bd0d2d36-e447-4271-8534-df449cb14a08_1350x1800.jpeg.a.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://rare-gallery.com/uploads/posts/341801-Gigi-Hadid-American-Model-Celebrity-Girls-Women-Fashion-Model-Photoshoot-Photo-Shoot.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://i.pinimg.com/736x/61/a7/89/61a789cff6041c67e44232779eef3353.jpg" class="rounded-0" style="height: 180px" alt="" />
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://img.freepik.com/premium-photo/running-shoes-realistic-4k-white-background_839182-6779.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+    </div>
+
+    <div class="d-flex flex-wrap align-items-center justify-content-between p-2" style="width: 100%; margin: auto">
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://wallpaperaccess.com/full/6173939.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Kids wear</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-      <div class="card p-0 m-2 d-flex flex-column justify-content-between" style="width: 280px">
-        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" class="card-img-top" alt="product-image" />
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam praesentium vero iste...</p>
-          <a href="./cart/shop.vue">See More</a>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" width="350" height="360" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Man Hat</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
         </div>
       </div>
-    </div> 
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Accessories</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        </div>
+      </div>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Kids wear</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        </div>
+      </div>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Kids wear</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        </div>
+      </div>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="360" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Man Hat</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        </div>
+      </div>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Accessories</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        </div>
+      </div>
+      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px;width: 320px">
+        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
+        <div class="crad-body">
+          <h3 class="card-title">Accessories</h3>
+          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-light p-2 border-0 d-lg-block d-none" style="height: 290px; width: 96.5%; margin: 10px 20px">
+      <h3 class="text-dr">Best seller in Clothes & Accessories</h3>
+      <div class="slider">
+        <div class="card slider-item">
+          <img src="https://cdn.wallpapersafari.com/52/9/Slw2pZ.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://wallpaperaccess.com/full/5733588.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://img.kwcdn.com/product/1d6586ab48/bd0d2d36-e447-4271-8534-df449cb14a08_1350x1800.jpeg.a.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://rare-gallery.com/uploads/posts/341801-Gigi-Hadid-American-Model-Celebrity-Girls-Women-Fashion-Model-Photoshoot-Photo-Shoot.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+        <div class="card slider-item">
+          <img src="https://i.pinimg.com/736x/61/a7/89/61a789cff6041c67e44232779eef3353.jpg" class="rounded-0" style="height: 180px" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap align-items-center justify-content-start p-2" style="width: 100%; margin: auto">
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Best Gamse in egypt</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Playground_sets._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_STEM_toys_or_learning_toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Action_figure._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Pretend_Play_Toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Best Gamse in egypt</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Playground_sets._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_STEM_toys_or_learning_toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Action_figure._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Pretend_Play_Toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Elevate Your Electronics</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Headphones._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Tablets._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Gaming._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Speakers._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Gaming merchandise</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Apparel_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Hat_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Figure_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Mug_1x._SY116_CB667159063_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap align-items-center justify-content-start p-2" style="width: 100%; margin: auto">
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Best Gamse in egypt</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Playground_sets._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_STEM_toys_or_learning_toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Action_figure._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/DskBTFQuadCards/Fuji_BTF_Quad_Cards_1x_Pretend_Play_Toys._SY116_CB558654384_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Elevate Your Electronics</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Headphones._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Tablets._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Gaming._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Speakers._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Elevate Your Electronics</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Headphones._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Tablets._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Gaming._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2025/Q1DefectReduction/Fuji_Defect_Reduction_1x_Speakers._SY116_CB549022351_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+      <div class="card rounded-0 m-2 justify-content-between row p-2 shadow-lg" style="width: 320px">
+        <h4 class="fw-bold" style="white-space: nowrap">Gaming merchandise</h4>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Apparel_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Hat_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+        <div class="col-6 d-flex">
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Figure_1x._SY116_CB667159060_.jpg" alt="" class="img-fluid m-2" />
+          <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Mug_1x._SY116_CB667159063_.jpg" alt="" class="img-fluid m-2" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/vue-splide/css";
-
 export default {
   name: "HomePage",
   components: {
@@ -221,9 +406,19 @@ export default {
     SplideSlide,
   },
   data() {
-    return {};
+    return {
+      name_user: JSON.parse(localStorage.getItem("name_kolshy")),
+      type_account: JSON.parse(localStorage.getItem("type_account")),
+    };
   },
-  methods: {},
+  methods: {
+    removeNotice() {
+      document.getElementById("notice").classList.remove("d-block");
+    },
+    addCart() {
+      document.getElementById("notice_cart").classList.add("d-block");
+    },
+  },
 };
 </script>
 
@@ -246,5 +441,28 @@ export default {
   .category {
     margin: 0;
   }
+}
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Offers a more native scrolling feel on iOS */
+  gap: 10px; /* Optional, space between your items */
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.slider-item {
+  flex: 0 0 auto; /* Prevent items from stretching */
+  width: 350px; /* Set a fixed width or any responsive dimension */
+  scroll-snap-align: center; /* Align each item at the start of the container */
+  background: #ccc; /* Example background */
+  border-radius: 8px;
+  padding: 20px;
+}
+.slide-item img {
+  max-width: 100%; /* The image won't exceed its container's width */
+  height: auto; /* Maintain the original aspect ratio */
+  display: block;
 }
 </style>

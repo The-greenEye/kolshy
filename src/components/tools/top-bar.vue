@@ -11,8 +11,10 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
             <span class="d-flex flex-column">
               <b>Hello,</b>
-              <small class="icon"><router-link to="login">Signin</router-link> or <router-link to="register">Signup</router-link></small>
-            </span>
+              <small class="icon" v-if="!Name_Kolshy">
+                <router-link to="login">Signin</router-link> or <router-link to="register">Signup</router-link>
+              </small>
+              <small class="icon" v-else>{{ Name_Kolshy }}</small>            </span>
           </div>
           <div>
             <a href="#" @mouseenter="openCard" @mouseleave="closeCard">
@@ -71,7 +73,10 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
             <span class="d-flex flex-column">
               <b>Hello,</b>
-              <small class="icon"><router-link to="login">Signin</router-link> or <router-link to="register">Signup</router-link></small>
+              <small class="icon" v-if="!Name_Kolshy">
+                <router-link to="login">Signin</router-link> or <router-link to="register">Signup</router-link>
+              </small>
+              <small class="icon" v-else>{{ Name_Kolshy }}</small>
             </span>
           </li>
           |
@@ -80,11 +85,20 @@
           </li>
           |
           <li class="nav-item flex">
-            <b
-              ><button class="btn d-flex p-1 rounded-pill" style="color: #fff; background: #e51742">
-                <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275m-5.381-5.752l5.759-5.759M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m13 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m0 13a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m-13-3a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0" /></svg> Affiliate
-              </button></b
-            >
+            <b v-if="Type_Account === 'vendor'">
+              <router-link to="/dashboard_user" style="text-decoration: none;">
+              <button class="btn d-flex p-1 rounded-pill" style="color: #fff; background: #e51742">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275m-5.381-5.752l5.759-5.759M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m13 0a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m0 13a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0-3 0m-13-3a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0" /></svg> 
+                Affiliate
+              </button>
+              </router-link>
+              </b>
+            <b v-else>
+              <button  class="btn d-flex p-1 rounded-pill" style="color: #fff; background: rgb(157 157 157 / 49%);" title="You not vendor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#fff" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22m0-2q1.35 0 2.6-.437t2.3-1.263L5.7 7.1q-.825 1.05-1.263 2.3T4 12q0 3.35 2.325 5.675T12 20m6.3-3.1q.825-1.05 1.263-2.3T20 12q0-3.35-2.325-5.675T12 4q-1.35 0-2.6.437T7.1 5.7z"/></svg>
+                Affiliate
+              </button>
+            </b>
           </li>
           |
           <li class="nav-item flex" @mouseenter="openCard" @mouseleave="closeCard">
@@ -183,8 +197,6 @@
 </template>
 
 <script>
-import axios from "axios";
-import ShopViewVue from "../../views/ShopView.vue";
 export default {
   name: "topBar",
   data() {
@@ -192,6 +204,10 @@ export default {
       isOpen: false, // To track the card's open state
       items: [], // To hold cart items from localStorage
       liNav: [{ name: "Home" }, { name: "Mobile" }, { name: "Accessories" }, { name: "Fashion" }, { name: "Laptop" }, { name: "Contact us" }], // Get Categorys products for nav
+      Name_Kolshy:JSON.parse(localStorage.getItem('name_kolshy')),
+      Market_Name: JSON.parse(localStorage.getItem('market_name')),
+      Market_URL: JSON.parse(localStorage.getItem('market_url')),
+      Type_Account: JSON.parse(localStorage.getItem('type_account')),
     };
   },
   methods: {
@@ -202,7 +218,6 @@ export default {
       this.isOpen = false;
     },
   },
-  mounted() {},
 };
 </script>
 

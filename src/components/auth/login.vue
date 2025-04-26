@@ -1,19 +1,31 @@
 <template>
   <div class="signin">
+    <div class="alert alert-success rounded-0 text-center fw-bold" :hidden="submited === false">
+      <div class="d-flex align-items-center">
+        Success Login, we'il redirect to home page {{ count }}
+        <l-dot-spinner size="25" speed="0.9" color="black"></l-dot-spinner>
+      </div>
+    </div>
+    <div class="alert alert-danger rounded-0 text-center fw-bold" :hidden="err === false">
+      <div class="d-flex align-items-center">
+        Wrong user name or password plz try agin, this mss will hidden in {{ count }}
+        <l-dot-spinner size="25" speed="0.9" color="black"></l-dot-spinner>
+      </div>
+    </div>
     <section class="div-login">
       <div class="rounded p-2 bg-light form-sign">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <div class="mb-4"><img src="https://kolshy.ae/wp-content/uploads/2025/02/Layer_1.svg" class="img-fluid" alt="logo-form" /></div>
           <h1 class="fs-1 fw-bold mt-4" style="color: #000336">Sign In</h1>
-          <form action="https://" method="post" class="w-100 p-0">
+          <form method="post" class="w-100 p-0" @submit.prevent="submitForm()">
             <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="text" name="userName" id="userName" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Username / Email" aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="text" name="userName" id="userName" v-model="user_name" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
               <span class="input-text" style="cursor: pointer" onclick="document.getElementById('userName').value = '';">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path fill="#E51742" d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2m2.59 6L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41z" /></svg>
               </span>
             </div>
             <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="password" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
+              <input type="password" v-model="password" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
               <span class="input-text" style="cursor: pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                   <g fill="none" stroke="#E51742" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
@@ -54,8 +66,61 @@
 </template>
 
 <script>
+import axios from "axios";
+import { dotSpinner } from "ldrs";
 export default {
   name: "login",
+  data() {
+    return {
+      user_name: "",
+      password: "",
+      count: 5,
+      submited: false,
+      err: false,
+    };
+  },
+  methods: {
+    async submitForm() {
+      try {
+        let res = await axios.get(`http://localhost:3000/user?name=${this.user_name}`);
+        if (res.data[0] && this.password === res.data[0].password) {
+          this.submited = true;
+          localStorage.removeItem("name_kolshy");
+          localStorage.setItem("name_kolshy", JSON.stringify(this.user_name));
+          localStorage.removeItem("type_account");
+          localStorage.setItem("type_account", JSON.stringify(res.data[0].type_account));
+          setTimeout(() => {
+            location.pathname = "/";
+          }, 5000);
+          setInterval(() => {
+            this.count--;
+          }, 1000);
+        } else {
+          this.err = true;
+          setTimeout(() => {
+            this.err = false;
+            location.reload();
+          }, 5000);
+          setInterval(() => {
+            this.count--;
+          }, 1000);
+        }
+      } catch (err) {
+        console.error("there is an error ", err);
+        this.err = true;
+        setTimeout(() => {
+          this.err = false;
+          location.reload();
+        }, 5000);
+        setInterval(() => {
+          this.count--;
+        }, 1000);
+      }
+    },
+  },
+  mounted() {
+    dotSpinner.register();
+  },
 };
 </script>
 
