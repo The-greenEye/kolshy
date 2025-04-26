@@ -16,7 +16,7 @@
           <div v-for="product in products" :key="product.id" class="cart-item row align-items-center py-3 border-bottom">
             <!-- صورة المنتج -->
             <div class="col-3 col-md-2">
-              <img :src="product.image" class="img-fluid product-image" alt="Product">
+              <img :src="product.image" class="img-fluid product-image" alt="Product" />
             </div>
 
             <!-- تفاصيل المنتج -->
@@ -29,31 +29,15 @@
                     <span class="product-instock text-success">In Stock</span>
                     <span class="product-shipping ml-2">FREE Delivery</span>
                   </div>
-                  
+
                   <!-- تحكم الكمية -->
                   <div class="quantity-control mt-2">
                     <div class="d-flex align-items-center">
-                      <button 
-                        @click="decreaseQuantity(product)" 
-                        class="btn btn-quantity"
-                        :disabled="product.quantity === 1"
-                      >
-                        <i class="fas fa-minus"></i>
-                      </button>
-                      <input 
-                        type="number" 
-                        v-model.number="product.quantity" 
-                        min="1" 
-                        class="quantity-input mx-2 text-center"
-                      >
-                      <button 
-                        @click="increaseQuantity(product)" 
-                        class="btn btn-quantity"
-                      >
-                        <i class="fas fa-plus"></i>
-                      </button>
+                      <button @click="decreaseQuantity(product)" class="btn btn-quantity" :disabled="product.quantity === 1">-</button>
+                      <input type="number" v-model.number="product.quantity" min="1" class="quantity-input mx-2 text-center" />
+                      <button @click="increaseQuantity(product)" class="btn btn-quantity">+</button>
                       <span class="divider mx-2">|</span>
-                      <button @click="removeItem(product.id)" class="btn btn-link text-danger p-0">Delete</button>
+                      <button @click="removeItem(product.id)" class="btn btn-outline-danger">Delete</button>
                     </div>
                   </div>
                 </div>
@@ -95,7 +79,7 @@
             <span class="text-amazon">EGP {{ total.toFixed(2) }}</span>
           </div>
           <button class="btn btn-amazon w-100 py-2">Proceed to Checkout</button>
-          
+
           <!-- قسم الدفع الآمن -->
           <div class="secure-payment mt-3 text-center">
             <i class="fas fa-lock text-amazon"></i>
@@ -118,71 +102,77 @@
 </template>
 
 <script>
+import { useToast } from "vue-toastification";
 export default {
- data() {
+  data() {
     return {
       products: [
         {
           id: 1,
-          name: 'Wireless Headphones',
+          name: "Wireless Headphones",
           price: 599.99,
-          image: 'https://wallpaperaccess.com/full/6173939.jpg',
-          quantity: 1
+          image: "https://wallpaperaccess.com/full/6173939.jpg",
+          quantity: 1,
         },
         {
           id: 2,
-          name: 'Smart Watch',
+          name: "Smart Watch",
           price: 899.99,
-          image: 'https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg',
-          quantity: 2
+          image: "https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg",
+          quantity: 2,
         },
         {
           id: 3,
-          name: 'Bluetooth Speaker',
+          name: "Bluetooth Speaker",
           price: 299.99,
-          image: 'https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg',
-          quantity: 1
-        }
+          image: "https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg",
+          quantity: 1,
+        },
       ],
-      shipping: 50.00,
-      tax: 75.00
-    }
+      shipping: 50.0,
+      tax: 75.0,
+    };
   },
   computed: {
     subtotal() {
-      return this.products.reduce((acc, product) => acc + (product.price * product.quantity), 0)
+      return this.products.reduce((acc, product) => acc + product.price * product.quantity, 0);
     },
     total() {
-      return this.subtotal + this.shipping + this.tax
-    }
+      return this.subtotal + this.shipping + this.tax;
+    },
+  },
+  setup() {
+    const toast = useToast();
+    return { toast };
   },
   methods: {
     increaseQuantity(product) {
-      product.quantity++
+      product.quantity++;
     },
     decreaseQuantity(product) {
       if (product.quantity > 1) {
-        product.quantity--
+        product.quantity--;
       }
     },
     removeItem(productId) {
-      this.products = this.products.filter(product => product.id !== productId)
-    }
-  }
-}
+      this.products = this.products.filter((product) => product.id !== productId);
+      this.toast.success("The item removed")
+    },
+  },
+};
 </script>
 
 <style scoped>
 .amazon-cart {
-  background-color: #EAEDED;
+  background-color: #eaeded;
   min-height: 100vh;
 }
 
 .amazon-header {
-  color: #0F1111;
+  color: #0f1111;
   font-size: 28px;
   font-weight: 400;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
@@ -198,7 +188,7 @@ export default {
 
 .product-title {
   font-size: 18px;
-  color: #0F1111;
+  color: #0f1111;
   font-weight: 500;
 }
 
@@ -220,38 +210,38 @@ export default {
 .btn-quantity {
   width: 32px;
   height: 32px;
-  border: 1px solid #D5D9D9;
+  border: 1px solid #d5d9d9;
   border-radius: 4px;
-  background-color: #F0F2F2;
-  color: #0F1111;
+  background-color: #f0f2f2;
+  color: #0f1111;
 }
 
 .btn-quantity:hover {
-  background-color: #E3E6E6;
+  background-color: #e3e6e6;
 }
 
 .quantity-input {
   width: 50px;
   height: 32px;
-  border: 1px solid #D5D9D9;
+  border: 1px solid #d5d9d9;
   border-radius: 4px;
 }
 
 .text-amazon {
-  color: #B12704;
+  color: #b12704;
   font-weight: 600;
 }
 
 .btn-amazon {
-  background: #FFD814;
-  border-color: #FCD200;
-  color: #0F1111;
+  background: #ffd814;
+  border-color: #fcd200;
+  color: #0f1111;
   font-weight: 500;
   border-radius: 8px;
 }
 
 .btn-amazon:hover {
-  background: #F7CA00;
+  background: #f7ca00;
 }
 
 .secure-payment {
@@ -259,19 +249,19 @@ export default {
 }
 
 .amazon-subheader {
-  color: #0F1111;
+  color: #0f1111;
   font-size: 18px;
   font-weight: 500;
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
 
 .shadow-sm {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 .divider {
-  color: #DDD;
+  color: #ddd;
 }
 </style>
