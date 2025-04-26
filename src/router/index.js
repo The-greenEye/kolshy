@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 import ShopView from "../views/ShopView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
-
+import CartView from "../views/CartView.vue";
 const routes = [
   {
     path: "/",
@@ -25,11 +25,16 @@ const routes = [
     name: "shop",
     component: ShopView,
   },
+  {
+    path: "/cart",
+    name: "cart",
+    component: CartView,
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

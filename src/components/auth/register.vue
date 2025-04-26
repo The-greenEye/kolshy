@@ -1,19 +1,20 @@
 <template>
   <div class="register-page">
-    <!-- ==============Container Section================= -->
-    <div class="p-5 z-2 d-none bg-light w-lg-50 w-100" id="otp" style="width: 50%; margin: auto; scale: 0; transition: all 0.3s ease-out; height: 480px">
-      <center><h2>Please Verify Your Account</h2></center>
-      <div class="row w-100">
-        <!-- OTP Input Fields -->
-        <input type="text" class="w-100 otp-inp border-0 border-bottom border-primary" v-model="otp" style="outline: none;" />
+    <!-- OTP Verification Section -->
+    <div class="otp-container bg-light" :class="{ 'otp-active': showOtp }">
+      <h2 class="otp-title">Verify Your Account</h2>
+      <div class="otp-inputs">
+        <input v-for="i in 6" :key="i" v-model="otp[i - 1]" type="text" maxlength="1" @input="focusNext(i)" @keydown.delete="focusPrev(i)" class="otp-input" />
       </div>
-      <div class="d-flex justify-content-between w-100 mt-4">
-        <button class="btn btn-outline-success" @click="submitOtp">Verify</button>
-        <button class="btn btn-outline-secondary" @click="resetOtpFields">Send Again</button>
+      <div class="otp-actions">
+        <button @click="submitOtp" class="btn btn-verify">Verify</button>
+        <button @click="resendOtp" class="btn btn-resend">Resend Code</button>
       </div>
-      <p class="feedback" v-if="feedbackMessage" :class="feedbackClass">{{ feedbackMessage }}</p>
+      <div class="otp-feedback" :class="feedbackClass">{{ feedbackMessage }}</div>
     </div>
-    <section class="div-login" id="div-login">
+
+    <!-- Registration Form -->
+    <section class="registration-form" :class="{ 'form-hidden': showOtp }">
       <div class="rounded p-2 bg-light form-sign">
         <div class="d-flex flex-column justify-content-center align-items-start">
           <center>
@@ -126,16 +127,16 @@ import axios from "axios";
 import { useToast } from "vue-toastification";
 
 export default {
-  name: "register",
   data() {
     return {
+      showOtp: false,
       Name: "",
       Email: "",
       Password: "",
       Password_confirmation: "",
       feedbackMessage: "", // Feedback to display to the user
       feedbackClass: "", // Feedback CSS class (success or error)
-      otp: "", // تم تغييرها من array إلى string
+      otp: Array(6).fill(""),
     };
   },
   validations() {
@@ -148,16 +149,17 @@ export default {
       },
     };
   },
+
   setup() {
     const v$ = useVuelidate();
     const toast = useToast();
-    return { v$, toast }; // إضافة toast هنا
+    return { v$, toast };
   },
   methods: {
     async sendForm() {
       this.v$.$touch();
       if (!this.v$.$error) {
-        const datauser = {
+        const userData = {
           name: this.Name,
           email_or_phone: this.Email,
           password: this.Password,
@@ -165,65 +167,132 @@ export default {
         };
 
         try {
-          const res = await axios.post("https://back.kolshy.ae/api/customer/register", datauser);
-          if (res.status === 201) {
-            this.toast.success("Successfully! we'il send a code to your email"); // استخدام this.toast بدلًا من this.$toast
-            window.scrollTo(0, 0); // Smooth scroll to the top
-            document.getElementById("otp").style.scale = "1"; // Ensure proper scaling
-            document.getElementById("otp").classList.remove("d-none"); // Ensure proper scaling
-            document.getElementById("div-login").style.display = "none";
-            // تصحيح خطأ localStorage:
-            localStorage.setItem("token", JSON.stringify(res.data.data.token)); // تصحيح stringify
-          }
-        } catch (err) {
-          this.toast.error(err.response?.data?.message || "Error message"); // معالجة الأخطاء بشكل أفضل
-        }
-      }
-    },
-    async submitOtp() {
-      if (this.otp.length === 6) {
-        // تم التبسيط لأن otp الآن string
-        try {
-          const response = await fetch("https://back.kolshy.ae/api/auth/verification/verify", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`, // Use stored token
-            },
-            body: JSON.stringify({ otp: otpCode }),
-          });
-
-          if (response.status === 200) {
-            this.toast.success("تم التحقق بنجاح!");
+          const response = await axios.post("https://back.kolshy.ae/api/customer/register", userData);
+          if (response.status === 201) {
+            this.toast.success("Successfully! We'll send a code to your email");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            this.showOtp = true; 
+            localStorage.setItem("token", response.data.data.token); 
           }
         } catch (error) {
-          this.toast.error("فشل التحقق: " + error.response?.data?.message);
+          const errorMessage = error.response?.data?.message || "Registration failed. Please try again.";
+          this.toast.error(errorMessage);
         }
-      } else {
-        this.toast.warning("الرجاء إدخال 6 أرقام");
       }
     },
-    resetOtpFields() {
-      this.otp = ""; // تم التبسيط
+
+    async submitOtp() {
+      const otpCode = this.otp.join("");
+
+      if (otpCode.length !== 6) {
+        this.toast.warning("Please enter 6-digit code", "error");
+        return;
+      }
+
+      try {
+        const response = await axios.post("https://back.kolshy.ae/api/auth/verification/verify", {
+          otp: otpCode,
+          token: localStorage.getItem("token"),
+        });
+
+        if (response.data.success) {
+          this.toast.success("Verification successful!", "success");
+          this.$router.push("/");
+        }
+      } catch (error) {
+        this.toast.error(error.response.data.message || "Verification failed", "error");
+      }
     },
+
+    focusNext(index) {
+      if (index < 6 && this.otp[index - 1]) {
+        this.$refs[`otp${index}`][0].focus();
+      }
+    },
+
+    focusPrev(index) {
+      if (index > 1 && !this.otp[index - 1]) {
+        this.$refs[`otp${index - 1}`][0].focus();
+      }
+    },
+
   },
 };
 </script>
 
 <style>
-.form-sign {
-  width: 50%;
-  margin: 10% auto;
-  box-shadow: 0px 0px 10px 1px #fccfd9;
+.otp-container {
+  transition: all 0.3s ease;
+  transform: scale(0);
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-@media (max-width: 668px) and (min-width: 320px) {
-  .form-sign {
-    width: 100%;
-  }
+
+.otp-active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.otp-input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+  border-color: #e51742;
+  box-shadow: 0 0 8px rgba(229, 23, 66, 0.2);
+}
+
+.otp-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn-verify {
+  background: #e51742;
+  color: white;
+  padding: 0.75rem 2rem;
+}
+
+.btn-resend {
+  border: 2px solid #e51742;
+  color: #e51742;
+  background: transparent;
+}
+
+.feedback-error {
+  color: #dc3545;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.feedback-success {
+  color: #28a745;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-hidden {
+  opacity: 0.3;
+  pointer-events: none;
 }
 </style>
-
-/*  
-// Ther is Error in OTP Code 
-// Added A Toast Functions
-*/
