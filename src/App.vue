@@ -189,7 +189,7 @@ button:hover {
 }
 .secound-nav {
   background-color: #fff;
-  padding: 0 300px;
+  /* padding: 0 300px; */
 }
 .icon {
   color: #e51742;
