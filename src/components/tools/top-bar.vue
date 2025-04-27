@@ -8,13 +8,28 @@
         <a href="/" class="navbar-brand fs-1"><img src="https://kolshy.ae/wp-content/uploads/2025/02/Untitled-3000-x-750-px.gif" class="img-fluid d-md-block d-none" width="150" alt="logo" /></a>
         <div class="d-lg-none d-flex justify-content-between align-items-center w-100">
           <div class="flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
+            <svg data-bs-toggle="dropdown" data-bs-target="#eng" xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
             <span class="d-flex flex-column">
               <b>Hello,</b>
               <small class="icon" v-if="!Name_Kolshy">
                 <router-link to="login">Signin</router-link> or <router-link to="register">Signup</router-link>
               </small>
-              <small class="icon" v-else>{{ Name_Kolshy }}</small>            </span>
+              <small class="icon" v-else>{{ Name_Kolshy }}</small>            
+            </span>
+            <ul class="dropdown-menu p-2" id="profile">
+              <li>
+              <router-link to="/my-account" class="d-flex mb-3 border-bottom align-items-center text-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><g fill="none"><path stroke="#141414" stroke-width="1.5" d="M21 12a8.96 8.96 0 0 1-1.526 5.016A8.99 8.99 0 0 1 12 21a8.99 8.99 0 0 1-7.474-3.984A9 9 0 1 1 21 12Z"/><path fill="#141414" d="M13.25 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0 0 14.75 9zM12 10.25c-.69 0-1.25-.56-1.25-1.25h-1.5A2.75 2.75 0 0 0 12 11.75zM10.75 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0 0 9.25 9zM12 7.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 12 6.25zM5.166 17.856l-.719-.214l-.117.392l.267.31zm13.668 0l.57.489l.266-.31l-.117-.393zM9 15.75h6v-1.5H9zm0-1.5a4.75 4.75 0 0 0-4.553 3.392l1.438.428A3.25 3.25 0 0 1 9 15.75zm3 6a8.23 8.23 0 0 1-6.265-2.882l-1.138.977A9.73 9.73 0 0 0 12 21.75zm3-4.5c1.47 0 2.715.978 3.115 2.32l1.438-.428A4.75 4.75 0 0 0 15 14.25zm3.265 1.618A8.23 8.23 0 0 1 12 20.25v1.5a9.73 9.73 0 0 0 7.403-3.405z"/></g></svg>
+              <b style="white-space: nowrap">Profile Setting</b>
+              </router-link>
+              </li>
+              <li>
+              <router-link to="/my-invoice" class="d-flex mb-3 border-bottom align-items-center text-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="none" stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14v18l-1.032-.884a2 2 0 0 0-2.603 0L14.333 21l-1.031-.884a2 2 0 0 0-2.604 0L9.667 21l-1.032-.884a2 2 0 0 0-2.603 0L5 21zm10 4H9m6 4H9m6 4h-4"/></svg>
+              <b style="white-space: nowrap">Invoice</b>
+              </router-link>
+              </li>
+            </ul>
           </div>
           <div>
             <router-link to="/cart">
@@ -41,8 +56,8 @@
                 </div>
                 <input type="search" name="search" id="search" placeholder="What are you looking for?" style="width: 120px" />
                 <span class="input-group-text p-0 border-0">
-                  <button class="btn btn-secondary rounded-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
-                  <ul class="dropdown-menu">
+                  <button class="btn btn-secondary rounded-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-target="#search" aria-expanded="false">All</button>
+                  <ul class="dropdown-menu" id="search">
                     <li><router-link class="dropdown-item" to="">Actionnnn</router-link></li>
                   </ul>
                 </span>
@@ -50,8 +65,9 @@
             </div>
           </li>
           <!-- this have a problem fixe it later -->
-          <li class="nav-item flex position-relative" data-bs-toggle="dropdown" data-bs-target="#eng" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 64 64">
+          <li class="nav-item flex position-relative"  aria-expanded="false">
+            <div  data-bs-toggle="dropdown" data-bs-target="#eng">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5"  viewBox="0 0 64 64">
               <path fill="#ed4c5c" d="M32 2C18.9 2 7.8 10.4 3.7 22h56.6C56.2 10.4 45.1 2 32 2" />
               <path fill="#3e4347" d="M32 62c13.1 0 24.2-8.3 28.3-20H3.7C7.8 53.7 18.9 62 32 62" />
               <path fill="#f9f9f9" d="M3.7 22C2.6 25.1 2 28.5 2 32s.6 6.9 1.7 10h56.6c1.1-3.1 1.7-6.5 1.7-10s-.6-6.9-1.7-10z" />
@@ -66,13 +82,14 @@
             <b
               ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024"><path fill="#000" d="M8.2 275.4c0-8.6 3.4-17.401 10-24.001c13.2-13.2 34.8-13.2 48 0l451.8 451.8l445.2-445.2c13.2-13.2 34.8-13.2 48 0s13.2 34.8 0 48L542 775.399c-13.2 13.2-34.8 13.2-48 0l-475.8-475.8c-6.8-6.8-10-15.4-10-24.199" /></svg
             ></b>
+            </div>
             <ul class="dropdown-menu" id="eng">
               <li><router-link class="dropdown-item" to="">Actionnnn</router-link></li>
             </ul>
           </li>
           |
-          <li class="nav-item flex">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
+          <li class="nav-item position-relative flex">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21.5" data-bs-toggle="dropdown" data-bs-target="#profile" height="21.5" viewBox="0 0 24 24"><path fill="#000" fill-rule="evenodd" d="M12 1.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5M8.75 6a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0M12 12.25c-2.04 0-3.922.47-5.322 1.27C5.3 14.308 4.25 15.51 4.25 17s1.05 2.692 2.428 3.48c1.4.8 3.283 1.27 5.322 1.27s3.922-.47 5.322-1.27c1.378-.788 2.428-1.99 2.428-3.48s-1.05-2.692-2.428-3.48c-1.4-.8-3.283-1.27-5.322-1.27M5.75 17c0-.72.517-1.517 1.672-2.177c1.134-.648 2.751-1.073 4.578-1.073s3.444.425 4.578 1.073c1.155.66 1.672 1.458 1.672 2.177s-.517 1.517-1.672 2.177c-1.134.648-2.751 1.073-4.578 1.073s-3.444-.425-4.578-1.073C6.267 18.517 5.75 17.72 5.75 17" clip-rule="evenodd" /></svg>
             <span class="d-flex flex-column">
               <b>Hello,</b>
               <small class="icon" v-if="!Name_Kolshy">
@@ -80,6 +97,20 @@
               </small>
               <small class="icon" v-else>{{ Name_Kolshy }}</small>
             </span>
+            <ul class="dropdown-menu p-2" id="profile">
+              <li>
+              <router-link to="/my-account" class="d-flex mb-3 border-bottom align-items-center text-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><g fill="none"><path stroke="#141414" stroke-width="1.5" d="M21 12a8.96 8.96 0 0 1-1.526 5.016A8.99 8.99 0 0 1 12 21a8.99 8.99 0 0 1-7.474-3.984A9 9 0 1 1 21 12Z"/><path fill="#141414" d="M13.25 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0 0 14.75 9zM12 10.25c-.69 0-1.25-.56-1.25-1.25h-1.5A2.75 2.75 0 0 0 12 11.75zM10.75 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0 0 9.25 9zM12 7.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 12 6.25zM5.166 17.856l-.719-.214l-.117.392l.267.31zm13.668 0l.57.489l.266-.31l-.117-.393zM9 15.75h6v-1.5H9zm0-1.5a4.75 4.75 0 0 0-4.553 3.392l1.438.428A3.25 3.25 0 0 1 9 15.75zm3 6a8.23 8.23 0 0 1-6.265-2.882l-1.138.977A9.73 9.73 0 0 0 12 21.75zm3-4.5c1.47 0 2.715.978 3.115 2.32l1.438-.428A4.75 4.75 0 0 0 15 14.25zm3.265 1.618A8.23 8.23 0 0 1 12 20.25v1.5a9.73 9.73 0 0 0 7.403-3.405z"/></g></svg>
+              <b style="white-space: nowrap">Profile Setting</b>
+              </router-link>
+              </li>
+              <li>
+              <router-link to="/my-invoice" class="d-flex mb-3 border-bottom align-items-center text-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="none" stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14v18l-1.032-.884a2 2 0 0 0-2.603 0L14.333 21l-1.031-.884a2 2 0 0 0-2.604 0L9.667 21l-1.032-.884a2 2 0 0 0-2.603 0L5 21zm10 4H9m6 4H9m6 4h-4"/></svg>
+              <b style="white-space: nowrap">Invoice</b>
+              </router-link>
+              </li>
+            </ul>
           </li>
           |
           <li class="nav-item flex">
@@ -124,12 +155,17 @@
                 <b>ALL</b>
               </li>
             </router-link>
+
             <li v-for="(li, index) in liNav" :key="index" :id="li.id" class="nav-item">
               <small
                 ><router-link :to="{ name: 'shop', query: { category: li.name } }" class="nav-link text-light" style="white-space: nowrap">{{ li.name }}</router-link></small
               >
             </li>
-
+            
+              <li class="nav-item">
+                <small><router-link to="/contect-us" class="nav-link text-light" style="white-space: nowrap">Contect Us</router-link></small>
+              </li>
+            
             <li class="nav-item d-lg-flex d-none p-2">
               <router-link to="/shop" class="nav-link d-flex mt-1 justify-content-center bg-light p-1" style="color: #e51742; border-radius: 6px; font-weight: 600"
                 >See All
@@ -206,7 +242,7 @@ export default {
     return {
       isOpen: false, // To track the card's open state
       items: [], // To hold cart items from localStorage
-      liNav: [{ name: "Home" }, { name: "Mobile" }, { name: "Accessories" }, { name: "Fashion" }, { name: "Laptop" }, { name: "Contact us" }], // Get Categorys products for nav
+      liNav: [{ name: "Home" }, { name: "Mobile" }, { name: "Accessories" }, { name: "Fashion" }, { name: "Laptop" }, { name: "Baby Wear" }], // Get Categorys products for nav
       Name_Kolshy:JSON.parse(localStorage.getItem('name_kolshy')),
       Market_Name: JSON.parse(localStorage.getItem('market_name')),
       Market_URL: JSON.parse(localStorage.getItem('market_url')),

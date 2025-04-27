@@ -5,6 +5,9 @@ import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import CartView from "../views/CartView.vue";
 import DetalisPage from "../views/DetalisPage.vue"
+import MyAccountView from "../views/MyAccountView.vue"
+import InvoiceView from "../views/InvoiceView.vue"
+import ContectUsView from "../views/Contect_UsView.vue"
 const routes = [
   {
     path: "/",
@@ -36,7 +39,23 @@ const routes = [
     name: "detalist",
     component: DetalisPage,
   },
+  {
+    path: "/my-account",
+    name: "setting",
+    component: MyAccountView,
+  },
+  {
+    path: "/my-invoice",
+    name: "Invoice",
+    component: InvoiceView,
+  },
+  {
+    path: "/contect-us",
+    name: "Get Support",
+    component: ContectUsView,
+  },
 ];
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
