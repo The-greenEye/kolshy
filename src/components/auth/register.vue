@@ -136,7 +136,7 @@ export default {
       Password_confirmation: "",
       feedbackMessage: "", // Feedback to display to the user
       feedbackClass: "", // Feedback CSS class (success or error)
-      otp: Array(6).fill(""),
+      otp: Array(6),
     };
   },
   validations() {
@@ -168,7 +168,7 @@ export default {
 
         try {
           const response = await axios.post("https://back.kolshy.ae/api/customer/register", userData);
-          if (response.status === 201) {
+          if (response.status === 201 || response.status === 200 ) {
             this.toast.success("Successfully! We'll send a code to your email");
             window.scrollTo({ top: 0, behavior: "smooth" });
             this.showOtp = true; 

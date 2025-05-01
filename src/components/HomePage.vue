@@ -120,62 +120,197 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-wrap align-items-center justify-content-between p-2" style="width: 100%; margin: auto">
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://wallpaperaccess.com/full/6173939.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Kids wear</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+    <div class="container-fluid p-4">
+      <div class="row g-4">
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" width="350" height="360" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Man Hat</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Accessories</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Kids wear</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Kids wear</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="360" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Man Hat</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Accessories</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Accessories</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add remaining products with same structure -->
       </div>
     </div>
 
@@ -221,83 +356,391 @@
       </div>
     </div>
 
-    <div class="d-flex flex-wrap align-items-center justify-content-between p-2" style="width: 100%; margin: auto">
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://wallpaperaccess.com/full/6173939.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Kids wear</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+    <div class="container-fluid p-4">
+      <div class="row g-4">
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" width="350" height="360" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Man Hat</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Accessories</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Kids wear</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Kids wear</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://i5.walmartimages.com/seo/Newborn-Toddler-Baby-Girl-Boy-Hooded-Romper-Jumpsuit-Winter-Outfits-Clothes_4b57dea6-2aaf-4fe2-be37-2489b526bd2d.95598c195350f097f604fd718d86f606.jpeg" width="350" height="360" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Man Hat</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Accessories</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="card rounded-0 d-flex flex-column justify-content-between p-2 shadow-lg m-2" style="height: 440px; width: 320px">
-        <img src="https://wallpapers.com/images/hd/jordan-shoes-4k-ebfnd3563olc5t0k.jpg" width="350" height="400" alt="" class="img-fluid" />
-        <div class="crad-body">
-          <h3 class="card-title">Accessories</h3>
-          <a href="./cart/shop.vue"><p class="card-text">See More</p></a>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add remaining products with same structure -->
       </div>
     </div>
 
-    <div class="bg-light p-2 border-0 d-lg-block d-none" style="width: 96.5%; margin: 10px 20px">
-      <h3 class="text-dr">Best seller in Clothes & Accessories</h3>
-      <div class="slider">
-        <div class="card slider-item">
-          <img src="https://cdn.wallpapersafari.com/52/9/Slw2pZ.jpg" class="rounded-0" style="height: 180px" alt="" />
+    <div class="container-fluid p-4">
+      <div class="row g-4">
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
         </div>
-        <div class="card slider-item">
-          <img src="https://wallpaperaccess.com/full/5733588.jpg" class="rounded-0" style="height: 180px" alt="" />
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-        <div class="card slider-item">
-          <img src="https://img.kwcdn.com/product/1d6586ab48/bd0d2d36-e447-4271-8534-df449cb14a08_1350x1800.jpeg.a.jpg" class="rounded-0" style="height: 180px" alt="" />
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-        <div class="card slider-item">
-          <img src="https://rare-gallery.com/uploads/posts/341801-Gigi-Hadid-American-Model-Celebrity-Girls-Women-Fashion-Model-Photoshoot-Photo-Shoot.jpg" class="rounded-0" style="height: 180px" alt="" />
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
         </div>
-        <div class="card slider-item">
-          <img src="https://i.pinimg.com/736x/61/a7/89/61a789cff6041c67e44232779eef3353.jpg" class="rounded-0" style="height: 180px" alt="" />
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
         </div>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <!-- Category Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="card-body d-flex flex-column">
+              <h4 class="fw-bold mb-3">Kids Wear</h4>
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid mb-3 rounded" alt="Category" />
+              <a href="#" class="btn btn-outline-primary mt-auto">Shop now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Cards -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://img.freepik.com/premium-photo/traditional-clothes-design-concepts-inspiring-ideas-fashion-shop-web-items-tshirt-4k_655090-1107162.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Man Hat" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Man Hat</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★☆</div>
+                <span class="text-muted small">(123)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$24.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat similar structure for other products -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm w-100">
+            <div class="image-container" style="height: 200px; overflow: hidden">
+              <img src="https://i.etsystatic.com/23584971/r/il/f6c68d/5733725392/il_1080xN.5733725392_mvox.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Accessories" />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="rating small text-warning">★★★★★</div>
+                <span class="text-muted small">(89)</span>
+              </div>
+              <p class="card-text text-danger fw-bold">$49.99</p>
+              <button class="btn btn-warning w-100">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add remaining products with same structure -->
       </div>
     </div>
 
