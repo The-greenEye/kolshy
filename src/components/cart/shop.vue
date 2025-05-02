@@ -1,165 +1,131 @@
 <template>
-  <div class="shop">
-    <b class="d-flex align-items-start justify-content-start m-4" style="color: #000336; font-weight: 500">
-      Home /Shop /<span style="color: #e51742">{{ category }}</span>
-    </b>
+  <div class="amazon-shop-page">
+    <!-- Breadcrumb -->
+    <div class="amz-breadcrumb">
+      <span class="amz-breadcrumb-item">كل الفئات</span>
+      <span class="amz-breadcrumb-divider">›</span>
+      <span class="amz-breadcrumb-item">{{ category }}</span>
+    </div>
 
-    <div class="row w-100 p-4">
+    <div class="amz-main-container">
       <!-- Filters Section -->
-      <div class="col-3 d-lg-block d-none border-end border-secondary mr-2 h-100">
-        <h3 style="color: #000336; font-weight: 500">Filter Results</h3>
+      <aside class="amz-filters">
+        <h3 class="amz-filter-title">تصفية حسب</h3>
 
-        <!-- Free Shipping -->
-        <p style="color: #e51742; font-weight: 500" class="mt-2">Eligible for free delivery</p>
-        <div class="d-flex align-items-center text-start">
-          <input type="checkbox" v-model="filters.shipping" @change="applyFilters" />
-          <p style="color: #000336; font-weight: 500; margin: 0 8px">Free Shipping</p>
-        </div>
-
-        <!-- Delivery Day -->
-        <p style="color: #e51742; font-weight: 500" class="mt-2">Delivery Day</p>
-        <div class="d-flex align-items-center text-start">
-          <input type="checkbox" v-model="filters.deliveryDay" @change="applyFilters" />
-          <p style="color: #000336; font-weight: 500; margin: 0 8px">Get It by Tomorrow</p>
-        </div>
-
-        <!-- Price Range -->
-        <p style="color: #e51742; font-weight: 500">Price</p>
-        <div class="d-flex align-items-center justify-content-around w-75">
-          <label style="color: #e51742; font-weight: 500">
-            <p class="text-secondary">From:</p>
-            ${{ filters.priceRange[0] }}
-          </label>
-          <label style="color: #e51742; font-weight: 500">
-            <p class="text-secondary">To:</p>
-            ${{ filters.priceRange[1] }}
-          </label>
-        </div>
-        <div class="rangeslider">
-          <input type="range" v-model="filters.priceRange[0]" min="0" max="350" @input="applyFilters" />
-          <input type="range" v-model="filters.priceRange[1]" min="0" max="350" @input="applyFilters" />
-        </div>
-
-        <!-- Brands -->
-        <p style="color: #e51742; font-weight: 500" class="mt-2">Brands</p>
-        <div class="d-flex flex-column justify-content-start align-items-start">
-          <div v-for="brand in brands" :key="brand" class="d-flex align-items-center text-start">
-            <input type="checkbox" :id="brand" :value="brand" v-model="filters.brands" @change="applyFilters" />
-            <label :for="brand" style="color: #000336; font-weight: 500; margin: 0 8px">{{ brand }}</label>
+        <!-- Price Filter -->
+        <div class="amz-filter-group">
+          <h4 class="amz-filter-subtitle">السعر</h4>
+          <div class="amz-price-inputs row">
+            <div class="col-6">
+              <span class="amz-price-separator">From</span>
+              <input type="text" :value="filters.priceRange[0]" class="amz-price-input form-control" />
+            </div>
+            <div class="col-6">
+              <span class="amz-price-separator">To</span>
+              <input type="text" :value="filters.priceRange[1]" class="amz-price-input form-control" />
+            </div>
+          </div>
+          <div class="amz-range-slider row">
+            <input type="range" v-model="filters.priceRange[0]" :min="priceLimits.min" :max="priceLimits.max" class="amz-range col form-control p-0 border-0" />
+            <input type="range" v-model="filters.priceRange[1]" :min="priceLimits.min" :max="priceLimits.max" class="amz-range col form-control p-0 border-0" />
           </div>
         </div>
 
-        <!-- Reset Button -->
-        <center>
-          <button class="btn rounded-pill mt-3" style="color: #fff; font-weight: 500; background: #e51742; padding: 5px 35px" @click="resetFilters">Reset Filters</button>
-        </center>
-      </div>
-
-      <!-- Products Section -->
-      <div class="col-lg-9 col-12 p-0 d-flex flex-column justify-content-start align-items-center">
-        <div class="d-flex justify-content-between align-items-center p-4 rounded-0 bg-secondary w-100">
-          <center>
-            <i><h3 class="text-light fw-bold">Set Ade Here</h3></i>
-          </center>
+        <!-- Brand Filter -->
+        <div class="amz-filter-group">
+          <h4 class="amz-filter-subtitle">العلامة التجارية</h4>
+          <div v-for="brand in brands" :key="brand" class="amz-checkbox-item">
+            <label>
+              <input type="checkbox" @input="change()" :value="brand" v-model="filters.brands" class="amz-checkbox" />
+              <span class="amz-checkmark"></span>
+              {{ brand.category }}
+            </label>
+          </div>
         </div>
-        <hr />
 
-        <!-- Products Grid -->
-        <div v-if="filteredProducts.length" class="d-flex flex-wrap p-0" style="width: 95%; margin: auto">
-          <div v-for="product in filteredProducts" :key="product.id" :id="product.id" class="card p-0 m-2 d-flex flex-column justify-content-between shop-pro">
-            <img :src="product.image" class="card-img-top" alt="product-image" />
-            <div class="card-body">
-              <h5 class="card-title">{{ product.name }}</h5>
-              <p class="card-text">{{ product.description.slice(0, 40) }}...</p>
-              <p class="card-text fw-bold">{{ product.price }} EGP</p>
-              <button class="btn w-100 btn-primary" @click="addCart()">Add to Cart</button>
-              <div class="d-flex align-items-center mt-2 w-100">
-                <span @click="toggleFavorite(product)" style="cursor: pointer">
-                  <svg v-if="product.favorit_list === 'Unactive'" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#141414" d="m12 19.654l-.758-.685q-2.448-2.236-4.05-3.828q-1.601-1.593-2.528-2.81t-1.296-2.2T3 8.15q0-1.908 1.296-3.204T7.5 3.65q1.32 0 2.475.675T12 6.289Q12.87 5 14.025 4.325T16.5 3.65q1.908 0 3.204 1.296T21 8.15q0 .996-.368 1.98q-.369.986-1.296 2.202t-2.519 2.809q-1.592 1.592-4.06 3.828zm0-1.354q2.4-2.17 3.95-3.716t2.45-2.685t1.25-2.015Q20 9.006 20 8.15q0-1.5-1-2.5t-2.5-1q-1.194 0-2.204.682T12.49 7.385h-.978q-.817-1.39-1.817-2.063q-1-.672-2.194-.672q-1.48 0-2.49 1T4 8.15q0 .856.35 1.734t1.25 2.015t2.45 2.675T12 18.3m0-6.825" /></svg>
-                  <svg v-else xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#f00" d="m12 19.654l-.758-.685q-2.448-2.236-4.05-3.828q-1.601-1.593-2.528-2.81t-1.296-2.2T3 8.15q0-1.908 1.296-3.204T7.5 3.65q1.32 0 2.475.675T12 6.289Q12.87 5 14.025 4.325T16.5 3.65q1.908 0 3.204 1.296T21 8.15q0 .996-.368 1.98q-.369.986-1.296 2.202t-2.519 2.809q-1.592 1.592-4.06 3.828z" /></svg>
-                </span>
-                <span style="cursor: pointer">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#141414" d="M17 22q-1.25 0-2.125-.875T14 19q0-.15.075-.7L7.05 14.2q-.4.375-.925.588T5 15q-1.25 0-2.125-.875T2 12t.875-2.125T5 9q.6 0 1.125.213t.925.587l7.025-4.1q-.05-.175-.062-.337T14 5q0-1.25.875-2.125T17 2t2.125.875T20 5t-.875 2.125T17 8q-.6 0-1.125-.213T14.95 7.2l-7.025 4.1q.05.175.063.338T8 12t-.012.363t-.063.337l7.025 4.1q.4-.375.925-.587T17 16q1.25 0 2.125.875T20 19t-.875 2.125T17 22m0-2q.425 0 .713-.287T18 19t-.288-.712T17 18t-.712.288T16 19t.288.713T17 20M5 13q.425 0 .713-.288T6 12t-.288-.712T5 11t-.712.288T4 12t.288.713T5 13m12-7q.425 0 .713-.288T18 5t-.288-.712T17 4t-.712.288T16 5t.288.713T17 6m0-1" /></svg>
-                </span>
-                <span style="cursor: pointer" @click="hideProduct(product.id)">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#141414" d="M2 5.27L3.28 4L20 20.72L18.73 22l-3.08-3.08c-1.15.38-2.37.58-3.65.58c-5 0-9.27-3.11-11-7.5c.69-1.76 1.79-3.31 3.19-4.54zM12 9a3 3 0 0 1 3 3a3 3 0 0 1-.17 1L11 9.17A3 3 0 0 1 12 9m0-4.5c5 0 9.27 3.11 11 7.5a11.8 11.8 0 0 1-4 5.19l-1.42-1.43A9.86 9.86 0 0 0 20.82 12A9.82 9.82 0 0 0 12 6.5c-1.09 0-2.16.18-3.16.5L7.3 5.47c1.44-.62 3.03-.97 4.7-.97M3.18 12A9.82 9.82 0 0 0 12 17.5c.69 0 1.37-.07 2-.21L11.72 15A3.064 3.064 0 0 1 9 12.28L5.6 8.87c-.99.85-1.82 1.91-2.42 3.13" /></svg>
-                </span>
+        <!-- Delivery Filter -->
+        <div class="amz-filter-group">
+          <label class="amz-checkbox-item">
+            <input type="checkbox" v-model="filters.prime" />
+            <span class="amz-checkmark"></span>
+            <span class="amz-prime-badge">توصيل أمازون</span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- Products Grid -->
+      <main class="amz-products-grid">
+        <!-- Header -->
+        <div class="amz-results-header">
+          <h2 class="amz-results-title">{{ category }}</h2>
+          <span class="amz-results-count">{{ filteredProducts.length }} نتيجة</span>
+        </div>
+
+        <!-- Products -->
+        <div class="amz-products-list">
+          <div v-for="product in filteredProducts" :key="product.id" class="amz-product-card">
+            <!-- Product Image -->
+            <div class="amz-product-image">
+              <img :src="product.image" :alt="product.title" loading="lazy" />
+              <button class="amz-wishlist-btn" @click="toggleFavorite(product)">♥</button>
+            </div>
+
+            <!-- Product Details -->
+            <div class="amz-product-details">
+              <h3 class="amz-product-title">{{ product.title.slice(0, 20) }}</h3>
+
+              <!-- Rating -->
+              <div class="amz-rating">
+                <div class="amz-stars">
+                  ★★★★☆
+                  <span class="amz-rating-count">({{ product.rating.count }})</span>
+                </div>
+              </div>
+
+              <!-- Price -->
+              <div class="amz-price">
+                <span class="amz-current-price">EGP {{ product.price }}</span>
+                <span v-if="product.oldPrice" class="amz-old-price">EGP {{ product.oldPrice }}</span>
+                <span v-if="product.discount" class="amz-discount">({{ product.discount }}% خصم)</span>
+              </div>
+
+              <!-- Prime Badge -->
+              <div v-if="product.prime" class="amz-prime">
+                <span class="amz-prime-badge">✔ توصيل مجاني</span>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- No Results Message -->
-        <div v-else class="alert alert-warning mt-4 w-100 text-center">No products found matching your filters</div>
-      </div>
+      </main>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import { debounce } from "lodash";
-import { useToast } from "vue-toastification";
 export default {
-  name: "ShopPage",
   data() {
     return {
-      selection: [],
-      category: "",
-      brands: ["SAMSUNG", "Xiaomi", "Apple", "OPPO", "HONOR", "Itel", "Infinix"],
+      category: "أجهزة كمبيوتر",
+      brand: [],
+      priceLimits: { min: 0, max: 500 },
       filters: {
-        shipping: false,
-        deliveryDay: false,
         priceRange: [0, 200],
         brands: [],
-        condition: "all",
-        reviews: false,
-        priceGroup: null,
-        deals: "all",
-        os: [],
+        prime: false,
       },
+      products: [], // سيتم ملؤها من API
     };
-  },
-  setup() {
-    const toast = useToast();
-    return { toast };
   },
   computed: {
     filteredProducts() {
-      return this.selection.filter((product) => {
-        const priceMatch = product.price >= this.filters.priceRange[0] && product.price <= this.filters.priceRange[1];
-        const shippingMatch = !this.filters.shipping || product.freeShipping;
-        const brandMatch = this.filters.brands.length === 0 || this.filters.brands.includes(product.brand);
-
-        return priceMatch && shippingMatch && brandMatch;
-      });
+      return this.products.filter((p) => (p.price >= this.filters.priceRange[0] && p.price <= this.filters.priceRange[1] && this.filters.brands.length === 0) || (this.filters.brands.includes(p.category) && (!this.filters.prime || p.prime)));
     },
-  },
-  mounted() {
-    this.getProducts();
-  },
-  watch: {
-    "$route.query.category": "getProducts",
+    change() {
+      console.log(this.$.filters.brands)
+    }
   },
   methods: {
-    applyFilters: debounce(function () {
-      this.$forceUpdate();
-    }, 300),
-
-    resetFilters() {
-      this.filters = {
-        shipping: false,
-        deliveryDay: false,
-        priceRange: [0, 50000],
-        brands: [],
-        condition: "all",
-        reviews: false,
-        priceGroup: null,
-        deals: "all",
-        os: [],
-      };
-    },
-
     async getProducts() {
       const category = this.$route.query.category;
       const response = await axios.get("https://fakestoreapi.com/products", {
@@ -168,76 +134,206 @@ export default {
       const res_update = response.data.map((item) => {
         return {
           ...item, // Keep original item properties
-          favorit_list: "Unactive", // Add the 'favorit_list' property
         };
       });
 
-      this.selection = res_update.map((item) => ({
+      this.products = res_update.map((item) => ({
         ...item, // Keep updated item properties
         price: Number(item.price), // Ensure price is a number
         freeShipping: item.shipping === "free", // Determine if shipping is free
       }));
-    },
-
-    addCart() {
-      this.toast.success("Added successfully!");
+      this.brands = response.data;
     },
 
     toggleFavorite(product) {
-      product.favorit_list = product.favorit_list === "Unactive" ? "active" : "Unactive";
+      product.isFavorite = !product.isFavorite;
     },
-
-    hideProduct(product) {
-      document.getElementById(product).classList.add("hide_item");
-      setTimeout(() => {
-        document.getElementById(product).classList.add("d-none");
-      }, 500);
+    addToCart(product) {
+      // إضافة إلى السلة
     },
+  },
+  mounted() {
+    this.getProducts();
   },
 };
 </script>
 
 <style>
-.card {
-  transition: all 0.3s ease;
-  min-height: 400px;
-  width: 200px;
+.amazon-shop-page {
+  background: #eaeded;
+  padding: 20px;
+  font-family: "Amazon Ember", Arial, sans-serif;
 }
 
-.hide_item {
-  animation: hide_items 0.5s ease-in-out forwards;
+.amz-breadcrumb {
+  color: #565959;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-@keyframes hide_items {
-  0% {
-    scale: 1;
-    opacity: 1;
-  }
-  100% {
-    scale: 0;
-    opacity: 0;
-  }
+.amz-breadcrumb-divider {
+  margin: 0 5px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.amz-main-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
 }
 
-.input-ranges[type="range"]::-webkit-slider-thumb {
-  background: #e51742;
-  border: 2px solid white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.amz-filters {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.amz-filter-title {
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.amz-filter-group {
+  margin-bottom: 25px;
+}
+
+.amz-checkbox-item {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.amz-checkbox {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+.amz-products-grid {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.amz-results-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.amz-results-title {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.amz-results-count {
+  color: #565959;
+}
+
+.amz-products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.amz-product-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  transition: 0.3s;
+}
+
+.amz-product-card:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.amz-product-image {
+  position: relative;
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.amz-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.amz-wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.amz-price {
+  margin: 10px 0;
+}
+
+.amz-current-price {
+  color: #b12704;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.amz-old-price {
+  color: #565959;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+.amz-discount {
+  color: #007600;
+  margin-left: 10px;
+}
+
+.amz-add-to-cart {
+  background: #ffd814;
+  border: none;
+  width: 100%;
+  padding: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.amz-add-to-cart:hover {
+  background: #f7ca00;
+}
+
+.amz-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.amz-page-btn {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  .col-3 {
-    display: none !important;
+  .amz-main-container {
+    grid-template-columns: 1fr;
   }
 
-  .shop-pro {
-    width: 100%;
-    margin: 10px 0;
+  .amz-filters {
+    display: none;
+  }
+
+  .amz-products-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
