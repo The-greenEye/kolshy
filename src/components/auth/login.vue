@@ -1,17 +1,5 @@
 <template>
   <div class="signin">
-    <div class="alert alert-success rounded-0 text-center fw-bold" :hidden="submited === false">
-      <div class="d-flex align-items-center">
-        Success Login, we'il redirect to home page {{ count }}
-        <l-dot-spinner size="25" speed="0.9" color="black"></l-dot-spinner>
-      </div>
-    </div>
-    <div class="alert alert-danger rounded-0 text-center fw-bold" :hidden="err === false">
-      <div class="d-flex align-items-center">
-        Wrong user name or password plz try agin, this mss will hidden in {{ count }}
-        <l-dot-spinner size="25" speed="0.9" color="black"></l-dot-spinner>
-      </div>
-    </div>
     <section class="div-login">
       <div class="rounded p-2 bg-light form-sign">
         <div class="d-flex flex-column justify-content-center align-items-center">
@@ -25,8 +13,8 @@
               </span>
             </div>
             <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
-              <input type="password" v-model="password" class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
-              <span class="input-text" style="cursor: pointer">
+              <input :type="type_inputs === true ? 'password' : 'text' " v-model="password"  class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
+              <span @mousemove="type_inputs === false" class="input-text" style="cursor: pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
                   <g fill="none" stroke="#E51742" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
                     <path d="M15 12a3 3 0 1 1-6 0a3 3 0 0 1 6 0" />
@@ -36,7 +24,7 @@
               </span>
             </div>
             <div class="d-flex flex-column justify-content-center align-items-center mb-4">
-              <button class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #e51742; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
+              <button @click="submitForm()" class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #e51742; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
                 Sign In
                 <span class="ml-2 mt-2"
                   ><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M13.47 5.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H4a.75.75 0 0 1 0-1.5h14.19l-4.72-4.72a.75.75 0 0 1 0-1.06" clip-rule="evenodd" /></svg
@@ -67,6 +55,7 @@
 
 <script>
 import axios from "axios";
+import { useToast } from "vue-toastification";
 import { dotSpinner } from "ldrs";
 export default {
   name: "login",
@@ -74,48 +63,28 @@ export default {
     return {
       user_name: "",
       password: "",
-      count: 5,
-      submited: false,
-      err: false,
+      type_inputs: true
     };
+  },
+  setup() {
+    const toast = useToast()
+    return { toast }
   },
   methods: {
     async submitForm() {
+      const userData = {
+        "email_or_phone": this.user_name,
+        "password": this.password
+    }
       try {
-        let res = await axios.get(`http://localhost:3000/user?name=${this.user_name}`);
-        if (res.data[0] && this.password === res.data[0].password) {
-          this.submited = true;
-          localStorage.removeItem("name_kolshy");
-          localStorage.setItem("name_kolshy", JSON.stringify(this.user_name));
-          localStorage.removeItem("type_account");
-          localStorage.setItem("type_account", JSON.stringify(res.data[0].type_account));
-          setTimeout(() => {
-            location.pathname = "/";
-          }, 5000);
-          setInterval(() => {
-            this.count--;
-          }, 1000);
-        } else {
-          this.err = true;
-          setTimeout(() => {
-            this.err = false;
-            location.reload();
-          }, 5000);
-          setInterval(() => {
-            this.count--;
-          }, 1000);
-        }
-      } catch (err) {
-        console.error("there is an error ", err);
-        this.err = true;
-        setTimeout(() => {
-          this.err = false;
-          location.reload();
-        }, 5000);
-        setInterval(() => {
-          this.count--;
-        }, 1000);
+        const res_log_in = await axios.post('https://back.kolshy.ae/api/auth/customer/login', userData)
+        if (res_log_in.status === 200 || res_log_in.status === 201) {
+          this.toast.success("Your Login Successfully");
+          location.pathname = '/'
       }
+      } catch {
+      this.toast.error('Your email / phone or password is wrong try agin')
+    }
     },
   },
   mounted() {

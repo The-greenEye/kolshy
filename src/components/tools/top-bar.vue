@@ -23,12 +23,6 @@
               <b style="white-space: nowrap">Profile Setting</b>
               </router-link>
               </li>
-              <li>
-              <router-link to="/my-invoice" class="d-flex mb-3 border-bottom align-items-center text-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="none" stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14v18l-1.032-.884a2 2 0 0 0-2.603 0L14.333 21l-1.031-.884a2 2 0 0 0-2.604 0L9.667 21l-1.032-.884a2 2 0 0 0-2.603 0L5 21zm10 4H9m6 4H9m6 4h-4"/></svg>
-              <b style="white-space: nowrap">Invoice</b>
-              </router-link>
-              </li>
             </ul>
           </div>
           <div>

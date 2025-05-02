@@ -38,6 +38,41 @@
               <input type="password" class="bg-transparent w-75 p-2" v-model="Password_confirmation" style="border: none; outline: none; font-weight: 500" placeholder=" Confirmation Your Password" aria-label="Username" aria-describedby="basic-addon1" required />
             </div>
 
+            <div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="shopName" style="border: none; outline: none; font-weight: 500" placeholder="Shop Name" aria-label="Shop" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-0">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="shopUrl" style="border: none; outline: none; font-weight: 500" placeholder="Shop URL" aria-label="Shop" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <small>{{ "https://kolshy.com/" + shopName + shopUrl }}</small>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4 mt-4">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="street" style="border: none; outline: none; font-weight: 500" placeholder="Street" aria-label="Street" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="text" class="bg-transparent w-50 p-2" v-model="city" style="border-right: 1px solide gary; border-top: none; border-left: none; border-bottom: none; outline: none; font-weight: 500" placeholder="City" aria-label="City" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+                <input type="text" class="bg-transparent w-50 p-2" v-model="ZIP" style="border: none; outline: none; font-weight: 500" placeholder="ZIP Code" aria-label="ZIP" aria-describedby="basic-addon1" />
+              </div>
+              <div style="border: none" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <select name="country" v-model="country" id="country" style="border: 0.5px solid #f0f0f0; outline: none; font-weight: 500" class="w-100 p-2">
+                  <option value="none">Select Your Country</option>
+                  <option value="eg">Egypt</option>
+                </select>
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="text" class="bg-transparent w-75 p-2" v-model="status" style="border: none; outline: none; font-weight: 500" placeholder="Status" aria-label="Status" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+                <input type="tel" class="bg-transparent w-75 p-2" v-model="phone" style="border: none; outline: none; font-weight: 500" placeholder="Phone Number" aria-label="Phone" aria-describedby="basic-addon1" :required="vendor_or_not === 'vendor'" />
+              </div>
+              <div>
+                <div class="d-flex align-items-start m-2">
+                  <input type="checkbox" name="type-account" value="accept-ruls" v-model="accept" style="outline: none; margin: 0 8px" :required="vendor_or_not === 'vendor'" />
+                  <p class="fw-bold">I have read and agree to the Terms & Conditions</p>
+                </div>
+              </div>
+            </div>
+
             <div class="d-flex flex-column justify-content-center align-items-center mb-4">
               <button type="submit" class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #e51742; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
                 Create Account<span class="ml-2 mt-2"
@@ -59,11 +94,7 @@
           </form>
           <div class="mt-4 d-flex justify-content-center align-items-center w-100">
             <p class="text-center text-secondary mb-0" style="font-weight: 400">Already have account?</p>
-            <router-link to="/login" style="color: #e51742; text-decoration: underline; font-weight: 600">Sign in</router-link>
-          </div>
-          <div class="mt-4 d-flex justify-content-center align-items-center w-100">
-            <p class="text-center text-secondary mb-0" style="font-weight: 400">Create a vendor account</p>
-            <router-link to="/register-seller" style="color: #e51742; text-decoration: underline; font-weight: 600">Sign in</router-link>
+            <a href="./login" style="color: #e51742; text-decoration: underline; font-weight: 600">Sign in</a>
           </div>
           <div class="mt-4 d-flex justify-content-center align-items-center w-100">
             <div class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #000336; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
@@ -94,6 +125,16 @@ export default {
       Password: "",
       Password_confirmation: "",
       otp: Array(6),
+      //VENDOR
+      vendor_or_not: "",
+      shopName: "",
+      shopUrl: "",
+      street: "",
+      city: "",
+      ZIP: "",
+      phone: "",
+      accept: "",
+      ottp: "",
     };
   },
   validations() {
@@ -115,48 +156,43 @@ export default {
   methods: {
     async sendForm() {
       this.v$.$touch();
-  if (!this.v$.$error) {
+      if (!this.v$.$error) {
         const userData = {
           name: this.Name,
-          email_or_phone: this.Email,
+          email: this.Email,
           password: this.Password,
           password_confirmation: this.Password_confirmation,
-    };
-        
+          phone: this.phone,
+          store_name: this.shopName,
+        };
+
         try {
-          const response = await axios.post(
-            "https://back.kolshy.ae/api/customer/register", 
-            userData
-          );
+          const response = await axios.post("https://back.kolshy.ae/api/seller/register", userData);
 
           if ([200, 201].includes(response.status)) {
             const token = response.data.data.token;
             localStorage.setItem("token", token);
-            
+
             // طلب إرسال OTP بعد التسجيل
-            await axios.get(
-              "https://back.kolshy.ae/api/auth/verification/get-otp/email",
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`
-                }
-              }
-            );
-            
+            await axios.get("https://back.kolshy.ae/api/auth/verification/get-otp/email", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+
             this.showOtp = true;
             this.toast.success("Successfully Send!");
           }
         } catch (error) {
           // معالجة الأخطاء
-          this.toast.error("We've a problem with ur request plz try agin")
+          this.toast.error("We've a problem with ur request plz try agin");
         }
       }
     },
 
-
     async submitOtp() {
-      const otpCode = this.otp.join('');
-     
+      const otpCode = this.otp.join("");
+
       if (otpCode.length !== 6) {
         this.toast.warning("Plz enter the 6 numbers you've");
         return;
@@ -167,25 +203,27 @@ export default {
           "https://back.kolshy.ae/api/auth/verification/verify",
           {
             channel: "email",
-            otp: otpCode
+            otp: otpCode,
           },
           {
             headers: {
-              Authorization: `Bearer ${localStorage.token}`
-            }
+              Authorization: `Bearer ${localStorage.token}`,
+            },
           }
         );
 
         if (verificationResponse.status === 200 || verificationResponse.status === 201) {
           this.toast.success("تم التحقق بنجاح!");
-          // توجيه المستخدم بعد التحقق
-          this.$router.push('/');
+            // توجيه المستخدم بعد التحقق
+          localStorage.Vendor = 'vendor'
+          localStorage.store_name = this.shopName
+          localStorage.url = this.shopUrl
+          this.$router.push("/");
         }
       } catch (error) {
         this.toast.error(error.response?.data?.message || "فشل التحقق");
       }
     },
-
   },
 };
 </script>
@@ -194,7 +232,7 @@ export default {
 .otp-container {
   transition: all 0.3s ease;
   transform: scale(0);
-  display: none;
+  opacity: 0;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -206,7 +244,7 @@ export default {
 
 .otp-active {
   transform: translate(-50%, -50%) scale(1);
-  display: block
+  opacity: 1;
 }
 
 .otp-inputs {

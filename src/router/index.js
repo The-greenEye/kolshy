@@ -3,10 +3,10 @@ import HomeView from "../views/HomeView.vue";
 import ShopView from "../views/ShopView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
+import registerSellerView from "../views/SellerRegisterView.vue";
 import CartView from "../views/CartView.vue";
 import DetalisPage from "../views/DetalisPage.vue"
 import MyAccountView from "../views/MyAccountView.vue"
-import InvoiceView from "../views/InvoiceView.vue"
 import ContectUsView from "../views/Contect_UsView.vue"
 const routes = [
   {
@@ -23,6 +23,11 @@ const routes = [
     path: "/register",
     name: "register",
     component: RegisterView,
+  },
+  {
+    path: "/register-seller",
+    name: "Seller",
+    component: registerSellerView,
   },
   {
     path: "/shop",
@@ -43,11 +48,6 @@ const routes = [
     path: "/my-account",
     name: "setting",
     component: MyAccountView,
-  },
-  {
-    path: "/my-invoice",
-    name: "Invoice",
-    component: InvoiceView,
   },
   {
     path: "/contect-us",
