@@ -10,35 +10,64 @@
     <div class="amz-main-container">
       <!-- Filters Section -->
       <aside class="amz-filters">
-        <h3 class="amz-filter-title">تصفية حسب</h3>
+        <h3 class="amz-filter-title">Filters</h3>
 
         <!-- Price Filter -->
         <div class="amz-filter-group">
-          <h4 class="amz-filter-subtitle">السعر</h4>
+          <h4 class="amz-filter-subtitle">Price</h4>
           <div class="amz-price-inputs row">
             <div class="col-6">
               <span class="amz-price-separator">From</span>
-              <input type="text" :value="filters.priceRange[0]" class="amz-price-input form-control" />
+              <input 
+                type="number" 
+                v-model="filters.priceRange[0]" 
+                :min="priceLimits.min" 
+                :max="filters.priceRange[1]" 
+                class="amz-price-input form-control" 
+              />
             </div>
             <div class="col-6">
               <span class="amz-price-separator">To</span>
-              <input type="text" :value="filters.priceRange[1]" class="amz-price-input form-control" />
+              <input 
+                type="number" 
+                v-model="filters.priceRange[1]" 
+                :min="filters.priceRange[0]" 
+                :max="priceLimits.max" 
+                class="amz-price-input form-control" 
+              />
             </div>
           </div>
-          <div class="amz-range-slider row">
-            <input type="range" v-model="filters.priceRange[0]" :min="priceLimits.min" :max="priceLimits.max" class="amz-range col form-control p-0 border-0" />
-            <input type="range" v-model="filters.priceRange[1]" :min="priceLimits.min" :max="priceLimits.max" class="amz-range col form-control p-0 border-0" />
+          <div class="amz-range-slider">
+            <input 
+              type="range" 
+              v-model="filters.priceRange[0]" 
+              :min="priceLimits.min" 
+              :max="filters.priceRange[1]" 
+              class="amz-range form-control" 
+            />
+            <input 
+              type="range" 
+              v-model="filters.priceRange[1]" 
+              :min="filters.priceRange[0]" 
+              :max="priceLimits.max" 
+              class="amz-range form-control" 
+            />
           </div>
         </div>
 
         <!-- Brand Filter -->
         <div class="amz-filter-group">
-          <h4 class="amz-filter-subtitle">العلامة التجارية</h4>
-          <div v-for="brand in brands" :key="brand" class="amz-checkbox-item">
+          <h4 class="amz-filter-subtitle">Brands</h4>
+          <div v-for="brand in uniqueBrands" :key="brand" class="amz-checkbox-item">
             <label>
-              <input type="checkbox" @input="change()" :value="brand" v-model="filters.brands" class="amz-checkbox" />
+              <input 
+                type="checkbox" 
+                :value="brand" 
+                v-model="filters.brands" 
+                class="amz-checkbox" 
+              />
               <span class="amz-checkmark"></span>
-              {{ brand.category }}
+              {{ brand }}
             </label>
           </div>
         </div>
@@ -48,7 +77,7 @@
           <label class="amz-checkbox-item">
             <input type="checkbox" v-model="filters.prime" />
             <span class="amz-checkmark"></span>
-            <span class="amz-prime-badge">توصيل أمازون</span>
+            <span class="amz-prime-badge">Delivery From Amazon</span>
           </label>
         </div>
       </aside>
@@ -67,7 +96,13 @@
             <!-- Product Image -->
             <div class="amz-product-image">
               <img :src="product.image" :alt="product.title" loading="lazy" />
-              <button class="amz-wishlist-btn" @click="toggleFavorite(product)">♥</button>
+              <button 
+                class="amz-wishlist-btn" 
+                @click="toggleFavorite(product)"
+                :style="{ color: product.isFavorite ? 'red' : 'gray' }"
+              >
+                ♥
+              </button>
             </div>
 
             <!-- Product Details -->
@@ -77,7 +112,7 @@
               <!-- Rating -->
               <div class="amz-rating">
                 <div class="amz-stars">
-                  ★★★★☆
+                  {{ generateStars(product.rating.rate) }}
                   <span class="amz-rating-count">({{ product.rating.count }})</span>
                 </div>
               </div>
@@ -93,6 +128,11 @@
               <div v-if="product.prime" class="amz-prime">
                 <span class="amz-prime-badge">✔ توصيل مجاني</span>
               </div>
+
+              <!-- Add to Cart Button -->
+              <button class="amz-add-to-cart" @click="addToCart(product)">
+                أضف إلى السلة
+              </button>
             </div>
           </div>
         </div>
@@ -103,53 +143,85 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
-      category: "أجهزة كمبيوتر",
-      brand: [],
-      priceLimits: { min: 0, max: 500 },
+      category: "Kolshy",
+      priceLimits: { min: 0, max: 1000 },
       filters: {
-        priceRange: [0, 200],
+        priceRange: [0, 1000],
         brands: [],
         prime: false,
       },
-      products: [], // سيتم ملؤها من API
+      products: [],
     };
   },
   computed: {
-    filteredProducts() {
-      return this.products.filter((p) => (p.price >= this.filters.priceRange[0] && p.price <= this.filters.priceRange[1] && this.filters.brands.length === 0) || (this.filters.brands.includes(p.category) && (!this.filters.prime || p.prime)));
+    uniqueBrands() {
+      const brands = new Set();
+      this.products.forEach(product => {
+        brands.add(product.category);
+      });
+      return Array.from(brands);
     },
-    change() {
-      console.log(this.$.filters.brands)
-    }
+    filteredProducts() {
+      return this.products.filter(product => {
+        // Price range filter
+        const priceInRange = product.price >= this.filters.priceRange[0] && 
+                           product.price <= this.filters.priceRange[1];
+        
+        // Brand filter
+        const brandMatch = this.filters.brands.length === 0 || 
+                         this.filters.brands.includes(product.category);
+        
+        // Prime filter
+        const primeMatch = !this.filters.prime || product.prime;
+        
+        return priceInRange && brandMatch && primeMatch;
+      });
+    },
   },
   methods: {
     async getProducts() {
-      const category = this.$route.query.category;
-      const response = await axios.get("https://fakestoreapi.com/products", {
-        params: { category },
-      });
-      const res_update = response.data.map((item) => {
-        return {
-          ...item, // Keep original item properties
-        };
-      });
-
-      this.products = res_update.map((item) => ({
-        ...item, // Keep updated item properties
-        price: Number(item.price), // Ensure price is a number
-        freeShipping: item.shipping === "free", // Determine if shipping is free
-      }));
-      this.brands = response.data;
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        this.products = response.data.map(item => ({
+          ...item,
+          price: Math.round(item.price * 30), // Convert to EGP
+          oldPrice: Math.round(item.price * 30 * 1.2), // Add 20% as old price
+          discount: 20, // Static discount for example
+          prime: Math.random() > 0.5, // Random prime eligibility
+          isFavorite: false,
+        }));
+        
+        // Set price limits based on actual products
+        if (this.products.length > 0) {
+          const prices = this.products.map(p => p.price);
+          this.priceLimits.min = Math.min(...prices);
+          this.priceLimits.max = Math.max(...prices);
+          this.filters.priceRange = [this.priceLimits.min, this.priceLimits.max];
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     },
-
+    
+    generateStars(rating) {
+      const fullStars = '★'.repeat(Math.floor(rating));
+      const halfStar = rating % 1 >= 0.5 ? '½' : '';
+      const emptyStars = '☆'.repeat(5 - Math.ceil(rating));
+      return fullStars + halfStar + emptyStars;
+    },
+    
     toggleFavorite(product) {
       product.isFavorite = !product.isFavorite;
     },
+    
     addToCart(product) {
-      // إضافة إلى السلة
+      // In a real app, you would dispatch to Vuex or send to backend
+      console.log("Added to cart:", product.title);
+      alert(`${product.title} added to cart`);
     },
   },
   mounted() {
@@ -163,12 +235,15 @@ export default {
   background: #eaeded;
   padding: 20px;
   font-family: "Amazon Ember", Arial, sans-serif;
+  direction: rtl;
 }
 
 .amz-breadcrumb {
   color: #565959;
   font-size: 14px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .amz-breadcrumb-divider {
@@ -193,6 +268,7 @@ export default {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
   margin-bottom: 15px;
+  text-align: right;
 }
 
 .amz-filter-group {
@@ -203,12 +279,34 @@ export default {
   display: flex;
   align-items: center;
   margin: 8px 0;
+  text-align: right;
 }
 
 .amz-checkbox {
-  margin-right: 8px;
+  margin-left: 8px;
   width: 16px;
   height: 16px;
+}
+
+.amz-price-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.amz-price-input {
+  width: 100%;
+  padding: 5px;
+}
+
+.amz-range-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.amz-range {
+  width: 100%;
 }
 
 .amz-products-grid {
@@ -221,15 +319,16 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  justify-content: space-between;
 }
 
 .amz-results-title {
   font-size: 24px;
-  margin-right: 15px;
 }
 
 .amz-results-count {
   color: #565959;
+  font-size: 14px;
 }
 
 .amz-products-list {
@@ -243,10 +342,12 @@ export default {
   border-radius: 4px;
   padding: 15px;
   transition: 0.3s;
+  text-align: right;
 }
 
 .amz-product-card:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
 }
 
 .amz-product-image {
@@ -264,13 +365,17 @@ export default {
 .amz-wishlist-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
   background: white;
   border: 1px solid #ddd;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .amz-price {
@@ -287,11 +392,13 @@ export default {
   color: #565959;
   text-decoration: line-through;
   margin-left: 10px;
+  font-size: 14px;
 }
 
 .amz-discount {
   color: #007600;
   margin-left: 10px;
+  font-size: 14px;
 }
 
 .amz-add-to-cart {
@@ -302,25 +409,26 @@ export default {
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
+  margin-top: 10px;
 }
 
 .amz-add-to-cart:hover {
   background: #f7ca00;
 }
 
-.amz-pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  gap: 10px;
+.amz-prime-badge {
+  color: #007600;
+  font-size: 14px;
 }
 
-.amz-page-btn {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 5px 15px;
-  border-radius: 4px;
-  cursor: pointer;
+.amz-rating {
+  margin: 8px 0;
+  color: #ffa41c;
+}
+
+.amz-rating-count {
+  color: #565959;
+  font-size: 12px;
 }
 
 @media (max-width: 768px) {
@@ -328,12 +436,14 @@ export default {
     grid-template-columns: 1fr;
   }
 
-  .amz-filters {
-    display: none;
-  }
-
   .amz-products-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .amz-products-list {
+    grid-template-columns: 1fr;
   }
 }
 </style>

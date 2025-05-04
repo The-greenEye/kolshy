@@ -247,35 +247,65 @@ export default {
   },
   data() {
     return {
-      isOpen: false, // To track the card's open state
+      isOpen: false,
       items: [],
-      user_data: []
+      user_data: [], // Changed from array to object
+      Type_Account: '', // Added missing data property
+      liNav: [] // Added for navigation items
     };
   },
   methods: {
-      async fetchUserProfile() {
+    async fetchUserProfile() {
       try {
         const response = await axios.get("https://back.kolshy.ae/api/profile", {
-          headers: { Authorization: `Bearer ${localStorage.tokenkolshy || localStorage.tokenkolshyvendor}` },
+          headers: { 
+            Authorization: `Bearer ${localStorage.tokenkolshy || localStorage.tokenkolshyvendor}` 
+          },
         });
         if (response.data?.data) {
-          this.user_data = { ...response.data.data };
+          this.user_data = response.data.data;
+          // Set account type if available in response
+          this.Type_Account = response.data.data.account_type || '';
         }
       } catch (error) {
         this.toast.error(error.response?.data?.message || "Failed to load profile");
       }
     },
+    
     openCard() {
-      this.isOpen = !this.isOpen;
+      this.isOpen = true;
     },
+    
     closeCard() {
       this.isOpen = false;
     },
+    
+    getItemForCart() {
+      // Implement cart item fetching logic
+      // Example:
+      this.items = JSON.parse(localStorage.getItem('cartItems')) || [];
+    },
+    
+    DeleteItemLocal(itemId) {
+      // Implement item removal logic
+      this.items = this.items.filter(item => item.id !== itemId);
+      localStorage.setItem('cartItems', JSON.stringify(this.items));
+    }
   },
+  
   mounted() {
-  this.fetchUserProfile()
+    this.fetchUserProfile();
+    this.getItemForCart(); // Load cart items on mount
+    
+    // Example navigation items - replace with your actual data
+    this.liNav = [
+      { id: 1, name: 'Men' },
+      { id: 2, name: 'Women' },
+      { id: 3, name: 'Kids' }
+    ];
   }
 };
 </script>
+
 
 <style></style>
