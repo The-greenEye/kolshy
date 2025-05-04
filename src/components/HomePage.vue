@@ -2,7 +2,7 @@
   <div class="home">
     <!-- Main Slider -->
     <div class="position-relative Slid_Header">
-    <div class="main-slider d-lg-blockd-none">
+    <div class="main-slider d-lg-block d-none">
       <Splide :options="mainSliderOptions">
         <SplideSlide>
           <img src="https://wallpapercave.com/wp/wp9032309.jpg" class="slider-image" alt="Promo Banner" />

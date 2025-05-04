@@ -2,7 +2,7 @@
   <div>
     <!-- Top Black Friday Banner -->
     <div class="top-promo-banner">
-      Black Friday Sale - 50% OFF! 
+      Black Friday Sale - 50% OFF!
       <router-link to="/black-friday" class="shop-now-link">Shop Now</router-link>
     </div>
 
@@ -12,13 +12,13 @@
       <div class="header-top">
         <div class="logo-container">
           <router-link to="/">
-            <img src="https://kolshy.ae/wp-content/uploads/2025/02/Untitled-3000-x-750-px.gif" alt="Logo" class="logo">
+            <img src="https://kolshy.ae/wp-content/uploads/2025/02/Untitled-3000-x-750-px.gif" alt="Logo" class="logo" />
           </router-link>
         </div>
 
         <div class="delivery-info">
           <svg viewBox="0 0 24 24" class="location-icon">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
           </svg>
           <div class="delivery-text">
             <span class="delivery-to">Deliver to</span>
@@ -34,18 +34,18 @@
             <option>Women</option>
             <option>Kids</option>
           </select>
-          <input type="text" placeholder="What are you looking for?" class="search-input">
+          <input type="text" placeholder="What are you looking for?" class="search-input" />
           <button class="search-button">
             <svg viewBox="0 0 24 24" class="search-icon">
-              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </svg>
-            </button>
+          </button>
         </div>
 
         <!-- Account & Lists -->
         <div class="account-dropdown">
           <div class="dropdown-trigger">
-            <span class="account-greeting">Hello, {{ user_data.name || 'Sign In' }}</span>
+            <span class="account-greeting">Hello, {{ user_data.name || "Sign In" }}</span>
             <span class="account-text">Account & Lists</span>
           </div>
           <div class="dropdown-content">
@@ -56,13 +56,13 @@
             <div v-else>
               <router-link to="/my-account" class="dropdown-item">
                 <svg viewBox="0 0 24 24" width="20" height="20">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
                 </svg>
                 Your Account
               </router-link>
               <router-link to="/orders" class="dropdown-item">
                 <svg viewBox="0 0 24 24" width="20" height="20">
-                  <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                  <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
                 </svg>
                 Your Orders
               </router-link>
@@ -81,11 +81,11 @@
           <div class="cart-icon-wrapper">
             <span class="cart-count">{{ items.length }}</span>
             <svg viewBox="0 0 24 24" class="cart-icon">
-              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
             </svg>
             <span class="cart-text">Cart</span>
           </div>
-          
+
           <!-- Cart Dropdown -->
           <div class="cart-dropdown" v-show="isCartOpen">
             <div v-if="items.length === 0" class="empty-cart">
@@ -97,10 +97,10 @@
                 <h4>Recently added items</h4>
                 <span class="cart-price">${{ cartTotal.toFixed(2) }}</span>
               </div>
-              
+
               <div class="cart-items">
                 <div v-for="(item, index) in items.slice(0, 3)" :key="index" class="cart-item">
-                  <img :src="item.image || 'https://via.placeholder.com/80'" :alt="item.title" class="item-image">
+                  <img :src="item.image || 'https://via.placeholder.com/80'" :alt="item.title" class="item-image" />
                   <div class="item-details">
                     <router-link :to="`/product/${item.id}`" class="item-title">{{ item.title }}</router-link>
                     <div class="item-price">${{ item.price.toFixed(2) }}</div>
@@ -108,12 +108,12 @@
                   </div>
                   <button @click="removeFromCart(item.id)" class="remove-btn">
                     <svg viewBox="0 0 24 24" width="16" height="16">
-                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                     </svg>
                   </button>
                 </div>
               </div>
-              
+
               <router-link to="/cart" class="view-cart-btn">View your cart</router-link>
             </div>
           </div>
@@ -125,15 +125,15 @@
         <ul class="nav-menu">
           <li class="nav-item all-menu">
             <svg viewBox="0 0 24 24" class="menu-icon">
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
             </svg>
             <span>All</span>
           </li>
-          
+
           <li v-for="(category, index) in categories" :key="index" class="nav-item">
             <router-link :to="`/shop?category=${category.slug}`">{{ category.name }}</router-link>
           </li>
-          
+
           <li class="nav-item">
             <router-link to="/deals">Today's Deals</router-link>
           </li>
@@ -141,7 +141,7 @@
             <router-link to="/customer-service">Customer Service</router-link>
           </li>
         </ul>
-        
+
         <div class="black-friday-banner">
           <span class="sale-text">Black Friday Sale</span>
           <span class="date-range">Nov 20-30</span>
@@ -152,20 +152,39 @@
 
     <!-- Mobile Navigation -->
     <div class="mobile-header">
-      <button class="mobile-menu-btn">
+      <button class="mobile-menu-btn" type="button" data-bs-toggle="dropdown">
         <svg viewBox="0 0 24 24" width="24" height="24">
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
         </svg>
       </button>
-      
+      <div class="dropdown-menu">
+        <router-link to="/" class="dropdown-item">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+          </svg>
+          Home
+        </router-link>
+        <router-link to="/shop" class="dropdown-item">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+          </svg>
+          Your Orders
+        </router-link>
+        <router-link to="/my-account" class="dropdown-item">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+          </svg>
+          My Account
+        </router-link>
+      </div>
       <router-link to="/" class="mobile-logo">
-        <img src="https://kolshy.ae/wp-content/uploads/2025/02/Untitled-3000-x-750-px.gif" alt="Logo">
+        <img src="https://kolshy.ae/wp-content/uploads/2025/02/Untitled-3000-x-750-px.gif" alt="Logo" />
       </router-link>
-      
+
       <div class="mobile-cart">
         <span class="cart-badge">{{ items.length }}</span>
         <svg viewBox="0 0 24 24" width="24" height="24">
-          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
         </svg>
       </div>
     </div>
@@ -173,7 +192,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 import { useToast } from "vue-toastification";
 
 export default {
@@ -192,27 +211,27 @@ export default {
         { name: "Women", slug: "women" },
         { name: "Kids", slug: "kids" },
         { name: "Electronics", slug: "electronics" },
-        { name: "Home", slug: "home" }
-      ]
+        { name: "Home", slug: "home" },
+      ],
     };
   },
   computed: {
     cartTotal() {
       return this.items.reduce((total, item) => {
-        return total + (item.price * (item.quantity || 1));
+        return total + item.price * (item.quantity || 1);
       }, 0);
-    }
+    },
   },
   methods: {
     async fetchUserProfile() {
       try {
         const token = localStorage.tokenkolshy || localStorage.tokenkolshyvendor;
         if (!token) return;
-        
+
         const response = await axios.get("https://back.kolshy.ae/api/profile", {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         });
-        
+
         if (response.data?.data) {
           this.user_data = response.data.data;
         }
@@ -220,32 +239,32 @@ export default {
         console.error("Profile fetch error:", error);
       }
     },
-    
+
     openCart() {
       this.isCartOpen = true;
       this.getCartItems();
     },
-    
+
     closeCart() {
       this.isCartOpen = false;
     },
-    
+
     getCartItems() {
       // In a real app, you might fetch from API or Vuex store
-      this.items = JSON.parse(localStorage.getItem('cartItems')) || [];
+      this.items = JSON.parse(localStorage.getItem("cartItems")) || [];
     },
-    
+
     removeFromCart(itemId) {
-      this.items = this.items.filter(item => item.id !== itemId);
-      localStorage.setItem('cartItems', JSON.stringify(this.items));
+      this.items = this.items.filter((item) => item.id !== itemId);
+      localStorage.setItem("cartItems", JSON.stringify(this.items));
       this.toast.success("Item removed from cart");
-    }
+    },
   },
-  
+
   mounted() {
     this.fetchUserProfile();
     this.getCartItems();
-  }
+  },
 };
 </script>
 
@@ -269,7 +288,7 @@ export default {
 
 /* Main Header */
 .amazon-style-header {
- background-color: white;
+  background-color: white;
   color: #141414;
   padding: 0 15px;
 }
@@ -403,7 +422,7 @@ export default {
   background: white;
   color: black;
   border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 20px;
   z-index: 100;
   display: none;
@@ -513,7 +532,7 @@ export default {
   background: white;
   color: black;
   border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 15px;
   z-index: 100;
 }
@@ -745,7 +764,7 @@ export default {
   .returns-orders {
     display: none;
   }
-  
+
   .search-container {
     margin: 0 10px;
   }
@@ -755,11 +774,11 @@ export default {
   .amazon-style-header {
     display: none;
   }
-  
+
   .mobile-header {
     display: flex;
   }
-  
+
   .top-promo-banner {
     font-size: 12px;
     padding: 5px 0;
