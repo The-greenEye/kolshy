@@ -155,7 +155,7 @@ export default {
           this.user = { ...response.data.data };
         }
       } catch (error) {
-        this.toast.error(error.response?.data?.message || "Failed to load profile");
+      console.error(error.response?.data?.message || "Failed to load profile")
       }
     },
     handlePhotoChange(event) {
