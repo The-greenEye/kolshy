@@ -1,13 +1,13 @@
 <template>
-  <MyAccount />
+  <UserProfile />
 </template>
 
 <script>
-import MyAccount from '@/components/user/my-account.vue'
+import UserProfile from '@/components/user/my-account.vue'
 export default {
 name: "MyAccountView",
     components: {
-    MyAccount
+    UserProfile
 }
 }
 </script>

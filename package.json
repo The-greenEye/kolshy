@@ -15,7 +15,6 @@
     "core-js": "^3.8.3",
     "jquery": "^3.7.1",
     "json-server": "^1.0.0-beta.3",
-    "ldrs": "^1.1.6",
     "popper.js": "^1.16.1",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
@@ -27,7 +26,9 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-pwa": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
+    "@vue/cli-service": "~5.0.0",
+    "typescript": "^5.8.3",
+    "vue-tsc": "^2.2.10"
   },
   "browserslist": [
     "> 1%",

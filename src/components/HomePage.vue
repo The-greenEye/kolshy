@@ -192,6 +192,12 @@ export default {
 
     return { options };
   },
+  mounted() {
+    if (!localStorage.tokenkolshy || !localStorage.tokenkolshyvendor) {
+      location.pathname = "/login";
+    } else {
+    }
+  },
 };
 </script>
 

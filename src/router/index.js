@@ -4,6 +4,7 @@ import ShopView from "../views/ShopView.vue";
 import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import registerSellerView from "../views/SellerRegisterView.vue";
+import ForPassGet from "../views/ForgetPassView.vue";
 import CartView from "../views/CartView.vue";
 import DetalisPage from "../views/DetalisPage.vue"
 import MyAccountView from "../views/MyAccountView.vue"
@@ -28,6 +29,11 @@ const routes = [
     path: "/register-seller",
     name: "Seller",
     component: registerSellerView,
+  },
+  {
+    path: "/forget-pass",
+    name: "Reste Password",
+    component: ForPassGet,
   },
   {
     path: "/shop",

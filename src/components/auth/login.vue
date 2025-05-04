@@ -12,7 +12,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24"><path fill="#E51742" d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18C6.47 2 2 6.47 2 12s4.47 10 10 10s10-4.47 10-10S17.53 2 12 2m2.59 6L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41z" /></svg>
               </span>
             </div>
-            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-4">
+            <div style="border: none; border-bottom: 1px solid #e51742" class="input-group w-100 justify-content-between align-items-end mb-0">
               <input :type="type_inputs === true ? 'password' : 'text' " v-model="password"  class="bg-transparent w-75 p-2" style="border: none; outline: none; font-weight: 500" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" />
               <span @mousemove="type_inputs === false" class="input-text" style="cursor: pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
@@ -23,7 +23,8 @@
                 </svg>
               </span>
             </div>
-            <div class="d-flex flex-column justify-content-center align-items-center mb-4">
+            <small class="text-secondary fw-bold">Forget My <router-link to="/forget-pass">Password?</router-link></small>
+            <div class="d-flex flex-column justify-content-center align-items-center mb-4 mt-4">
               <button @click="submitForm()" class="btn rounded-3 d-flex justify-content-center align-items-center w-100 mb-2" style="background-color: #e51742; color: var(--text-color-secondary); font-weight: 700; font-size: 20px">
                 Sign In
                 <span class="ml-2 mt-2"
@@ -56,7 +57,6 @@
 <script>
 import axios from "axios";
 import { useToast } from "vue-toastification";
-import { dotSpinner } from "ldrs";
 export default {
   name: "login",
   data() {
@@ -86,9 +86,6 @@ export default {
       this.toast.error('Your email / phone or password is wrong try agin')
     }
     },
-  },
-  mounted() {
-    dotSpinner.register();
   },
 };
 </script>

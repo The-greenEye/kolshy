@@ -123,10 +123,12 @@ export default {
   },
   data() {
     return {
-      
+      name: "",
+      type: "",
+      store_name: "",
+      profile_image: "",
     }
   },
-
 }
 </script>
 
